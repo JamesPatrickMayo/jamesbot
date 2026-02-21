@@ -1,0 +1,75 @@
+# Role Structure: Data Platform Architect
+# Used when targeting Platform Architect, Data Architect, Principal Engineer roles
+
+role_name: "Data Platform Architect"
+role_variants:
+  - "Data Platform Architect"
+  - "Data Architect"
+  - "Principal Data Engineer"
+  - "Staff Data Platform Engineer"
+  - "Data Infrastructure Architect"
+
+summary_focus:
+  identity: "Data Platform Architect"
+  emphasis:
+    - End-to-end data platform design
+    - Medallion architecture and warehouse strategy
+    - Scalability, governance, and reliability
+    - Technical leadership and architecture reviews
+  tone: "Strategic technical leader who designs systems at scale"
+
+section_order:
+  - header
+  - summary
+  - technical_skills
+  - experience
+  - leadership
+  - projects
+  - education
+
+skill_category_priority:
+  - "Data Engineering & Warehousing"
+  - "Cloud & Infrastructure"
+  - "Databases"
+  - "Engineering Practices"
+  - "Languages"
+  - "Analytics & ML Support"
+
+experience_bullet_emphasis:
+  high_priority_themes:
+    - Architecture design and decision-making
+    - Medallion layer design
+    - Scalability and performance optimization
+    - Data governance and access control
+    - Technical leadership and mentorship
+    - Platform strategy and long-term planning
+  medium_priority_themes:
+    - dbt at scale (1,900+ models)
+    - CI/CD and deployment automation
+    - AWS infrastructure
+  low_priority_themes:
+    - Day-to-day query writing
+    - GDPR documentation
+    - Personal projects
+
+keyword_targets:
+  must_include:
+    - architecture
+    - data platform
+    - Snowflake
+    - data modeling
+    - governance
+    - scalability
+  should_include:
+    - dbt
+    - AWS
+    - Medallion
+    - CI/CD
+    - data warehouse
+    - leadership
+  nice_to_have:
+    - Kafka
+    - Kubernetes
+    - Terraform
+    - cost optimization
+    - RBAC

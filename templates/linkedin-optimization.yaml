@@ -1,0 +1,343 @@
+# ============================================================================
+# LINKEDIN PROFILE OPTIMIZATION — James Mayo
+# Specific recommendations for each section, with current vs. suggested content.
+# Cross-referenced against: master-portfolio.yaml, skill-taxonomy.yaml,
+# career-strategy.yaml, and the transferable skills cluster analysis.
+#
+# Updated: 2026-02-20
+# ============================================================================
+
+
+# ============================================================================
+# HEADLINE (220 characters max)
+# ============================================================================
+headline:
+  current: "Solutions Engineer | Data Integrations, ETL Pipelines, and Cross-Functional Systems Delivery"
+  issues:
+    - "Only signals one role type (Solutions Engineer)"
+    - "Doesn't mention dbt, data quality, or analytics engineering — strongest differentiators"
+    - "Doesn't signal breadth across the skill clusters mapped in career-strategy.yaml"
+    - "'Cross-Functional Systems Delivery' is vague and not a searchable keyword"
+
+  suggested_options:
+    - option: "Data Engineer & Solutions Engineer | dbt, ELT Pipelines, Data Quality | Building Data Systems from Scratch"
+      rationale: "Covers two primary role clusters. 'from scratch' is the core narrative differentiator."
+      character_count: 97
+
+    - option: "Data & Solutions Engineer | dbt Expert, ELT Pipelines, CRM Integration, Data Quality Automation"
+      rationale: "Keyword-dense for recruiter search. Covers 3 skill clusters in one line."
+      character_count: 94
+
+    - option: "Solutions Engineer & Analytics Engineer | dbt, Data Quality, CRM Integration | Open to New Opportunities"
+      rationale: "Explicitly signals job search. Covers client-facing + data engineering clusters."
+      character_count: 109
+
+  guidance: >
+    The headline is the single most important SEO element on LinkedIn. Recruiters
+    search by keywords in this field. Include the 2-3 most common role titles you
+    want to be found for, plus 2-3 technical keywords that differentiate you.
+    Avoid generic phrases like 'cross-functional delivery' that no recruiter
+    searches for.
+
+
+# ============================================================================
+# ABOUT / SUMMARY (2,600 characters max)
+# ============================================================================
+about:
+  current: "Solutions Engineer with 7+ years of experience designing, implementing, and operating…"
+  issues:
+    - "Appears to be truncated or very short — only one sentence visible"
+    - "Doesn't mention dbt, data quality, Medallion architecture, or any differentiators"
+    - "Doesn't include the 'build from scratch' narrative"
+    - "No mention of tools, scale, or measurable impact"
+    - "Doesn't signal what kinds of roles you're looking for"
+    - "Missing call to action (contact info, what you're open to)"
+
+  suggested: |
+    I build data systems from the ground up. At Success Academy Charter Schools, I joined a team with no formal quality process, was promoted within months to lead the function, and built the entire data quality practice from scratch: testing standards, automated monitoring, observability workflows, and a dbt environment that grew to 1,900+ production models serving 51 schools and 18,000 users.
+
+    At QuotaPath, I designed ELT pipelines integrating data from 10+ CRM and financial platforms into Snowflake, built data validation frameworks that cut incidents by over 50%, and migrated batch processing from row-by-row SQL to parallelized Python transformations using Dask, reducing runtimes from hours to minutes.
+
+    What I do best:
+    - Data engineering: SQL, Python, dbt (expert-level, 1,900+ models), Snowflake, BigQuery, Redshift
+    - Pipeline design: ELT/ETL architecture, Medallion layers, CI/CD automation (GitHub Actions, CircleCI)
+    - Data quality: Validation frameworks, automated testing, freshness/schema monitoring, governance documentation
+    - Solutions engineering: 300+ client onboardings/year, CRM integration (Salesforce, HubSpot), prospect scoping
+    - Tools: Airbyte, Looker, Sisense, Power BI, Jira, Confluence, Jupyter, DBeaver, Cursor, ChatGPT, Claude
+
+    I'm currently exploring new opportunities in data engineering, solutions engineering, analytics engineering, and related roles. Open to both full-time and contract engagements.
+
+    Best way to reach me: mayojames409@gmail.com
+
+  guidance: >
+    The About section should tell the 'build from scratch' story in 2-3 short
+    paragraphs, followed by a keyword-rich skills summary. End with what you're
+    looking for and how to contact you. Write in first person. Avoid buzzwords.
+    Use the same direct, matter-of-fact tone from your cover letters.
+
+
+# ============================================================================
+# EXPERIENCE SECTION
+# ============================================================================
+experience:
+
+  # --------------------------------------------------------------------------
+  # QUOTAPATH
+  # --------------------------------------------------------------------------
+  - company: "QuotaPath"
+    current_title: "Solutions Engineer"
+    current_dates: "Aug 2024 - Present"
+    issues:
+      - "Shows as 'Present' but role ended Sep 2025 — update end date"
+      - "Only 3 generic bullet points. Misses: dbt, CI/CD, data quality, AI workflows, scale metrics, notable customers"
+      - "No mention of 300+ client onboardings, 10+ platforms, NRR/GRR metrics"
+      - "Title doesn't reflect the data platform work — consider dual title"
+
+    suggested_title: "Solutions Engineer / Data Platform Architect"
+    suggested_dates: "Aug 2024 - Sep 2025"
+    suggested_description: |
+      Engineered and delivered tailored data integration solutions for 300+ client onboarding projects annually, supporting 10+ CRM and financial platforms (Salesforce, HubSpot, QuickBooks, Stripe).
+
+      Designed scalable ELT pipelines integrating CRM and financial system data into Snowflake. Built modular dbt models aligned to Medallion architecture. Migrated customer workspaces from row-by-row SQL to Python/Dask transformations, reducing pipeline runtimes from hours to minutes.
+
+      Implemented CI/CD pipelines using GitHub Actions (70-90% deployment automation). Created SQL-based data validation frameworks that reduced incidents by 50%+. Standardized Jupyter Notebooks for safely testing transforms against production data.
+
+      Built AI-assisted scoping workflows using prompt templates and historical customer context. Authored engineering documentation, runbooks, and transformation specifications.
+
+      Notable customers: Recorded Future, LaunchDarkly, Chromosphere.
+      Key metrics: ~110% QoQ NRR/upsell, ~75% QoQ GRR, TB-scale data processing.
+
+      Tools: Snowflake, dbt, BigQuery, Google Cloud CLI, Airbyte, CircleCI/Prefect, GitHub Actions, Python/Dask/Pandas, Jupyter, DBeaver, Zapier, Salesforce, HubSpot, Cursor, ChatGPT, Claude.
+
+  # --------------------------------------------------------------------------
+  # SUCCESS ACADEMY
+  # --------------------------------------------------------------------------
+  - company: "Success Academy Charter Schools"
+    current_title: "Data Quality Analyst"
+    issues:
+      - "Title doesn't reflect promotion trajectory (QA Tech → QA Lead → Team Lead)"
+      - "Bullets are dense but miss the 'created from scratch' narrative"
+      - "No mention of team size managed, schools served, users impacted in the opening"
+      - "Formatting uses hyphens instead of proper bullet points"
+
+    suggested_title: "Team Lead, Data Quality | Analytics Engineer"
+    suggested_description: |
+      Joined as a QA Tech, promoted within months to QA Lead, then to Team Lead managing 2 direct reports. Built the entire data quality practice from scratch: testing standards, automated monitoring, observability workflows, and a dbt environment spanning 1,900+ production models serving 51 schools and 18,000 users.
+
+      Architected Medallion-style data warehousing layers (Bronze/Silver/Gold) across enterprise domains. Led multi-phase system migrations: Matillion → Talend → dbt, and Sisense → Looker across 150+ dashboards.
+
+      Created SQL-based daily sanity checks for Salesforce Family Application Process with automated reporting. Documented lineage for 90+ ETL pipelines. Produced data governance documentation for DOE audits.
+
+      Led cross-functional delivery with Engineering, Analytics, and Operations. Coordinated sprint planning, requirement definition, and stakeholder reviews. Acted as liaison between technical teams and executive leadership.
+
+      Environment: dbt Cloud, AWS (Lambda, Step Functions, RDS, EKS, Redshift), Salesforce, Looker, Sisense, Jira, Confluence.
+
+  # --------------------------------------------------------------------------
+  # CISION — Production Engineer
+  # --------------------------------------------------------------------------
+  - company: "Cision (Production Engineer)"
+    issues:
+      - "Content is reasonable but could highlight the scale (300+ bugs triaged) more prominently"
+      - "Missing mention of specific tech: Cassandra, ElasticSearch"
+    suggested_additions:
+      - "Add 'Analyzed data across PostgreSQL, Cassandra, and ElasticSearch' to highlight NoSQL breadth"
+      - "Lead with the 300+ bug investigation metric"
+
+  # --------------------------------------------------------------------------
+  # CISION — Data Quality Analyst
+  # --------------------------------------------------------------------------
+  - company: "Cision (Data Quality Analyst)"
+    issues:
+      - "GDPR compliance work is undersold — this is a governance differentiator"
+      - "Jenkins data integrity scripts not mentioned"
+    suggested_additions:
+      - "Add: 'Ran and maintained Jenkins CI jobs and Jupyter Notebook scripts for automated data integrity checks'"
+      - "Emphasize GDPR compliance across all major platform data pipelines"
+
+  # --------------------------------------------------------------------------
+  # CISION — Enterprise Account Architect
+  # --------------------------------------------------------------------------
+  - company: "Cision / Trendkite (Enterprise Account Architect)"
+    issues:
+      - "Missing the promotion from Account Architect → Enterprise Account Architect"
+      - "The two Cision entries (Account Architect + Enterprise Account Architect) should ideally show as one role with a promotion"
+    suggested_change: >
+      Merge the Account Architect (Oct 2018 - Apr 2019) and Enterprise Account
+      Architect (Apr 2019 - Dec 2019) into a single entry showing the promotion.
+      LinkedIn supports showing title changes within one company entry.
+
+  # --------------------------------------------------------------------------
+  # EARLIER ROLES (ECP, Sage, Kinsmen)
+  # --------------------------------------------------------------------------
+  - company: "Earlier roles"
+    guidance: >
+      These are fine as-is for historical context. ECP is worth keeping because
+      5 years of client-facing technical problem-solving supports the Solutions
+      Engineer narrative. Sage and Kinsmen can remain minimal.
+
+
+# ============================================================================
+# SKILLS SECTION
+# ============================================================================
+skills:
+  issues:
+    - "60+ skills in a flat, unorganized list"
+    - "Many generic/irrelevant skills: 'driving', 'property', 'estimates', 'residential', 'security', 'organized', 'structures', 'designing'"
+    - "Missing critical technical skills: Snowflake, BigQuery, Redshift, Dask, Pandas, Medallion Architecture, GitHub Actions, CI/CD, Power BI, Looker, Airbyte, REST APIs, Data Modeling"
+    - "Skills like 'cision' and 'curating' add no value"
+
+  remove:
+    - "driving"
+    - "driving results"
+    - "property"
+    - "estimates"
+    - "residential"
+    - "security"
+    - "organized"
+    - "structures"
+    - "designing"
+    - "design"
+    - "cad"
+    - "components"
+    - "prototyping"
+    - "cision"
+    - "curating"
+    - "schedules"
+    - "liaison"
+    - "presentations"
+    - "production"
+    - "vendor"
+
+  add:
+    technical:
+      - "Snowflake"
+      - "BigQuery"
+      - "Amazon Redshift"
+      - "AWS Lambda"
+      - "Pandas"
+      - "Dask"
+      - "Medallion Architecture"
+      - "Data Modeling"
+      - "GitHub Actions"
+      - "CI/CD"
+      - "CircleCI"
+      - "Looker"
+      - "Power BI"
+      - "Sisense"
+      - "Airbyte"
+      - "REST APIs"
+      - "Data Governance"
+      - "GDPR Compliance"
+      - "Jupyter Notebooks"
+      - "DBeaver"
+      - "Zapier"
+      - "PostgreSQL"
+      - "Cassandra"
+      - "ElasticSearch"
+      - "Data Warehousing"
+      - "ELT/ETL"
+      - "Data Quality Automation"
+    soft:
+      - "Cross-Functional Collaboration"
+      - "Technical Documentation"
+      - "Client Onboarding"
+      - "Stakeholder Management"
+      - "Mentorship"
+      - "Team Leadership"
+
+  pin_to_top_3:
+    description: "LinkedIn lets you pin 3 skills. These should be the most searchable."
+    skills:
+      - "dbt"
+      - "SQL"
+      - "Data Engineering"
+
+  guidance: >
+    LinkedIn skills affect search ranking. Recruiters filter by specific skills.
+    Remove anything not directly relevant to target roles. Add every technical
+    tool and concept from the skill taxonomy. Ask former colleagues to endorse
+    the top 3.
+
+
+# ============================================================================
+# MISSING SECTIONS TO ADD
+# ============================================================================
+missing_sections:
+
+  volunteer_experience:
+    description: "LinkedIn has a dedicated Volunteer Experience section. Add both."
+    entries:
+      - organization: "New York Cares"
+        role: "Volunteer"
+        start_date: "Nov 2025"
+        description: "Weekly community volunteering in New York City."
+      - organization: "NYC Mesh"
+        role: "Community Infrastructure Support"
+        start_date: "Nov 2025"
+        description: "Supporting community-owned internet infrastructure in NYC."
+
+  certifications:
+    description: "Add any completed certifications. Even in-progress ones signal intent."
+    guidance: >
+      If you complete dbt Fundamentals (free), AWS Cloud Practitioner, or any
+      Coursera certificates, add them immediately. Certifications improve
+      search visibility even if they are entry-level.
+
+  featured_section:
+    description: >
+      LinkedIn's Featured section appears at the top of your profile. Use it
+      to showcase 2-3 items that demonstrate your work.
+    suggestions:
+      - type: "Link or document"
+        content: "A blog post or writeup about building data quality from scratch at Success Academy"
+        why: "Unique narrative. Very few candidates have this story."
+      - type: "Link"
+        content: "GitHub profile or a public project repo"
+        why: "Shows active technical work."
+      - type: "Post"
+        content: "A LinkedIn post about a technical topic you have strong opinions on (e.g., dbt testing patterns, data quality automation)"
+        why: "Signals thought leadership and increases profile visibility in feeds."
+
+  projects_section:
+    description: "LinkedIn has a Projects section under Accomplishments."
+    suggestions:
+      - "Personal Data Engineering Projects (ETL pipelines, SQL-first data models)"
+      - "Frankenbox Server (NAS/media management infrastructure)"
+    guidance: >
+      Only add projects if you can describe them in 2-3 sentences with
+      concrete tools. Vague project entries hurt more than they help.
+
+
+# ============================================================================
+# GENERAL PROFILE SETTINGS
+# ============================================================================
+profile_settings:
+
+  open_to_work:
+    titles:
+      - "Solutions Engineer"
+      - "Data Engineer"
+      - "Analytics Engineer"
+      - "Revenue Operations Engineer"
+      - "Technical Program Manager"
+    location: "New York City Metropolitan Area"
+    remote: true
+    start_date: "Immediately"
+    job_types: ["Full-time", "Contract"]
+
+  profile_url:
+    current: "linkedin.com/in/james-mayo-3ab3a1bb"
+    suggested: "linkedin.com/in/jamesmayo"
+    guidance: >
+      If available, customize the URL to remove the random suffix. Cleaner
+      URLs look more professional on resumes and email signatures.
+
+  profile_photo:
+    guidance: >
+      Ensure you have a professional headshot. Profiles with photos get
+      significantly more views and connection requests.
+
+  background_image:
+    guidance: >
+      Consider a subtle background image related to data or NYC. This is
+      low priority but adds visual polish.

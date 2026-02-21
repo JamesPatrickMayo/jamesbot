@@ -1,0 +1,33 @@
+Specialist Solutions Architect - AI Tooling & Platform Management
+Company: Databricks
+Location: Remote (NYC preferred), up to 20% travel
+Salary: $180,000 - $247,500/yr + bonus + equity
+Industry: Data & AI Platform
+Seniority: Mid-Senior level
+
+---
+
+As a Specialist Solutions Architect (SSA) — AI Tooling & System Management, you will build and manage the AI tooling stack and system infrastructure that empowers Field Engineering to deliver customer outcomes with higher velocity.
+
+RESPONSIBILITIES:
+- Support SAs with custom POC environments, AI tooling configurations, and technical guidance
+- Manage AI tooling infrastructure and spend (cloud costs, consumption monitoring, automation)
+- Track adoption metrics and tooling effectiveness with dashboards
+- Develop internal applications to streamline Field Engineering workflows
+- Design system integrations for AI applications with secure, scalable data flows
+- Build context management infrastructure for agent networks (vector databases, knowledge bases, RAG)
+- Establish AI tooling stack consistency with standards and reusable patterns
+- Architect production-level AI tooling deployments (security, networking, data integration)
+
+REQUIREMENTS:
+- 5+ years in a technical role
+- Infrastructure Automation & DevOps: IaC (Terraform), CI/CD, GitOps
+- Security & Platform Administration: platform/network/data/GenAI security, encryption, compliance
+- System Integration & Data Pipelines: ETL, API design, event-driven architectures
+- Metrics & Analytics: instrumentation, dashboards, adoption tracking
+- Application Development: TypeScript/Node.js, Python, or similar
+- Context Management & Agent Networks: vector databases, RAG, embedding models, multi-agent orchestration
+- AI Tooling: AI-assisted development (Databricks AI Assistant, Claude Code, Cursor), prompt engineering
+- Cloud Platforms: AWS, Azure, or GCP cloud-native architecture
+- Deep specialty in at least one of: Developer Experience, System Integrations, or Security
+- Bachelor's degree in CS, IS, Engineering, or equivalent

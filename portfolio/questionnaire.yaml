@@ -1,0 +1,441 @@
+# ============================================================================
+# EXPANSION QUESTIONNAIRE — James Mayo
+# Answer these to strengthen the skill taxonomy and master portfolio.
+#
+# Status values: unanswered | answered | skipped
+# When answered, fill in the 'response' field and set status to 'answered'.
+# ============================================================================
+
+sections:
+
+  # --------------------------------------------------------------------------
+  # SCALABILITY & PERFORMANCE
+  # --------------------------------------------------------------------------
+  - section: "Scalability & Performance"
+    questions:
+      - id: Q1
+        question: "What is the largest dataset you've worked with (rows or GB/TB)?"
+        status: unanswered
+        response: ""
+        feeds_into:
+          - skill-taxonomy.yaml (Data Modeling, ELT/ETL Design)
+          - master-portfolio.yaml (impact_metrics)
+
+      - id: Q2
+        question: "Did you ever optimize a slow query? By how much (e.g., 10x faster, from 30min to 3min)?"
+        status: unanswered
+        response: ""
+        feeds_into:
+          - skill-taxonomy.yaml (SQL proficiency evidence)
+          - master-portfolio.yaml (impact_metrics)
+
+      - id: Q3
+        question: "Have you reduced pipeline runtime? By how much?"
+        status: unanswered
+        response: ""
+        feeds_into:
+          - skill-taxonomy.yaml (ELT/ETL Design, Pipeline Orchestration)
+          - master-portfolio.yaml (impact_metrics)
+
+  # --------------------------------------------------------------------------
+  # DBT
+  # --------------------------------------------------------------------------
+  - section: "dbt"
+    questions:
+      - id: Q4
+        question: "How many production dbt jobs ran daily at Success Academy?"
+        status: unanswered
+        response: ""
+        feeds_into:
+          - skill-taxonomy.yaml (dbt Cloud evidence)
+
+      - id: Q5
+        question: "Did you implement incremental models in dbt? How many?"
+        status: unanswered
+        response: ""
+        feeds_into:
+          - skill-taxonomy.yaml (dbt Cloud proficiency)
+
+      - id: Q6
+        question: "Did you use dbt macros extensively? Custom macros or mostly built-in?"
+        status: unanswered
+        response: ""
+        feeds_into:
+          - skill-taxonomy.yaml (dbt Cloud proficiency)
+
+      - id: Q7
+        question: "Did you implement source freshness monitoring in dbt?"
+        status: unanswered
+        response: ""
+        feeds_into:
+          - skill-taxonomy.yaml (Data Quality Automation)
+
+  # --------------------------------------------------------------------------
+  # AWS
+  # --------------------------------------------------------------------------
+  - section: "AWS"
+    questions:
+      - id: Q8
+        question: "Did you deploy AWS Lambda functions directly (write code + deploy)?"
+        status: unanswered
+        response: ""
+        feeds_into:
+          - skill-taxonomy.yaml (AWS Lambda proficiency)
+
+      - id: Q9
+        question: "Did you write Step Functions state machine definitions?"
+        status: unanswered
+        response: ""
+        feeds_into:
+          - skill-taxonomy.yaml (AWS Step Functions proficiency)
+
+      - id: Q10
+        question: "Did you configure RDS instances (provisioning, scaling, backups)?"
+        status: unanswered
+        response: ""
+        feeds_into:
+          - skill-taxonomy.yaml (AWS RDS proficiency)
+
+      - id: Q11
+        question: "Did you interact with EKS clusters operationally (deploy, monitor, troubleshoot)?"
+        status: unanswered
+        response: ""
+        feeds_into:
+          - skill-taxonomy.yaml (AWS EKS proficiency)
+
+  # --------------------------------------------------------------------------
+  # SNOWFLAKE
+  # --------------------------------------------------------------------------
+  - section: "Snowflake"
+    questions:
+      - id: Q12
+        question: "Did you manage Snowflake warehouses (sizing, auto-suspend, scheduling)?"
+        status: unanswered
+        response: ""
+        feeds_into:
+          - skill-taxonomy.yaml (Snowflake proficiency)
+
+      - id: Q13
+        question: "Did you optimize Snowflake cost (warehouse sizing, query optimization, clustering)?"
+        status: unanswered
+        response: ""
+        feeds_into:
+          - skill-taxonomy.yaml (Snowflake proficiency)
+
+      - id: Q14
+        question: "Did you design schemas directly in Snowflake (vs. just through dbt)?"
+        status: unanswered
+        response: ""
+        feeds_into:
+          - skill-taxonomy.yaml (Snowflake proficiency)
+
+      - id: Q15
+        question: "Did you implement role-based access control (RBAC) in Snowflake?"
+        status: unanswered
+        response: ""
+        feeds_into:
+          - skill-taxonomy.yaml (Snowflake, Data Governance)
+
+  # --------------------------------------------------------------------------
+  # ML & EXPERIMENTATION
+  # --------------------------------------------------------------------------
+  - section: "ML & Experimentation"
+    questions:
+      - id: Q16
+        question: "Did you build feature tables for ML models? What kind?"
+        status: unanswered
+        response: ""
+        feeds_into:
+          - skill-taxonomy.yaml (ML Dataset Preparation)
+
+      - id: Q17
+        question: "Did you collaborate on A/B testing? What was your role?"
+        status: unanswered
+        response: ""
+        feeds_into:
+          - skill-taxonomy.yaml (Experiment Design Collaboration)
+
+      - id: Q18
+        question: "Did you define metrics for experiments? Which metrics?"
+        status: unanswered
+        response: ""
+        feeds_into:
+          - skill-taxonomy.yaml (KPI Monitoring / Metric Definitions)
+
+  # --------------------------------------------------------------------------
+  # STREAMING & REAL-TIME
+  # --------------------------------------------------------------------------
+  - section: "Streaming & Real-Time"
+    questions:
+      - id: Q19
+        question: "Have you designed near-real-time ingestion? What technologies?"
+        status: unanswered
+        response: ""
+        feeds_into:
+          - skill-taxonomy.yaml (Real-time Streaming)
+
+      - id: Q20
+        question: "Have you worked with event-based systems (Kafka, Kinesis, SNS/SQS)?"
+        status: unanswered
+        response: ""
+        feeds_into:
+          - skill-taxonomy.yaml (Real-time Streaming)
+
+  # --------------------------------------------------------------------------
+  # CI/CD & ENGINEERING PRACTICES
+  # --------------------------------------------------------------------------
+  - section: "CI/CD & Engineering Practices"
+    questions:
+      - id: Q21
+        question: "What percentage of code deployments were automated at QuotaPath?"
+        status: unanswered
+        response: ""
+        feeds_into:
+          - skill-taxonomy.yaml (CI/CD Pipelines)
+          - master-portfolio.yaml (QuotaPath impact_metrics)
+
+      - id: Q22
+        question: "Did you reduce production errors after CI/CD adoption? By how much?"
+        status: unanswered
+        response: ""
+        feeds_into:
+          - skill-taxonomy.yaml (CI/CD Pipelines)
+          - master-portfolio.yaml (QuotaPath impact_metrics)
+
+  # --------------------------------------------------------------------------
+  # MENTORSHIP & LEADERSHIP
+  # --------------------------------------------------------------------------
+  - section: "Mentorship & Leadership"
+    questions:
+      - id: Q23
+        question: "Did you train or mentor junior analysts/engineers? How many? How often?"
+        status: unanswered
+        response: ""
+        feeds_into:
+          - skill-taxonomy.yaml (Mentorship)
+          - master-portfolio.yaml (leadership)
+
+      - id: Q24
+        question: "Did you review pull requests regularly? Roughly how many per week?"
+        status: unanswered
+        response: ""
+        feeds_into:
+          - skill-taxonomy.yaml (Mentorship, Engineering Practices)
+
+      - id: Q25
+        question: "Did you lead or present architecture discussions/reviews?"
+        status: unanswered
+        response: ""
+        feeds_into:
+          - skill-taxonomy.yaml (Architecture & Design Reviews)
+
+  # --------------------------------------------------------------------------
+  # BUSINESS IMPACT & METRICS
+  # --------------------------------------------------------------------------
+  - section: "Business Impact & Metrics"
+    questions:
+      - id: Q26
+        question: "What measurable business outcomes did your work enable? (revenue, efficiency, etc.)"
+        status: unanswered
+        response: ""
+        feeds_into:
+          - master-portfolio.yaml (all impact_metrics sections)
+
+      - id: Q27
+        question: "What revenue did the pipelines/systems you built support? (ARR, transactions, etc.)"
+        status: unanswered
+        response: ""
+        feeds_into:
+          - master-portfolio.yaml (impact_metrics)
+
+      - id: Q28
+        question: "How much time did your automation save? (hours/week, FTE equivalent, etc.)"
+        status: unanswered
+        response: ""
+        feeds_into:
+          - master-portfolio.yaml (impact_metrics)
+
+      - id: Q29
+        question: "What error/incident reduction can you quantify? (%, count, frequency)"
+        status: unanswered
+        response: ""
+        feeds_into:
+          - master-portfolio.yaml (impact_metrics)
+
+      - id: Q30
+        question: "Did you accelerate onboarding for new team members or new integrations? By how much?"
+        status: unanswered
+        response: ""
+        feeds_into:
+          - master-portfolio.yaml (QuotaPath impact_metrics)
+
+  # --------------------------------------------------------------------------
+  # QUOTAPATH SPECIFIC
+  # --------------------------------------------------------------------------
+  - section: "QuotaPath — Forgotten Contributions"
+    questions:
+      - id: Q31
+        question: "Did you implement automated testing coverage metrics at QuotaPath?"
+        status: unanswered
+        response: ""
+        feeds_into:
+          - master-portfolio.yaml (QuotaPath responsibilities)
+          - skill-taxonomy.yaml (Data Quality Automation)
+
+      - id: Q32
+        question: "Did you reduce manual reporting effort at QuotaPath? By how much?"
+        status: unanswered
+        response: ""
+        feeds_into:
+          - master-portfolio.yaml (QuotaPath impact_metrics)
+
+      - id: Q33
+        question: "Did you redesign an inefficient pipeline at QuotaPath? What was the improvement?"
+        status: unanswered
+        response: ""
+        feeds_into:
+          - master-portfolio.yaml (QuotaPath responsibilities)
+
+      - id: Q34
+        question: "Did you introduce dbt best practices to the QuotaPath team?"
+        status: unanswered
+        response: ""
+        feeds_into:
+          - master-portfolio.yaml (QuotaPath responsibilities)
+          - skill-taxonomy.yaml (Mentorship)
+
+  # --------------------------------------------------------------------------
+  # SUCCESS ACADEMY SPECIFIC
+  # --------------------------------------------------------------------------
+  - section: "Success Academy — Forgotten Contributions"
+    questions:
+      - id: Q35
+        question: "Did you improve query performance at Success Academy? By how much?"
+        status: unanswered
+        response: ""
+        feeds_into:
+          - master-portfolio.yaml (Success Academy impact_metrics)
+
+      - id: Q36
+        question: "Did you redesign a failing pipeline at Success Academy?"
+        status: unanswered
+        response: ""
+        feeds_into:
+          - master-portfolio.yaml (Success Academy responsibilities)
+
+      - id: Q37
+        question: "Did you introduce dbt testing standards at Success Academy?"
+        status: unanswered
+        response: ""
+        feeds_into:
+          - master-portfolio.yaml (Success Academy responsibilities)
+          - skill-taxonomy.yaml (Data Quality Automation)
+
+      - id: Q38
+        question: "Did you reduce audit findings at Success Academy?"
+        status: unanswered
+        response: ""
+        feeds_into:
+          - master-portfolio.yaml (Success Academy impact_metrics)
+
+      - id: Q39
+        question: "Did you influence architecture decisions at Success Academy? Which ones?"
+        status: unanswered
+        response: ""
+        feeds_into:
+          - master-portfolio.yaml (Success Academy responsibilities)
+          - skill-taxonomy.yaml (Architecture & Design Reviews)
+
+  # --------------------------------------------------------------------------
+  # CISION SPECIFIC
+  # --------------------------------------------------------------------------
+  - section: "Cision — Forgotten Contributions"
+    questions:
+      - id: Q40
+        question: "Did you build monitoring dashboards at Cision?"
+        status: unanswered
+        response: ""
+        feeds_into:
+          - master-portfolio.yaml (Cision responsibilities)
+
+      - id: Q41
+        question: "Did you automate issue detection at Cision?"
+        status: unanswered
+        response: ""
+        feeds_into:
+          - master-portfolio.yaml (Cision responsibilities)
+
+      - id: Q42
+        question: "Did you reduce support escalations at Cision? By how much?"
+        status: unanswered
+        response: ""
+        feeds_into:
+          - master-portfolio.yaml (Cision impact_metrics)
+
+      - id: Q43
+        question: "Did you redesign an ingestion schema at Cision?"
+        status: unanswered
+        response: ""
+        feeds_into:
+          - master-portfolio.yaml (Cision responsibilities)
+
+  # --------------------------------------------------------------------------
+  # PERSONAL PROJECTS
+  # --------------------------------------------------------------------------
+  - section: "Personal Projects"
+    questions:
+      - id: Q44
+        question: "What cloud environment did you use for personal projects? (AWS, local, GCP, etc.)"
+        status: unanswered
+        response: ""
+        feeds_into:
+          - master-portfolio.yaml (projects)
+
+      - id: Q45
+        question: "What data volumes did your personal projects handle?"
+        status: unanswered
+        response: ""
+        feeds_into:
+          - master-portfolio.yaml (projects)
+
+      - id: Q46
+        question: "What orchestration tool did you use for personal projects?"
+        status: unanswered
+        response: ""
+        feeds_into:
+          - master-portfolio.yaml (projects)
+          - skill-taxonomy.yaml (Pipeline Orchestration)
+
+      - id: Q47
+        question: "Did you use Snowflake or a local DB for personal projects?"
+        status: unanswered
+        response: ""
+        feeds_into:
+          - master-portfolio.yaml (projects)
+
+      - id: Q48
+        question: "Did you simulate or implement real-time ingestion in personal projects?"
+        status: unanswered
+        response: ""
+        feeds_into:
+          - skill-taxonomy.yaml (Real-time Streaming)
+
+  # --------------------------------------------------------------------------
+  # EDUCATION
+  # --------------------------------------------------------------------------
+  - section: "Education"
+    questions:
+      - id: Q49
+        question: "What is your degree, institution, and graduation year?"
+        status: unanswered
+        response: ""
+        feeds_into:
+          - master-portfolio.yaml (education)
+
+      - id: Q50
+        question: "Do you have any certifications (Snowflake, AWS, dbt, etc.)?"
+        status: unanswered
+        response: ""
+        feeds_into:
+          - master-portfolio.yaml (education)
+          - skill-taxonomy.yaml (various proficiency upgrades)

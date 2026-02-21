@@ -1,0 +1,320 @@
+# ============================================================================
+# COVER LETTER STRUCTURE
+# Reusable schema for consistent, tailored cover letters across applications.
+# ============================================================================
+
+format:
+  length: "3-4 paragraphs, roughly 250-400 words"
+  tone: "Professional but conversational. Direct, confident, matter-of-fact. Not stiff, not overly enthusiastic."
+  perspective: "First person"
+  address: "'To the Hiring Team at [Company],' (not 'Dear Hiring Manager,')"
+
+# ============================================================================
+# JAMES'S WRITING STYLE (calibrated from J2 Health cover letter, Feb 2026)
+# All generated cover letters MUST match this voice.
+# ============================================================================
+writing_style:
+
+  salutation: "'To the Hiring Team at [Company],' — use this exact format"
+
+  opening_pattern: >
+    Start with 'I am writing to express my interest in the [Title] role at [Company].'
+    Then immediately identify the core need from the JD and map it to experience:
+    'You're looking for X. That's exactly what I did at Y.'
+    Follow with a concise narrative showing how you solved that exact problem,
+    packed with concrete numbers. End the paragraph with measured enthusiasm
+    about the opportunity (e.g., 'genuinely exciting', not 'thrilled' or 'passionate').
+
+  body_pattern: >
+    Technical depth paragraph: lead with 'My technical background aligns closely
+    with what you've outlined.' Then walk through 2-3 specific accomplishments
+    with metrics, mapped directly to JD requirements. Use inline commas to
+    separate items in lists, not formatted bullet points. Show tool-specific
+    expertise with years and scale numbers.
+
+  gap_pattern: >
+    Start with 'While I haven't [gap area] specifically, the core challenges
+    you've described, [list JD priorities using their own language], are exactly
+    the problems I've solved across [domains] at [scale].' Then pivot to
+    adjacent experience and express willingness to grow:
+    'I'd be eager to deepen that experience with [specific tool].'
+
+  closing_pattern: >
+    One sentence: 'I'd welcome the chance to discuss how [specific experience]
+    could help [Company] [specific outcome from JD].'
+    Sign off: 'Best regards,' then blank line, then 'James Mayo'.
+
+  punctuation_rules:
+    - "NEVER use em-dashes. Use commas or periods instead."
+    - "Use colons to introduce inline lists (e.g., 'from scratch: testing standards, automated monitoring, observability workflows')"
+    - "Use commas for parenthetical asides where em-dashes might otherwise go"
+
+  avoid:
+    - "Em-dashes (use commas or periods)"
+    - "Flowery language: 'thrilled', 'passionate', 'incredibly', 'deeply'"
+    - "Generic AI filler: 'I bring a unique blend of', 'leveraging my expertise', 'poised to'"
+    - "'I am a [adjective] [noun]' constructions"
+    - "'Dear Hiring Manager' (use 'To the Hiring Team at [Company]')"
+    - "Passive closings: 'I hope to hear from you', 'Thank you for your consideration'"
+    - "Over-the-top enthusiasm or superlatives"
+    - "Restating resume bullets verbatim"
+
+  prefer:
+    - "Direct, declarative sentences"
+    - "Concrete numbers in every paragraph (models, users, platforms, percentages)"
+    - "JD language mirrored naturally (reference their own phrasing)"
+    - "Matter-of-fact confidence: state what you did, let the numbers speak"
+    - "First person throughout, varied sentence length"
+    - "'I'd welcome the chance to discuss...' for closing"
+    - "'I'd be eager to...' over 'I'm excited to...'"
+    - "Show don't tell: instead of 'I am a quick learner', show promotion timeline"
+
+sections:
+
+  - name: "Opening Hook"
+    description: >
+      State interest in the role. Identify the JD's core need in your own words.
+      Map it directly to your strongest matching experience with a brief narrative
+      and concrete metrics. End with measured enthusiasm.
+    guidance:
+      - "Start: 'I am writing to express my interest in the [Title] role at [Company].'"
+      - "Then: 'You're looking for [core JD need]. That's exactly what I did at [Company].'"
+      - "Follow with a 2-3 sentence narrative showing how you solved that exact problem"
+      - "Pack with numbers: models, users, schools, pipelines, team size"
+      - "End with measured enthusiasm, not hyperbole"
+
+  - name: "Value Proposition"
+    description: >
+      1-2 paragraphs of technical depth. Lead with 'My technical background
+      aligns closely with what you've outlined.' Walk through 2-3 specific
+      accomplishments with metrics mapped to JD requirements.
+    guidance:
+      - Use concrete metrics everywhere (clients onboarded, retention rates, scale)
+      - Map accomplishments to the JD's top requirements, not just general experience
+      - Show progression and growth through promotions and expanding scope
+      - Avoid restating the resume verbatim. Add narrative and context.
+      - Use inline commas for lists, colons to introduce them
+
+  - name: "Gap Acknowledgment (if applicable)"
+    description: >
+      If the fit evaluation identified critical or moderate gaps, address
+      the most important one. Frame as transferable skills, not weakness.
+    guidance:
+      - "'While I haven't [X] specifically, the core challenges you've described, [list], are exactly the problems I've solved across [domains] at [scale].'"
+      - Be direct, not apologetic
+      - Pivot quickly to transferable skills and willingness to learn
+      - "'I'd be eager to deepen that experience with [tool/domain].'"
+
+  - name: "Closing & Call to Action"
+    description: >
+      One sentence. Specific to the role and company.
+    guidance:
+      - "'I'd welcome the chance to discuss how [specific experience] could help [Company] [specific outcome].'"
+      - "Sign off: 'Best regards,' blank line, blank line, 'James Mayo'"
+      - Keep it brief. Do not add filler.
+
+# ============================================================================
+# AI DETECTION COUNTERMEASURES
+# Based on documented methods from GPTZero, Originality.ai, and academic
+# research (Ghostbuster, Mitchell et al.). These are the specific signals
+# detectors measure and how to avoid triggering them.
+#
+# Sources:
+#   - GPTZero technology docs (gptzero.me/technology)
+#   - GPTZero perplexity/burstiness explainer (gptzero.me/news/perplexity-and-burstiness-what-is-it)
+#   - Ghostbuster (arxiv.org/abs/2305.15047)
+#   - GPTZero paper (arxiv.org/abs/2602.13042)
+# ============================================================================
+ai_detection_countermeasures:
+
+  how_detectors_work:
+    perplexity: >
+      Measures how predictable the word choices are. Detectors run text through
+      an LLM and check whether the model would have chosen the same words.
+      LOW perplexity = the model would have written the same thing = flagged as AI.
+      HIGH perplexity (above ~85) = surprising word choices = reads as human.
+    burstiness: >
+      Measures how much the perplexity VARIES across sentences. LLMs write with
+      uniform sentence complexity (low burstiness). Humans naturally oscillate
+      between short punchy sentences and long complex ones (high burstiness).
+      LOW burstiness = uniform rhythm = flagged as AI.
+      HIGH burstiness = varied rhythm = reads as human.
+    pattern_recognition: >
+      Neural classifiers trained on millions of AI vs. human samples. They
+      detect formulaic transitions, predictable paragraph structures, and
+      overused phrases that LLMs default to. Sentence-level classification
+      means even a few "AI-sounding" sentences can flag an otherwise human doc.
+
+  # --------------------------------------------------------------------------
+  # RAISE PERPLEXITY (make word choices less predictable)
+  # --------------------------------------------------------------------------
+  raise_perplexity:
+    description: "Make the LLM unable to predict your next word."
+    rules:
+      - rule: "Use specific numbers instead of round estimates"
+        bad: "I managed a large number of data models"
+        good: "I maintained 1,900+ dbt models across 51 schools"
+        why: "LLMs default to vague quantifiers. Exact numbers are unpredictable."
+
+      - rule: "Name real tools, companies, and people instead of generic categories"
+        bad: "I worked with several BI tools and cloud platforms"
+        good: "I migrated 150+ dashboards from Sisense to Looker while running parallel QA on both"
+        why: "Proper nouns and specific product names raise perplexity because LLMs can't predict which ones you'll mention."
+
+      - rule: "Choose the less-obvious synonym"
+        bad: "I leveraged my expertise to drive impactful results"
+        good: "I cut incident volume in half by writing validation checks that ran before every dbt build"
+        why: "'Leveraged', 'impactful', 'drive results' are high-frequency LLM completions. Concrete verbs are less predictable."
+
+      - rule: "Include domain-specific jargon the JD uses"
+        bad: "I have experience with data transformation tools"
+        good: "I have three years of expert-level dbt experience building test suites and maintaining documentation at scale"
+        why: "Mirroring the JD's exact terminology is unpredictable to a general LLM."
+
+      - rule: "Add one or two details only a human would think to include"
+        bad: "I built data quality processes"
+        good: "I built the entire data quality practice from scratch: testing standards, automated monitoring, observability workflows, and a dbt environment that grew to 1,900+ production models serving 51 schools and 18,000 users"
+        why: "The cascade of specific, contextual details is hard for an LLM to reproduce exactly."
+
+  # --------------------------------------------------------------------------
+  # RAISE BURSTINESS (vary sentence rhythm and complexity)
+  # --------------------------------------------------------------------------
+  raise_burstiness:
+    description: "Vary sentence length and complexity dramatically."
+    rules:
+      - rule: "Alternate between short and long sentences"
+        bad: |
+          I have experience designing scalable ELT pipelines. I have also
+          built modular dbt models aligned to Medallion architecture. I have
+          implemented CI/CD pipelines using GitHub Actions.
+        good: |
+          I designed ELT pipelines integrating data from 10+ platforms into
+          BigQuery, built data validation frameworks that cut incidents by
+          over 50%, and migrated batch processing from row-by-row SQL to
+          parallelized Python transformations using Dask. Runtimes dropped
+          from hours to minutes. That kind of foundational work is what I do best.
+        why: "Three sentences of identical length and structure = low burstiness. Mixing a long compound sentence, a short declarative, and a conversational closer = high burstiness."
+
+      - rule: "Use sentence fragments and one-liners for emphasis"
+        example: "That's exactly what I did at Success Academy."
+        why: "Fragments break the uniform cadence that LLMs produce."
+
+      - rule: "Vary paragraph length"
+        guidance: "Opening paragraph: 4-6 sentences. Technical paragraph: 3-4 sentences. Gap paragraph: 2-3 sentences. Closing: 1 sentence. Do NOT make them all the same length."
+
+      - rule: "Start sentences differently"
+        bad: "I designed pipelines. I built frameworks. I implemented testing. I authored documentation."
+        good: "The pipelines I designed integrated 10+ platforms. On the quality side, I built validation frameworks from scratch. Documentation was another priority: I authored runbooks and transformation specs that the team still uses."
+        why: "Repeated 'I [verb]' openings are a strong AI signal. Vary with 'The...', 'On the...', 'That...', noun-first, or subordinate-clause-first constructions."
+
+  # --------------------------------------------------------------------------
+  # AVOID KNOWN AI PATTERNS (dodge the pattern classifier)
+  # --------------------------------------------------------------------------
+  avoid_ai_patterns:
+    description: "Specific words and structures that pattern classifiers are trained to flag."
+
+    flagged_transitions:
+      description: "These transitions appear far more often in LLM text than human text."
+      words:
+        - "Moreover"
+        - "Furthermore"
+        - "Additionally"
+        - "In conclusion"
+        - "It is worth noting"
+        - "It's important to note"
+        - "This demonstrates"
+        - "This showcases"
+        - "Notably"
+      replacements: "Use 'and', 'also', 'on top of that', or just start a new sentence without a transition."
+
+    flagged_phrases:
+      description: "High-frequency LLM completions that almost never appear in human cover letters."
+      phrases:
+        - "I bring a unique blend of"
+        - "leveraging my expertise"
+        - "poised to make an impact"
+        - "I am well-positioned to"
+        - "a proven track record of"
+        - "I am deeply passionate about"
+        - "I thrive in environments where"
+        - "I am confident that my skills"
+        - "seeking to leverage"
+        - "diverse skill set"
+        - "dynamic environment"
+        - "fast-paced environment"
+        - "hit the ground running"
+        - "value-add"
+        - "synergies"
+        - "holistic approach"
+        - "cutting-edge"
+        - "spearheaded"
+
+    flagged_structures:
+      description: "Structural patterns that signal machine generation."
+      patterns:
+        - pattern: "Parallel triple construction"
+          example: "I am [adj], [adj], and [adj]."
+          why: "LLMs love generating lists of three adjectives. Humans rarely self-describe this way."
+        - pattern: "Mirror-image paragraphs"
+          example: "Each paragraph opens with a topic sentence, has 3 supporting sentences, and closes with a transition."
+          why: "Uniform paragraph architecture is a strong signal. Vary structure per paragraph."
+        - pattern: "Hedge + claim + evidence formula"
+          example: "While I may not have X, I have demonstrated Y through Z."
+          why: "This exact construction is one of the most common LLM patterns for addressing gaps. The writing_style.gap_pattern already avoids this, but be aware."
+
+  # --------------------------------------------------------------------------
+  # INJECT HUMAN SIGNALS (things LLMs rarely do unprompted)
+  # --------------------------------------------------------------------------
+  inject_human_signals:
+    description: "Patterns that are common in human writing but rare in LLM output."
+    techniques:
+      - technique: "Contractions"
+        guidance: "Use contractions naturally: 'I'm', 'I've', 'didn't', 'that's', 'I'd'. Aim for 40-60% of eligible contractions."
+        why: "LLMs often expand contractions. Consistent contraction use is a human signal."
+
+      - technique: "First-person anecdote or aside"
+        example: "I have strong opinions on where LLM tools accelerate development and where they need guardrails, particularly around data modeling and test generation."
+        why: "Opinionated asides with qualifiers ('particularly around') are hard for LLMs to produce naturally."
+
+      - technique: "Colons for inline lists instead of semicolons or bullet points"
+        example: "I built the practice from scratch: testing standards, automated monitoring, observability workflows."
+        why: "LLMs prefer semicolons or generate formatted bullet points. Colons for inline lists read as conversational."
+
+      - technique: "Commas for parenthetical asides"
+        example: "The core challenges you've described, building reliable ingestion pipelines and improving data observability, are exactly the problems I've solved."
+        why: "Parenthetical comma usage is a natural human rhythm that LLMs often skip in favor of 'such as' or dash-based constructions."
+
+      - technique: "Concrete company/role context over abstractions"
+        example: "At QuotaPath, I designed ELT pipelines integrating data from 10+ platforms into BigQuery."
+        why: "Leading with 'At [Company]' is more natural and less predictable than 'In my role as [title], I was responsible for...'"
+
+  # --------------------------------------------------------------------------
+  # POST-GENERATION CHECKLIST
+  # --------------------------------------------------------------------------
+  post_generation_checklist:
+    description: >
+      After any cover letter is generated, review it against this checklist
+      BEFORE sending. Every item addresses a documented detection signal.
+    checks:
+      - "Count sentence lengths: are there at least 3 different length ranges? (short: <10 words, medium: 10-25, long: 25+)"
+      - "Check for 'Moreover/Furthermore/Additionally/In conclusion' — remove all"
+      - "Check for phrases from the flagged_phrases list — replace with concrete alternatives"
+      - "Verify contractions are used naturally (not every eligible spot, but 40-60%)"
+      - "Confirm every paragraph has at least one specific number, tool name, or company name"
+      - "Read each paragraph aloud: does it sound like James talking, or like a generic recommendation letter?"
+      - "Confirm paragraphs are NOT all the same length"
+      - "Confirm sentences do NOT all start with 'I' — vary with 'The...', 'At [Company]...', 'That...', fragments"
+      - "Check that the gap paragraph (if present) does NOT use the 'While I may not have X, I have Y' template verbatim"
+      - "Run through GPTZero (free tier) as a final sanity check if the letter is for a high-priority application"
+
+constraints:
+  - Do NOT fabricate experience or metrics
+  - Do NOT use em-dashes. Use commas or periods instead.
+  - Do NOT use generic filler phrases ("I am a hard worker", "I am passionate about...")
+  - Do NOT use obvious AI-generated phrasing ("leveraging", "poised to", "unique blend")
+  - Do NOT restate the resume. The cover letter adds narrative context.
+  - Mirror the JD's keywords naturally, but do not keyword-stuff
+  - The letter should sound like a real person wrote it, not an LLM
+  - Reference the fit evaluation's positioning strategy for narrative framing
+  - Reference the fit evaluation's gap analysis for what to address proactively
+  - APPLY the ai_detection_countermeasures section during generation AND review

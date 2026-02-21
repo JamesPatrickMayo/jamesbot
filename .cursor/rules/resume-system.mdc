@@ -1,0 +1,43 @@
+---
+description: Rules for maintaining the JamesBot resume generation system — file conventions, update workflows, and generation guidelines
+alwaysApply: true
+---
+
+# Resume System Conventions
+
+## File Roles
+
+- `portfolio/master-portfolio.yaml` — Single source of truth for career history. Update when roles, responsibilities, or metrics change.
+- `portfolio/skill-taxonomy.yaml` — Normalized skill database. Update proficiency levels and evidence as skills grow.
+- `portfolio/questionnaire.yaml` — Expansion prompts. Mark as `answered` with a `response` when filled. Never delete questions.
+- `templates/resume-standards.md` — Global formatting rules. Rarely changes.
+- `templates/structures/*.yaml` — Role-specific resume structures. Add new files for new role types.
+- `archive/` — Raw unstructured material. Drop files here; reference them but don't modify originals.
+- `output/` — Generated resumes. Naming: `resume-{company}-{role}-{date}.md`
+
+## When Editing the Taxonomy
+
+- Use exact proficiency levels: `expert`, `advanced`, `intermediate`, `foundational`
+- Always include at least one evidence bullet per skill
+- Tag applicable roles using the role structure filenames (e.g., `data-engineer`, `analytics-engineer`)
+- Mark uncertainty with `# TODO:` comments inside evidence arrays
+
+## When Generating Resumes
+
+- Always read all four inputs: portfolio, taxonomy, role structure, and standards
+- Filter taxonomy skills to those applicable to the target role
+- Never fabricate metrics — use scale indicators when numbers aren't available
+- Include a `<!-- GENERATION NOTES -->` block with gap analysis
+- Output to `output/` with the standard naming convention
+
+## When Adding New Roles
+
+1. Create `templates/structures/{role-name}.yaml`
+2. Follow the existing structure format (summary_focus, skill_category_priority, experience_bullet_emphasis, keyword_targets)
+3. Add the role name to `applicable_roles` in relevant taxonomy skills
+
+## When Processing Archive Material
+
+- Extract skills, metrics, and evidence into taxonomy and portfolio
+- Cross-reference against questionnaire for matching unanswered questions
+- Never modify files in `archive/` — they are read-only source material

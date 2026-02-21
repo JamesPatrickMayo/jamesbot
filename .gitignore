@@ -1,0 +1,23 @@
+# Environment
+.env
+__pycache__/
+*.pyc
+*.pyo
+
+# Sensitive personal data - never commit these
+archive/*.pdf
+archive/*.gdoc
+archive/*.docx
+archive/*.csv
+
+# If you add a secrets file
+secrets.yaml
+secrets.json
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+
+# Editor
+*.swp
+*.swo

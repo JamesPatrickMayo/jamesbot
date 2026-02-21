@@ -1,0 +1,358 @@
+# ============================================================================
+# MASTER PORTFOLIO — James Mayo
+# Canonical career record. Single source of truth for all resume generation.
+# ============================================================================
+
+personal:
+  name: "James Patrick Mayo"
+  location: "New York, NY 11220"
+  email: "your.email@example.com"
+  phone: "YOUR_PHONE_NUMBER"
+  linkedin: "linkedin.com/in/jamespatrickmayo"
+  github: "mayojames409.github.io"
+
+summary:
+  core: >
+    Senior Data Engineer and Data Platform Architect with 7+ years of experience
+    designing and scaling modern data systems across SaaS, RevOps, and
+    enterprise analytics environments.
+  specializations:
+    - SQL-first ELT pipelines
+    - dbt-based analytics engineering
+    - Medallion (Bronze/Silver/Gold) architecture
+    - Snowflake-backed data warehousing
+    - AWS-supported infrastructure
+  secondary_strengths:
+    - Data governance and metadata documentation
+    - CI/CD pipeline implementation
+    - Experiment design support
+    - Cross-functional systems delivery
+    - AI-assisted engineering workflows (modeling, documentation, integration scaffolding)
+
+# ============================================================================
+# EXPERIENCE
+# ============================================================================
+
+experience:
+
+  - company: "QuotaPath"
+    title: "Solutions Engineer / Data Platform Architect"
+    dates: "Aug 2024 – Sep 2025"
+    location: "Remote"
+    environment:
+      - Snowflake-backed warehousing
+      - dbt
+      - "BigQuery / Google Cloud CLI"
+      - "Airbyte (data integration)"
+      - "CircleCI / Prefect (orchestration)"
+      - GitHub Actions
+      - "Jupyter Notebooks (Python/Dask/Pandas)"
+      - "DBeaver"
+      - "Zapier (workflow automation)"
+      - "CRM integrations (Salesforce, HubSpot)"
+      - "Cursor, ChatGPT, Claude (AI-assisted development)"
+
+    responsibilities:
+      - Designed scalable ELT pipelines integrating CRM and financial system data into Snowflake environments
+      - Built modular dbt models aligned to Medallion architecture principles
+      - Migrated customer workspaces from row-by-row SQL calculations to Python-based custom transformations (Dask/Pandas), reducing pipeline runtimes from hours to minutes
+      - Implemented CI/CD pipelines using GitHub Actions to enforce version control and automated testing (70-90% deployment automation)
+      - Created SQL-based data validation frameworks to enforce schema consistency and ingestion reliability
+      - Designed structured data access layers to support analytics and ML dataset preparation
+      - Standardized Jupyter Notebooks for safely testing new Python transform files against production data
+      - Built AI-assisted scoping workflows (Account AI) using prompt templates and historical customer context
+      - Automated function generation via prompt templates and context ingestion
+      - Created AI templates for computed fields and Notion wiki documentation
+      - Developed Power Query solutions for customer integrations (e.g., Nippon)
+      - Engineered and delivered tailored solutions for 300+ client onboarding projects annually, supporting 10+ CRM and financial platforms (Salesforce, HubSpot, QuickBooks, Stripe, etc.)
+      - Assessed customer data fitness for platform automation; compiled solution recommendations from simple/temporary to robust/long-term refactoring
+      - Scoped with prospects and account executives to qualify customer data integration requirements during sales cycle
+      - Partnered with customer success to scope and implement scalable data integrations for complex commission plans
+      - Led architecture reviews and design reviews to align integration patterns with long-term scalability goals
+      - Authored engineering documentation, runbooks, and transformation specifications
+      - Successfully onboarded and retained complex customer integrations
+      - Mentored junior engineers and led technical onboarding sessions
+      - Reviewed multiple pull requests per week
+
+    notable_customers:
+      - "Recorded Future"
+      - "LaunchDarkly"
+      - "Chromosphere"
+      # Large by revenue, not necessarily headcount
+
+    impact_metrics:
+      nrr_upsell: "~110% QoQ (NRR and upsell tracked as same metric)"
+      grr: "~75% QoQ (in line with company target)"
+      client_onboardings_annually: "300+"
+      crm_platforms_supported: "10+"
+      avg_data_volume_processed: "TB-scale"
+      ci_cd_automation_pct: "70-90%"
+      pipeline_runtime_improvement: "Hours to minutes — migrated row-by-row SQL to Python/Dask transformations"
+      time_saved_via_automation: "5-10 hours/week"
+      incident_reduction: "50%+"
+      reduction_in_onboarding_time_pct: null       # TODO: still needs quantification
+      reduction_in_integration_defects_pct: null   # TODO: still needs quantification
+      pipelines_owned_count: null                  # TODO: still needs quantification
+      revenue_impact_supported: null               # TODO: still needs quantification
+
+  - company: "Success Academy Charter Schools"
+    title: "Data Quality Analyst / Analytics Engineer"
+    title_progression: "Joined as QA Tech → rapidly promoted to QA Lead → Team Lead, Data Quality"
+    direct_reports: 2
+    dates: "Feb 2022 – Jun 2024"
+    location: "NYC"
+    environment:
+      - dbt Cloud (1,900+ models)
+      - AWS (Lambda, Step Functions, RDS, EKS, Redshift)
+      - "Talend → dbt migration"
+      - "Matillion → Talend+dbt migration"
+      - Medallion architecture
+      - Salesforce integration
+      - "Sisense → Looker (BI migration)"
+      - "150+ dashboards across 2 BI tools"
+      - "51+ schools, 18,000+ users"
+      - Jira
+      - Confluence / dbt Docs
+
+    responsibilities:
+      - Created the QA process from scratch after rapid promotion from QA Tech to QA Lead
+      - Architected Medallion-style data warehousing layers across enterprise domains
+      - Built and maintained 1,900+ dbt models including tests, macros, documentation
+      - Documented lineage for 90+ ETL pipelines
+      - Created SQL-based daily sanity checks for Salesforce Family Application Process with automated reporting
+      - Implemented data quality checks (freshness, validity, schema tests)
+      - Led DWH and AWS migration efforts
+      - Supported AWS Lambda-based ingestion processes (translated requirements, wrote test scripts)
+      - Participated in Step Functions-based orchestration workflows
+      - Managed relational and NoSQL database validation processes
+      - Conducted dependency analysis for downstream dashboards and reporting systems
+      - Managed 2 direct reports; delegated QA tasks and projects using Jira
+      - Implemented automated and manual test-cases ensuring data reliability across 2 BI tools, 150+ dashboards, and all analytics data for 51+ schools
+      - Utilized Salesforce and dbt APIs for maintenance and migration of 90+ ETL jobs and 1,900 data models
+      - Led cross-functional delivery with Engineering, Analytics, and Operations; coordinated sprint planning, requirement definition, stakeholder reviews
+      - Led multi-phase system migrations (Sisense → Looker; Matillion → Talend → dbt)
+      - Developed product requirements, UAT scripts, governance standards, naming conventions, and validation criteria
+      - Produced data lineage documentation and cataloging in Confluence/dbt Docs for DOE audits and impact reporting
+      - Acted as liaison between technical teams and executive leadership, preparing reporting and presentations for senior stakeholders
+      - Created and led the Looker migration and net-new QA process from scratch
+      - Created demand-management pipeline to tackle TDX ticket backlog
+      - Facilitated "Rubber Duck" debugging sessions for the team
+      - Created best practices sheets and Analytics PR process
+      - Built automated reports
+      - Migrated from AWS Workspaces to Remote.IT
+
+    impact_metrics:
+      reduction_in_data_incidents_pct: "50%+"
+      dataset_size: "TB-scale"
+      schools_served: "51+"
+      users_served: "18,000+"
+      dashboards_maintained: "150+"
+      bi_tools_supported: 2
+      etl_jobs: "90+"
+      dbt_models: "1,900+"
+      dashboard_reliability_improvement_pct: null   # TODO: still needs quantification
+      time_saved_via_automation: null               # TODO: still needs quantification
+      stakeholders_supported_count: null            # TODO: still needs quantification
+      sla_improvements: null                        # TODO: still needs quantification
+
+    confirmed_contributions:
+      - "Created QA process from scratch — defined scope, standards, and workflow"
+      - "Established dbt testing standards that the team adopted"
+      - "Influenced Medallion layer design decisions"
+      - "Influenced dbt project structure decisions"
+      - "Created and led Looker migration approach (Sisense → Looker)"
+      - "Influenced data quality framework design"
+      - "Created demand-management pipeline for ticket backlog"
+      - "Established Analytics PR process"
+      - "Built automated reporting for Salesforce data"
+
+    possible_forgotten_contributions:
+      - "Improved query performance? By how much?"
+      - "Redesigned a failing pipeline?"
+      - "Reduced audit findings?"
+
+  # --- CISION: 3 distinct roles over 3.5 years ---
+  # Trendkite (startup) acquired by Cision, later acquired by Platinum Equity
+
+  - company: "Cision Global"
+    title: "Production Engineer"
+    dates: "Nov 2021 – Feb 2022"
+    location: "New York, NY"
+    environment:
+      - SQL
+      - PostgreSQL
+      - Cassandra
+      - ElasticSearch
+      - Jupyter Notebooks (SQL, PSQL, Python)
+      - Jira
+      - Slack
+
+    responsibilities:
+      - Developed processes and procedures for new support functions as software products launched
+      - Collaborated with Engineering and Product Management to identify gaps and inefficiencies
+      - Prioritized and delegated over 300 potential platform bugs upon discovery or escalation
+      - Analyzed large volumes of data using advanced queries/scripts in specialized Jupyter Notebooks (SQL, PSQL, ElasticSearch, Python)
+      - Supervised and supported 5+ external vendor workflows to manage content vendor issues
+      - Leveraged Jira and Slack integrations for delegation of 300+ bug investigations, severity/risk evaluations, and task assignments
+
+  - company: "Cision Global"
+    title: "Data Quality Analyst"
+    dates: "Dec 2019 – Nov 2021"
+    location: "Austin, TX"
+    environment:
+      - SQL
+      - PostgreSQL
+      - Cassandra
+      - ElasticSearch
+      - Jenkins
+      - Jupyter Notebooks
+      - Zendesk
+      - Confluence
+      - Salesforce
+
+    responsibilities:
+      - Ensured legal and technical compliance of data-ingestion and data-procurement across all major Cision platforms during GDPR
+      - Supported training and ongoing development covering 42+ distinct software features
+      - Onboarded 2 local new hires and 2 contractors
+      - Leveraged Zendesk and Slack for internal triage service escalating from Customer Success and Sales
+      - Produced knowledge articles in Confluence and Jira for internal and external use
+      - Delegated and supported bug resolution with Development teams
+      - Ad-hoc support of SQL tables, user provisioning, and multiple web-app touchpoints
+      - Built NLA document dump script to address unsustainable unsubscribe request volume
+      - Ran and maintained Jenkins jobs and Jupyter Notebook scripts for data integrity
+
+  - company: "Cision Global (Trendkite)"
+    title: "Enterprise Account Architect"
+    title_progression: "Account Architect (Oct 2018 – Apr 2019) → Enterprise Account Architect (Apr 2019 – Dec 2019)"
+    dates: "Oct 2018 – Dec 2019"
+    location: "Austin, TX"
+    environment:
+      - SQL
+      - Cision/Trendkite platforms
+      - Client-facing dashboards
+
+    responsibilities:
+      - Constructed complex queries, dashboards, campaigns, and reports for large accounts based on client requirements
+      - Established and adopted new support structures, diagnostic methods, and problem resolution procedures
+      - Facilitated knowledge management for new-hire training and continued team development
+      - Managed and prioritized ongoing and urgent support requests directly from clients
+      - Advocated against status quo on client dashboard (negativity bias approach); led rebuild to find positive stories and improvement opportunities
+      - Translated "client speak" into actionable technical implementation
+      - Managed multi-timezone handoffs in startup environment
+      - Navigated Trendkite → Cision acquisition
+
+    impact_metrics:
+      reduction_in_recurring_incidents_pct: null    # TODO: still needs quantification
+      mean_time_to_resolution: null                 # TODO: still needs quantification
+      features_supported: "42+"
+      people_onboarded: "2 new hires + 2 contractors"
+      bugs_triaged: "300+"
+
+  # --- EARLIER CAREER ---
+
+  - company: "ECP Computers & More"
+    title: "Repair and Support Technician, Sales and Service Representative"
+    dates: "Oct 2013 – Jun 2018"
+    location: "Beaumont and Port Arthur, TX"
+    environment:
+      - Consumer electronics repair
+      - Hardware and software troubleshooting
+      - Client-facing tech support
+
+    responsibilities:
+      - Provided individualized technology support, troubleshooting hardware/software, repair, and maintenance for 1000s of consumer electronics
+      - Planned, implemented, and supported technical solutions for 25+ community businesses and residents
+      - Facilitated and delegated service projects, orders, and incident resolution with a team of 4 technicians
+      - Organized and interpreted client/staff feedback to improve support structure
+      - Prepared and conducted informative presentations to propose technical solutions to non-technical clients
+
+    notes: >
+      5-year role showing customer-facing technical problem solving, team leadership,
+      and client advisory skills. Include for Solutions Engineer or client-facing roles.
+
+  - company: "Sage Automation"
+    title: "Computer Aided Design Drafter"
+    dates: "Jan 2013 – Aug 2013"
+    location: "Beaumont, TX"
+    responsibilities:
+      - Created and reviewed blueprints for industrial machines, components, and facilities
+      - Utilized CAD Software (Draftsight, AutoDesk) for local, regional, and international projects
+      - Supported engineering tasks and collaborated with engineering teams
+    notes: "Earliest technical role. Generally omit from data engineering resumes."
+
+  - company: "Kinsmen Homes"
+    title: "Sales Center Host"
+    dates: "Jul 2011 – Jan 2013"
+    location: "Beaumont and Port Arthur, TX"
+    responsibilities:
+      - Organized and presented real estate information to clients and realtors
+      - Supported lead generation for partnered real estate organizations
+    notes: "First professional role. Generally omit from technical resumes."
+
+# ============================================================================
+# PROJECTS
+# ============================================================================
+
+projects:
+
+  - name: "Personal Data Engineering Projects"
+    contributions:
+      - Built automated ETL pipelines for structured financial workflows
+      - Designed SQL-first data models for personal analytics
+      - Implemented scheduled ingestion and transformation jobs
+      - Experimented with AI-assisted modeling for schema generation
+
+    open_questions:
+      - "What cloud environment? (AWS, local, etc.)"
+      - "Data volume?"
+      - "Streaming exposure?"
+      - "Orchestration tool used?"
+      - "Snowflake or local DB?"
+      - "Simulated real-time ingestion?"
+
+  - name: "Frankenbox Server"
+    contributions:
+      - Built personal NAS/media management server
+      - Configured backup and storage infrastructure
+
+  - name: "DIY / Hardware Projects"
+    contributions:
+      - PC building
+      - Solar projects
+      - Home networking
+
+# ============================================================================
+# LEADERSHIP & COMMUNITY
+# ============================================================================
+
+leadership:
+  volunteer:
+    - organization: "New York Cares"
+      role: "Volunteer"
+      start_date: "Nov 2025"
+    - organization: "NYC Mesh"
+      role: "Community Infrastructure Support"
+      start_date: "Nov 2025"
+    - organization: "Boy Scouts of America"
+      role: "Eagle Scout"
+      note: "Eagle Scout — highest rank in BSA. Demonstrates leadership, project management, community service."
+
+  # Mentorship is tracked per-role in the experience section, not here.
+  # All mentoring was done in a professional capacity at listed roles:
+  #   - QuotaPath: mentored junior engineers, led technical onboarding, reviewed PRs weekly
+  #   - Success Academy: managed 2 direct reports, facilitated Rubber Duck sessions,
+  #     created best practices sheets, established Analytics PR review process
+  #   - Cision: onboarded 2 new hires + 2 contractors, led architecture discussions
+
+# ============================================================================
+# EDUCATION
+# ============================================================================
+
+education:
+  - degree: "B.B.A. in Management Information Systems"
+    institution: "Lamar University"
+    location: "Beaumont, Texas"
+    years: "2012 – 2018"
+    activities: "Tutoring (Mathematics, Economics)"
+certifications:
+  - status: "in_progress"  # FILL IN — which certification?

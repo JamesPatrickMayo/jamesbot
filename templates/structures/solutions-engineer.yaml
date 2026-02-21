@@ -1,0 +1,74 @@
+# Role Structure: Solutions Engineer
+# Used when targeting Solutions Engineer, Technical Solutions, Integration Engineer roles
+
+role_name: "Solutions Engineer"
+role_variants:
+  - "Solutions Engineer"
+  - "Senior Solutions Engineer"
+  - "Technical Solutions Engineer"
+  - "Integration Engineer"
+  - "Implementation Engineer"
+
+summary_focus:
+  identity: "Solutions Engineer"
+  emphasis:
+    - System integration and data platform design
+    - Client-facing technical delivery
+    - CRM and financial system data integration
+    - Cross-functional collaboration
+  tone: "Technical problem solver with client-facing credibility"
+
+section_order:
+  - header
+  - summary
+  - technical_skills
+  - experience
+  - projects
+  - education
+  - leadership
+
+skill_category_priority:
+  - "Data Engineering & Warehousing"
+  - "Cloud & Infrastructure"
+  - "Languages"
+  - "Databases"
+  - "Engineering Practices"
+  - "Analytics & ML Support"
+
+experience_bullet_emphasis:
+  high_priority_themes:
+    - Integration design and delivery
+    - CRM and financial data pipelines
+    - Data validation and quality assurance
+    - Architecture and design reviews
+    - Documentation and runbooks
+    - Cross-functional collaboration
+  medium_priority_themes:
+    - CI/CD pipelines
+    - dbt modeling
+    - Snowflake data warehousing
+  low_priority_themes:
+    - Personal projects
+    - Academic exposure
+    - Volunteer work
+
+keyword_targets:
+  must_include:
+    - integration
+    - SQL
+    - API
+    - data pipeline
+    - CRM
+    - technical documentation
+  should_include:
+    - Snowflake
+    - dbt
+    - AWS
+    - CI/CD
+    - validation
+    - onboarding
+  nice_to_have:
+    - Python
+    - Airflow
+    - ELT
+    - Medallion

@@ -1,0 +1,238 @@
+# ============================================================================
+# JOB SEARCH STRATEGY
+# Maintained search queries, recommended titles, and tracked job boards.
+# Updated: 2026-02-20
+# ============================================================================
+
+# ---------------------------------------------------------------------------
+# Primary Google search query (ATS job boards)
+# ---------------------------------------------------------------------------
+search_queries:
+
+  - name: "Primary ATS Board Search"
+    query: >
+      (site:boards.greenhouse.io OR site:jobs.ashbyhq.com OR site:jobs.lever.co
+      OR site:myworkdayjobs.com OR site:ats.rippling.com)
+      ("Analytics Engineer" OR "Data Engineer" OR "Data Governance Manager"
+      OR "Technical Program Manager" OR "Solutions Architect")
+      "New York City"
+    notes: "Current active search query. Covers major ATS platforms."
+
+  - name: "Expanded ATS Board Search"
+    query: >
+      (site:boards.greenhouse.io OR site:jobs.ashbyhq.com OR site:jobs.lever.co
+      OR site:myworkdayjobs.com OR site:ats.rippling.com OR site:jobs.smartrecruiters.com
+      OR site:apply.workable.com)
+      ("Analytics Engineer" OR "Data Engineer" OR "Solutions Engineer"
+      OR "Solutions Architect" OR "Implementation Engineer" OR "Data Platform Engineer"
+      OR "Technical Program Manager" OR "Data Governance Manager"
+      OR "Integration Engineer")
+      ("New York" OR "NYC" OR "Remote")
+    notes: "Expanded version with additional ATS sites, titles, and remote option."
+
+  - name: "New Categories Search"
+    query: >
+      (site:boards.greenhouse.io OR site:jobs.ashbyhq.com OR site:jobs.lever.co
+      OR site:myworkdayjobs.com OR site:ats.rippling.com OR site:jobs.smartrecruiters.com
+      OR site:apply.workable.com)
+      ("Revenue Operations Engineer" OR "DataOps Engineer" OR "BI Engineer"
+      OR "Customer Engineer" OR "Technical Account Manager" OR "Partner Engineer"
+      OR "Data Quality Engineer" OR "Business Systems Engineer"
+      OR "Developer Advocate" OR "Onboarding Engineer" OR "Customer Success Engineer")
+      ("New York" OR "NYC" OR "Remote")
+    notes: "Covers expanded title categories from skill cluster analysis. Run alongside the primary/expanded searches."
+
+  - name: "LinkedIn Search (manual)"
+    platform: "LinkedIn Jobs"
+    filters:
+      location: "New York City Metropolitan Area"
+      experience_level: ["Mid-Senior level", "Associate"]
+      date_posted: "Past week"
+      remote: ["On-site", "Hybrid", "Remote"]
+      easy_apply: true
+    titles_to_search:
+      - "Analytics Engineer"
+      - "Data Engineer"
+      - "Solutions Engineer"
+      - "Solutions Architect"
+      - "Implementation Engineer"
+      - "Data Platform Engineer"
+      - "Integration Engineer"
+      - "Technical Program Manager"
+
+# ---------------------------------------------------------------------------
+# Recommended job titles to search for, based on candidate experience
+# ---------------------------------------------------------------------------
+# ---------------------------------------------------------------------------
+# Recommended job titles — organized by transferable skill cluster
+# See career-strategy.yaml for full skill-to-role mapping
+# ---------------------------------------------------------------------------
+recommended_titles:
+
+  data_infrastructure:
+    description: "Pipeline, warehouse, and data platform roles"
+    titles:
+      - "Data Engineer"
+      - "Analytics Engineer"
+      - "dbt Analytics Engineer"
+      - "DataOps Engineer"
+      - "Data Platform Engineer"
+      - "ELT/ETL Developer"
+
+  data_quality_governance:
+    description: "Quality, governance, and data operations roles"
+    titles:
+      - "Data Quality Engineer"
+      - "Data Governance Manager"
+      - "Data Operations Manager"
+
+  client_facing_technical:
+    description: "Roles combining technical depth with customer/stakeholder interaction"
+    titles:
+      - "Solutions Engineer"
+      - "Implementation Engineer"
+      - "Integration Engineer"
+      - "Customer Engineer"
+      - "Technical Account Manager"
+      - "Partner Engineer"
+      - "Sales Engineer"
+      - "Onboarding Engineer"
+      - "Customer Success Engineer"
+      - "Technical Solutions Consultant"
+
+  revops_crm:
+    description: "Revenue operations, CRM, and business systems roles"
+    titles:
+      - "Revenue Operations Engineer"
+      - "Business Systems Engineer"
+      - "Salesforce Data Engineer"
+      - "Marketing Operations Engineer"
+
+  bi_reporting:
+    description: "BI, reporting, and dashboard roles"
+    titles:
+      - "BI Engineer"
+      - "BI Developer"
+      - "Reporting Engineer"
+
+  leadership_strategy:
+    description: "Management, architecture, and program roles"
+    titles:
+      - "Technical Program Manager"
+      - "Solutions Architect"
+      - "Data Operations Lead"
+      - "Engineering Manager, Data"
+
+  devrel_enablement:
+    description: "Documentation, advocacy, and enablement roles"
+    titles:
+      - "Developer Advocate"
+      - "Technical Writer"
+      - "Enablement Engineer"
+
+  deprioritize:
+    description: "Weak transferable skill overlap or 6+ months of ramp needed"
+    titles:
+      - "ML Engineer / Data Scientist"
+      - "Backend Engineer / Full Stack Engineer"
+      - "DevOps / SRE / Cloud Architect"
+      - "Security Engineer"
+      - "Platform-specific certification roles (Databricks SA, Snowflake SA)"
+
+# ---------------------------------------------------------------------------
+# ATS platforms to monitor
+# ---------------------------------------------------------------------------
+ats_platforms:
+
+  actively_searched:
+    - name: "Greenhouse"
+      site: "boards.greenhouse.io"
+    - name: "Ashby"
+      site: "jobs.ashbyhq.com"
+    - name: "Lever"
+      site: "jobs.lever.co"
+    - name: "Workday"
+      site: "myworkdayjobs.com"
+    - name: "Rippling"
+      site: "ats.rippling.com"
+
+  consider_adding:
+    - name: "SmartRecruiters"
+      site: "jobs.smartrecruiters.com"
+      reason: "Used by many mid-market SaaS companies"
+    - name: "Workable"
+      site: "apply.workable.com"
+      reason: "Popular with startups"
+    - name: "BambooHR"
+      site: "*.bamboohr.com"
+      reason: "Common in SMB space"
+    - name: "iCIMS"
+      site: "careers-*.icims.com"
+      reason: "Enterprise companies"
+    - name: "Jobvite"
+      site: "jobs.jobvite.com"
+      reason: "Mid-market tech companies"
+
+# ---------------------------------------------------------------------------
+# Additional job board platforms (not ATS-based, search directly)
+# ---------------------------------------------------------------------------
+direct_job_boards:
+  - name: "LinkedIn Jobs"
+    url: "https://www.linkedin.com/jobs/"
+    priority: high
+  - name: "Built In NYC"
+    url: "https://www.builtinnyc.com/jobs"
+    priority: high
+    notes: "NYC tech-specific board, strong for SaaS/startup roles"
+  - name: "AngelList / Wellfound"
+    url: "https://wellfound.com/jobs"
+    priority: medium
+    notes: "Startup-focused"
+  - name: "Otta"
+    url: "https://otta.com/"
+    priority: medium
+    notes: "Curated tech roles, strong in NYC"
+  - name: "Hacker News (Who's Hiring)"
+    url: "https://news.ycombinator.com/item?id=whoishiring"
+    priority: low
+    notes: "Monthly thread, high-quality companies"
+
+# ---------------------------------------------------------------------------
+# Contract / Gig Platforms (see career-strategy.yaml for full details)
+# ---------------------------------------------------------------------------
+contract_platforms:
+  premium:
+    - name: "Toptal"
+      url: "https://www.toptal.com"
+      cadence: "Every 2-3 days"
+    - name: "A.Team"
+      url: "https://www.a.team"
+      cadence: "Every 2-3 days"
+    - name: "Lemon.io"
+      url: "https://lemon.io"
+      cadence: "Weekly"
+  general:
+    - name: "Upwork (Pro / Expert-Vetted)"
+      url: "https://www.upwork.com"
+      cadence: "Weekly"
+  mission_driven:
+    - name: "Taproot Foundation"
+      url: "https://www.taproot.org"
+      cadence: "Monthly"
+    - name: "Catchafire"
+      url: "https://www.catchafire.org"
+      cadence: "Monthly"
+    - name: "DataKind"
+      url: "https://www.datakind.org"
+      cadence: "Monthly"
+
+# ---------------------------------------------------------------------------
+# Search cadence
+# ---------------------------------------------------------------------------
+cadence:
+  google_ats_search: "Every 2-3 days"
+  linkedin: "Daily"
+  built_in_nyc: "Weekly"
+  wellfound: "Weekly"
+  hn_who_is_hiring: "Monthly (1st of each month)"
+  contract_platforms: "See contract_platforms section above for per-platform cadence"

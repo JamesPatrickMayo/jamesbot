@@ -1,0 +1,30 @@
+Solutions Architect, Retail - CPG
+Company: Databricks
+Location: New York, NY (or Remote)
+Salary: Not listed (Databricks range typically $180k+)
+Industry: Data & AI Platform
+Seniority: Mid-Senior level
+
+---
+
+Pre-sales SA for large Retail and CPG enterprise accounts. You'll define and direct technical strategy for the largest accounts, leading to wider adoption of ML & AI.
+
+RESPONSIBILITIES:
+- Work with 1-5 clients as main technical voice for Databricks
+- Lead customers on transformational data journey
+- Implement technical strategy in close understanding of account strategy
+- Build movement of technical champions within accounts
+- Align technical strategies around Databricks solutions
+- Provide structured mentorship for team members
+
+REQUIREMENTS:
+- 5+ years working with >$1M ARR accounts in Retail & CPG space
+- 3+ years working in pre-sales capacity
+- 3+ years design/implementation in big data technologies (Hadoop, NoSQL, MPP, OLTP, OLAP) or full lifecycle data science
+- Production programming in Python, R, Scala, or Java
+- Maintain and extend production data systems
+- Technical in big data, data science, and cloud
+- Ability to drive data-driven business transformation
+
+NICE-TO-HAVE:
+- Databricks Certification

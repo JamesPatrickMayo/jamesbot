@@ -1,0 +1,160 @@
+# ============================================================================
+# FIT EVALUATION STRUCTURE
+# Reusable schema for consistent job fit evaluations across all applications.
+# ============================================================================
+
+sections:
+
+  - name: "Job Analysis"
+    description: >
+      Extract and summarize the key elements of the job description.
+    fields:
+      - name: "Company"
+        description: "Company name, industry, size, stage"
+      - name: "Title"
+        description: "Exact job title"
+      - name: "Seniority Level"
+        description: "Junior / Mid / Senior / Staff / Lead / Principal"
+      - name: "Location & Work Model"
+        description: "Remote, hybrid, or on-site; location requirements"
+      - name: "Salary Range"
+        description: "If posted"
+      - name: "Core Function"
+        description: "What this role fundamentally does day-to-day"
+      - name: "Required Skills"
+        description: "Hard requirements — must-haves from the JD"
+      - name: "Preferred Skills"
+        description: "Nice-to-haves and bonus qualifications"
+      - name: "Soft Skill Signals"
+        description: "Communication, leadership, culture signals from JD language"
+      - name: "Domain Context"
+        description: "Industry-specific knowledge expected (e.g., fintech, healthcare, HR)"
+      - name: "Key Keywords"
+        description: "Terms that should appear in a tailored resume"
+
+  - name: "Skill Match Matrix"
+    description: >
+      For each job requirement (required + preferred), map to the candidate's
+      taxonomy entry. Rate each as: STRONG MATCH / PARTIAL MATCH / GAP.
+      Include the candidate's proficiency level and specific evidence.
+    fields:
+      - name: "Requirement"
+        description: "The specific skill or qualification from the JD"
+      - name: "Match Rating"
+        description: "STRONG MATCH / PARTIAL MATCH / GAP"
+      - name: "Candidate Skill"
+        description: "Matching taxonomy entry (or 'None')"
+      - name: "Proficiency"
+        description: "expert / advanced / intermediate / foundational / none"
+      - name: "Evidence"
+        description: "Specific role, project, or metric demonstrating this skill"
+
+  - name: "Experience Relevance"
+    description: >
+      Score each of the candidate's roles for relevance to this specific job.
+      Rate: HIGH / MEDIUM / LOW with reasoning.
+    fields:
+      - name: "Role"
+        description: "Job title @ Company"
+      - name: "Relevance"
+        description: "HIGH / MEDIUM / LOW"
+      - name: "Reasoning"
+        description: "Why this role is or isn't relevant"
+      - name: "Best Bullets"
+        description: "Which responsibilities from this role best match the target JD"
+
+  - name: "LinkedIn Verification"
+    description: >
+      Cross-reference the job on LinkedIn to verify recency and competition level.
+      These metrics adjust the overall confidence score.
+    fields:
+      - name: "LinkedIn URL"
+        description: "Direct LinkedIn listing URL (if found)"
+      - name: "Posting Age"
+        description: "<24h / 1-7 days / 1-2 weeks / 2-4 weeks / 1+ months / Expired"
+      - name: "Applicant Count"
+        description: "Number of LinkedIn applicants (or estimate if not available)"
+      - name: "Source"
+        description: "Where the data came from (LinkedIn direct, Jobright, BuiltIn, etc.)"
+
+  - name: "Overall Fit Score"
+    description: >
+      A composite score from 1-10 with breakdown by category, plus
+      competition-adjusted score factoring in posting recency and applicant volume.
+    fields:
+      - name: "Technical Skills Fit"
+        description: "1-10 — how well do hard skills match?"
+      - name: "Domain Experience Fit"
+        description: "1-10 — does the candidate know this industry/vertical?"
+      - name: "Soft Skills & Culture Fit"
+        description: "1-10 — communication, collaboration, work style alignment"
+      - name: "Seniority Fit"
+        description: "1-10 — is the candidate at the right level?"
+      - name: "Overall Fit Score"
+        description: "1-10 weighted composite (skills/domain/culture/seniority only)"
+      - name: "Recency Modifier"
+        description: >
+          Adjustment based on posting age:
+          <24h: +0.5 | 1-7 days: +0.25 | 1-2 weeks: 0 | 2-4 weeks: -0.25 | 1+ months: -0.5
+      - name: "Competition Modifier"
+        description: >
+          Adjustment based on applicant volume:
+          <25: +0.25 | 25-100: 0 | 100-200: -0.25 | 200+: -0.5
+      - name: "Competition-Adjusted Score"
+        description: "Overall Fit Score + Recency Modifier + Competition Modifier"
+      - name: "Interview Success Probability"
+        description: "Estimated % chance of getting past phone screen / technical"
+
+  - name: "Gap Analysis"
+    description: >
+      Specific skills or experiences the job requires that the candidate lacks
+      or is weak in. For each gap, provide a mitigation strategy.
+    fields:
+      - name: "Gap"
+        description: "The missing skill or experience"
+      - name: "Severity"
+        description: "CRITICAL / MODERATE / MINOR"
+      - name: "Mitigation"
+        description: "How to address: reframe existing experience, learn quickly, address in cover letter, or accept the gap"
+
+  - name: "Positioning Strategy"
+    description: >
+      How to frame the candidate's existing experience to best match this role.
+      Include which narrative thread to lead with, which roles to emphasize,
+      and which skills to highlight vs. de-emphasize.
+    fields:
+      - name: "Lead Narrative"
+        description: "The 1-sentence story to tell in the summary"
+      - name: "Roles to Emphasize"
+        description: "Which experience entries get the most space"
+      - name: "Skills to Highlight"
+        description: "Top 5-8 skills to feature prominently"
+      - name: "Skills to De-emphasize"
+        description: "Skills that are irrelevant or could distract"
+      - name: "Reframing Suggestions"
+        description: "How to reword existing bullets to match JD language"
+
+  - name: "Red Flags"
+    description: >
+      Anything in the JD or role that signals potential misfit, unrealistic
+      expectations, or concerns. Also flag any candidate weaknesses that
+      could surface in interviews.
+    fields:
+      - name: "JD Red Flags"
+        description: "Concerning signals in the job description itself"
+      - name: "Candidate Red Flags"
+        description: "Weaknesses likely to surface in interviews for this specific role"
+
+  - name: "Application Recommendation"
+    description: >
+      Final recommendation: APPLY / APPLY WITH CAVEATS / SKIP.
+      Include reasoning and next steps.
+    fields:
+      - name: "Recommendation"
+        description: "APPLY / APPLY WITH CAVEATS / SKIP"
+      - name: "Reasoning"
+        description: "Why this recommendation"
+      - name: "If Applying"
+        description: "Key things to do: cover letter focus, prep topics, networking"
+      - name: "If Skipping"
+        description: "What would need to change to make this viable"

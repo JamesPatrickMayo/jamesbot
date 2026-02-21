@@ -1,0 +1,76 @@
+# Role Structure: Data Engineer
+# Used when targeting Data Engineer, Senior Data Engineer, Staff Data Engineer roles
+
+role_name: "Data Engineer"
+role_variants:
+  - "Data Engineer"
+  - "Senior Data Engineer"
+  - "Staff Data Engineer"
+  - "Data Engineer II"
+  - "Data Engineer III"
+
+summary_focus:
+  identity: "Senior Data Engineer"
+  emphasis:
+    - Pipeline design and scalability
+    - Data warehousing and modeling
+    - ELT/ETL architecture
+    - Data quality and reliability
+  tone: "Builder and systems thinker"
+
+section_order:
+  - header
+  - summary
+  - technical_skills
+  - experience
+  - projects
+  - education
+
+skill_category_priority:
+  - "Data Engineering & Warehousing"
+  - "Languages"
+  - "Cloud & Infrastructure"
+  - "Databases"
+  - "Analytics & ML Support"
+  - "Engineering Practices"
+
+experience_bullet_emphasis:
+  high_priority_themes:
+    - Pipeline design and implementation
+    - Data modeling (dimensional, Medallion)
+    - dbt development at scale
+    - Data quality automation
+    - Schema design and optimization
+    - Orchestration and scheduling
+  medium_priority_themes:
+    - CI/CD for data pipelines
+    - Cross-functional collaboration
+    - Documentation and governance
+  low_priority_themes:
+    - AI tooling usage
+    - BI migration
+    - Volunteer work
+
+keyword_targets:
+  must_include:
+    - SQL
+    - Python
+    - dbt
+    - Snowflake
+    - ELT
+    - data modeling
+    - data warehouse
+    - pipeline
+  should_include:
+    - Airflow
+    - AWS
+    - data quality
+    - CI/CD
+    - Git
+    - Medallion
+  nice_to_have:
+    - Kafka
+    - Spark
+    - streaming
+    - Kubernetes
+    - Terraform

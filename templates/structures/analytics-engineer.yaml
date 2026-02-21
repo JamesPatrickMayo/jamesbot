@@ -1,0 +1,73 @@
+# Role Structure: Analytics Engineer
+# Used when targeting Analytics Engineer, Senior Analytics Engineer roles
+
+role_name: "Analytics Engineer"
+role_variants:
+  - "Analytics Engineer"
+  - "Senior Analytics Engineer"
+  - "Lead Analytics Engineer"
+  - "Analytics Engineer II"
+
+summary_focus:
+  identity: "Analytics Engineer"
+  emphasis:
+    - dbt-based transformation and modeling
+    - Semantic layer and metric definitions
+    - Data quality and testing at scale
+    - Stakeholder-facing data delivery
+  tone: "Bridge between data engineering and business intelligence"
+
+section_order:
+  - header
+  - summary
+  - technical_skills
+  - experience
+  - projects
+  - education
+
+skill_category_priority:
+  - "Data Engineering & Warehousing"
+  - "Languages"
+  - "Analytics & ML Support"
+  - "Databases"
+  - "Cloud & Infrastructure"
+  - "Engineering Practices"
+
+experience_bullet_emphasis:
+  high_priority_themes:
+    - dbt model development and testing
+    - Data modeling (dimensional, semantic layer)
+    - Data quality frameworks
+    - Metric definition and KPI monitoring
+    - Stakeholder collaboration
+    - BI tooling and dashboard support
+  medium_priority_themes:
+    - Pipeline documentation and lineage
+    - CI/CD for analytics code
+    - Medallion architecture
+  low_priority_themes:
+    - Infrastructure (Lambda, EKS)
+    - Production incident response
+    - GDPR compliance
+
+keyword_targets:
+  must_include:
+    - SQL
+    - dbt
+    - data modeling
+    - Snowflake
+    - analytics
+    - data quality
+    - metrics
+  should_include:
+    - Python
+    - Looker
+    - semantic layer
+    - testing
+    - documentation
+    - stakeholder
+  nice_to_have:
+    - Airflow
+    - CI/CD
+    - AWS
+    - Git

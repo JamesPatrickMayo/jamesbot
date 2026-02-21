@@ -1,0 +1,685 @@
+# ============================================================================
+# SKILL TAXONOMY — James Mayo
+# Normalized table: skill → proficiency → evidence → applicable roles
+#
+# Proficiency Levels:
+#   expert       — Deep, daily production use. Could teach or architect with this.
+#   advanced     — Strong hands-on. Used extensively in production.
+#   intermediate — Solid working knowledge. Used in projects or supporting capacity.
+#   foundational — Conceptual understanding or limited hands-on. Academic or exposure.
+#
+# Evidence should reference specific roles, scale, or artifacts.
+# ============================================================================
+
+categories:
+
+  # --------------------------------------------------------------------------
+  # LANGUAGES
+  # --------------------------------------------------------------------------
+  - category: "Languages"
+    skills:
+      - skill: "SQL"
+        proficiency: "expert"
+        years: 7
+        evidence:
+          - "Primary language across all roles"
+          - "1,900+ dbt models at Success Academy"
+          - "Complex analytical queries, window functions, CTEs"
+          - "Data validation frameworks at QuotaPath"
+          - "Root cause analysis queries across Cassandra + PostgreSQL at Cision"
+          - "TB-scale dataset experience"
+          - "Query optimization achieving 2-5x performance improvements"
+        applicable_roles:
+          - data-engineer
+          - analytics-engineer
+          - solutions-engineer
+          - platform-architect
+
+      - skill: "Python"
+        proficiency: "advanced"  # UPGRADED: Dask/Pandas at scale, Jupyter Notebooks, production transforms
+        years: 4
+        evidence:
+          - "Built Python-based custom transformation pipelines at QuotaPath using Dask/Pandas, reducing runtimes from hours to minutes"
+          - "Standardized Jupyter Notebooks for safely testing new Python transform files against production data"
+          - "Ran and maintained Jupyter Notebook scripts for data integrity at Cision/Trendkite"
+          - "Wrote Lambda test scripts at Success Academy"
+          - "Personal project automation"
+        applicable_roles:
+          - data-engineer
+          - analytics-engineer
+          - solutions-engineer
+          - platform-architect
+
+      - skill: "Java"
+        proficiency: "foundational"
+        years: 1
+        evidence:
+          - "Academic coursework"
+        applicable_roles: []
+
+  # --------------------------------------------------------------------------
+  # DATA ENGINEERING & WAREHOUSING
+  # --------------------------------------------------------------------------
+  - category: "Data Engineering & Warehousing"
+    skills:
+      - skill: "dbt Cloud"
+        proficiency: "expert"
+        years: 3
+        evidence:
+          - "1,900+ production models at Success Academy"
+          - "Tests, macros, documentation at scale"
+          - "Modular Medallion-aligned models at QuotaPath"
+          - "Implemented QA checks and testing standards into dbt models alongside engineering team"
+          - "Primarily built-in macros; focused on testing/standards over custom macro development"
+          # TODO: How many production dbt jobs ran daily?
+        applicable_roles:
+          - data-engineer
+          - analytics-engineer
+          - solutions-engineer
+          - platform-architect
+
+      - skill: "Snowflake"
+        proficiency: "intermediate"  # Used existing warehouses, no admin/RBAC/cost optimization
+        years: 1
+        evidence:
+          - "Snowflake-backed warehousing at QuotaPath (~1 year)"
+          - "Queried and modeled within Snowflake via dbt"
+          - "Did not manage warehouse sizing, RBAC, or cost optimization"
+
+      - skill: "Redshift"
+        proficiency: "intermediate"
+        years: 2
+        evidence:
+          - "Redshift-backed analytical workloads at Success Academy (confirmed in multiple resumes)"
+          - "Part of the AWS data warehouse infrastructure"
+        applicable_roles:
+          - data-engineer
+          - analytics-engineer
+          - platform-architect
+
+      - skill: "Talend"
+        proficiency: "intermediate"
+        years: 2
+        evidence:
+          - "Talend-based ETL pipelines at Success Academy"
+          - "Led migration from Talend to dbt-driven transformation workflows"
+        applicable_roles:
+          - data-engineer
+          - platform-architect
+
+      - skill: "Matillion"
+        proficiency: "foundational"
+        years: 1
+        evidence:
+          - "Matillion used at Success Academy prior to migration"
+          - "Led migration from Matillion → Talend → dbt"
+        applicable_roles:
+          - data-engineer
+        applicable_roles:
+          - data-engineer
+          - analytics-engineer
+          - solutions-engineer
+          - platform-architect
+
+      - skill: "Medallion Architecture"
+        proficiency: "expert"
+        years: 3
+        evidence:
+          - "Architected Bronze/Silver/Gold layers at Success Academy"
+          - "Applied Medallion principles to dbt models at QuotaPath"
+        applicable_roles:
+          - data-engineer
+          - analytics-engineer
+          - platform-architect
+
+      - skill: "Data Modeling"
+        proficiency: "expert"
+        years: 5
+        evidence:
+          - "1,900+ dbt models (dimensional + staging + marts)"
+          - "SQL-first data models for personal analytics"
+          - "Structured data access layers at QuotaPath"
+          - "TB-scale dataset modeling"
+        applicable_roles:
+          - data-engineer
+          - analytics-engineer
+          - platform-architect
+
+      - skill: "ELT/ETL Design"
+        proficiency: "advanced"
+        years: 5
+        evidence:
+          - "Scalable ELT pipelines at QuotaPath"
+          - "Migrated customer workspaces from row-by-row SQL to Python-based transformations, significantly improving pipeline runtimes"
+          - "90+ ETL pipelines documented at Success Academy"
+          - "Ingestion pipelines at Cision"
+          - "Personal ETL pipeline projects"
+        applicable_roles:
+          - data-engineer
+          - solutions-engineer
+          - platform-architect
+
+      - skill: "Pipeline Orchestration"
+        proficiency: "intermediate"  # RE-UPGRADED: CircleCI/Prefect at QuotaPath is real orchestration tooling
+        years: 2
+        evidence:
+          - "CircleCI/Prefect orchestration workflows at QuotaPath"
+          - "Worked within Step Functions-based workflows at Success Academy (didn't author definitions)"
+          - "Airflow exposure at QuotaPath"
+          - "Jenkins CI jobs for data integrity at Cision/Trendkite"
+        applicable_roles:
+          - data-engineer
+          - platform-architect
+
+      - skill: "Data Quality Automation"
+        proficiency: "advanced"
+        years: 3
+        evidence:
+          - "Freshness, validity, schema tests at Success Academy"
+          - "SQL-based validation frameworks at QuotaPath"
+          - "dbt test suites at scale"
+          - "Designed and implemented QA standards across dbt models with engineering team"
+          - "Source freshness monitoring conceptualized and scoped (not fully deployed)"
+        applicable_roles:
+          - data-engineer
+          - analytics-engineer
+          - platform-architect
+
+      - skill: "Metadata Management"
+        proficiency: "advanced"
+        years: 3
+        evidence:
+          - "Documented lineage for 90+ ETL pipelines"
+          - "dbt documentation at scale"
+          - "Transformation specifications at QuotaPath"
+        applicable_roles:
+          - data-engineer
+          - analytics-engineer
+          - platform-architect
+
+      - skill: "Semantic Layer Design"
+        proficiency: "foundational"  # ADJUSTED: no confirmed dbt semantic layer or BI metric definitions
+        years: 1
+        evidence:
+          - "Designed structured data access layers at QuotaPath (conceptual, not dbt Semantic Layer feature)"
+        applicable_roles:
+          - analytics-engineer
+          - platform-architect
+
+  # --------------------------------------------------------------------------
+  # CLOUD & INFRASTRUCTURE
+  # --------------------------------------------------------------------------
+  - category: "Cloud & Infrastructure"
+    skills:
+      - skill: "AWS Lambda"
+        proficiency: "intermediate"
+        years: 2
+        evidence:
+          - "Translated QA requirements, data requirements, and business logic into Lambda specifications for engineering team"
+          - "Tested Lambda functions with custom test scripts"
+          - "Supported Lambda-based ingestion at Success Academy"
+        applicable_roles:
+          - data-engineer
+          - platform-architect
+
+      - skill: "AWS Step Functions"
+        proficiency: "foundational"  # ADJUSTED: reviewed/understood definitions, didn't write them
+        years: 2
+        evidence:
+          - "Worked within Step Functions-based orchestration at Success Academy"
+          - "Reviewed and understood state machine definitions; did not author them"
+        applicable_roles:
+          - data-engineer
+          - platform-architect
+
+      - skill: "AWS RDS"
+        proficiency: "foundational"  # ADJUSTED: used RDS-backed systems, didn't configure/manage instances
+        years: 2
+        evidence:
+          - "Queried and validated data in RDS-backed systems at Success Academy"
+          - "Did not configure instances, manage backups, or handle scaling"
+        applicable_roles:
+          - data-engineer
+          - platform-architect
+
+      - skill: "AWS EKS"
+        proficiency: "foundational"
+        years: 1
+        evidence:
+          - "EKS environment at Success Academy"
+          # TODO: Did you interact with EKS clusters operationally?
+        applicable_roles:
+          - platform-architect
+
+      - skill: "GitHub Actions (CI/CD)"
+        proficiency: "advanced"
+        years: 2
+        evidence:
+          - "Implemented CI/CD pipelines at QuotaPath"
+          - "Enforced version control and automated testing"
+          - "70-90% of code deployments automated via CI/CD"
+          # TODO: Did you reduce production errors after CI/CD adoption? Quantify.
+        applicable_roles:
+          - data-engineer
+          - analytics-engineer
+          - solutions-engineer
+          - platform-architect
+
+      - skill: "Git / Version Control"
+        proficiency: "advanced"
+        years: 5
+        evidence:
+          - "Used across all roles"
+          - "PR review processes"
+          - "Branch strategy management"
+        applicable_roles:
+          - data-engineer
+          - analytics-engineer
+          - solutions-engineer
+          - platform-architect
+
+      - skill: "Airflow"
+        proficiency: "foundational"
+        years: 1
+        evidence:
+          - "Workflow exposure at QuotaPath"
+        applicable_roles:
+          - data-engineer
+          - platform-architect
+
+      - skill: "BigQuery / Google Cloud"
+        proficiency: "intermediate"
+        years: 1
+        evidence:
+          - "Used BigQuery and Google Cloud CLI at QuotaPath"
+        applicable_roles:
+          - data-engineer
+          - analytics-engineer
+          - solutions-engineer
+
+      - skill: "Airbyte"
+        proficiency: "intermediate"
+        years: 1
+        evidence:
+          - "Data integration tooling at QuotaPath"
+        applicable_roles:
+          - data-engineer
+          - solutions-engineer
+
+      - skill: "CircleCI / Prefect"
+        proficiency: "intermediate"
+        years: 1
+        evidence:
+          - "CI/CD and orchestration workflows at QuotaPath"
+        applicable_roles:
+          - data-engineer
+          - solutions-engineer
+          - platform-architect
+
+      - skill: "Jenkins"
+        proficiency: "intermediate"
+        years: 2
+        evidence:
+          - "Ran and maintained Jenkins jobs for data integrity at Cision/Trendkite"
+        applicable_roles:
+          - data-engineer
+
+      - skill: "Zapier"
+        proficiency: "intermediate"
+        years: 1
+        evidence:
+          - "Workflow automation at QuotaPath"
+        applicable_roles:
+          - solutions-engineer
+
+      - skill: "ReTool"
+        proficiency: "foundational"
+        years: 1
+        evidence:
+          - "Low/no-code platform usage at QuotaPath (listed in Feb 2026 resume)"
+        applicable_roles:
+          - solutions-engineer
+
+      - skill: "REST APIs"
+        proficiency: "intermediate"
+        years: 3
+        evidence:
+          - "REST API-based integrations at QuotaPath (confirmed in full portfolio)"
+          - "Salesforce and dbt API usage at Success Academy"
+        applicable_roles:
+          - data-engineer
+          - solutions-engineer
+
+      - skill: "Zendesk"
+        proficiency: "intermediate"
+        years: 2
+        evidence:
+          - "Internal triage service at Cision — escalations from Customer Success and Sales"
+        applicable_roles:
+          - solutions-engineer
+
+      - skill: "Jira / Confluence"
+        proficiency: "advanced"
+        years: 5
+        evidence:
+          - "Jira for task delegation, bug tracking, sprint planning across all roles"
+          - "Confluence for governance documentation, knowledge articles, data lineage"
+          - "Jira + Slack integrations for 300+ bug investigations at Cision"
+        applicable_roles:
+          - data-engineer
+          - analytics-engineer
+          - solutions-engineer
+          - platform-architect
+
+  # --------------------------------------------------------------------------
+  # DATABASES
+  # --------------------------------------------------------------------------
+  - category: "Databases"
+    skills:
+      - skill: "PostgreSQL"
+        proficiency: "advanced"
+        years: 4
+        evidence:
+          - "RDS-backed systems at Success Academy"
+          - "Direct querying at Cision"
+          - "Complex analytical queries"
+        applicable_roles:
+          - data-engineer
+          - analytics-engineer
+          - solutions-engineer
+
+      - skill: "Cassandra"
+        proficiency: "intermediate"
+        years: 2
+        evidence:
+          - "Queried Cassandra-based systems at Cision"
+          - "Production data investigation"
+        applicable_roles:
+          - data-engineer
+
+      - skill: "ElasticSearch"
+        proficiency: "intermediate"  # AUDIT NOTE: only 1 evidence bullet — needs clarification on depth of use
+        years: 2
+        evidence:
+          - "Used in distributed ingestion systems at Cision"
+          # TODO: Was this querying ES, configuring indices, or just part of the stack?
+        applicable_roles:
+          - data-engineer
+
+  # --------------------------------------------------------------------------
+  # DATA TOOLS & LIBRARIES
+  # --------------------------------------------------------------------------
+  - category: "Data Tools & Libraries"
+    skills:
+      - skill: "Pandas / Dask"
+        proficiency: "intermediate"
+        years: 2
+        evidence:
+          - "Python/Dask/Pandas for production data transformations at QuotaPath"
+          - "Reduced pipeline runtimes from hours to minutes using Dask for parallel processing"
+        applicable_roles:
+          - data-engineer
+          - analytics-engineer
+
+      - skill: "Jupyter Notebooks"
+        proficiency: "advanced"
+        years: 3
+        evidence:
+          - "Standardized Jupyter Notebooks for safely testing Python transforms against production data at QuotaPath"
+          - "Data integrity scripts via Jupyter at Cision/Trendkite"
+        applicable_roles:
+          - data-engineer
+          - analytics-engineer
+
+      - skill: "DBeaver"
+        proficiency: "advanced"
+        years: 3
+        evidence:
+          - "Primary database client at QuotaPath"
+        applicable_roles:
+          - data-engineer
+          - analytics-engineer
+          - solutions-engineer
+
+      - skill: "Power Query"
+        proficiency: "intermediate"
+        years: 1
+        evidence:
+          - "Built Power Query solutions for customer integrations at QuotaPath (e.g., Nippon)"
+        applicable_roles:
+          - solutions-engineer
+          - analytics-engineer
+
+      - skill: "CRM Integration (Salesforce, HubSpot)"
+        proficiency: "advanced"
+        years: 4
+        evidence:
+          - "Integrated CRM and financial system data into Snowflake at QuotaPath"
+          - "Salesforce Family Application Process integration at Success Academy"
+          - "CRM ingestion pipeline support at Cision"
+        applicable_roles:
+          - data-engineer
+          - solutions-engineer
+
+  # --------------------------------------------------------------------------
+  # BIG DATA
+  # --------------------------------------------------------------------------
+  - category: "Big Data"
+    skills:
+      - skill: "Hadoop"
+        proficiency: "foundational"
+        years: 1
+        evidence:
+          - "Academic / hands-on exposure"
+        applicable_roles:
+          - data-engineer
+
+      - skill: "Distributed Storage Systems"
+        proficiency: "foundational"
+        years: 1
+        evidence:
+          - "Conceptual understanding from Cision distributed systems"
+        applicable_roles:
+          - data-engineer
+          - platform-architect
+
+      - skill: "Real-time Streaming"
+        proficiency: "foundational"  # AUDIT NOTE: no production experience — listing may invite questions with no backing
+        years: 0
+        evidence:
+          - "Architectural exposure and ingestion design discussions only"
+          - "No production hands-on with Kafka, Kinesis, or similar"
+        applicable_roles:
+          - data-engineer
+          - platform-architect
+
+  # --------------------------------------------------------------------------
+  # ANALYTICS & ML SUPPORT
+  # --------------------------------------------------------------------------
+  - category: "Analytics & ML Support"
+    skills:
+      - skill: "Experiment Design Collaboration"
+        proficiency: "foundational"  # ADJUSTED: never confirmed A/B testing or metric definition for experiments
+        years: 1
+        evidence:
+          - "General awareness of experiment design practices"
+          - "No confirmed A/B testing collaboration or experiment metric definition"
+        applicable_roles:
+          - analytics-engineer
+          - data-engineer
+
+      - skill: "ML Dataset Preparation"
+        proficiency: "foundational"  # ADJUSTED: "data access layers" is likely SQL views; feature tables never confirmed
+        years: 1
+        evidence:
+          - "Designed structured data access layers that could support ML workflows at QuotaPath"
+          - "No confirmed feature table construction or direct ML pipeline integration"
+        applicable_roles:
+          - data-engineer
+          - analytics-engineer
+
+      - skill: "KPI Monitoring / Metric Definitions"
+        proficiency: "intermediate"
+        years: 2
+        evidence:
+          - "Dashboard support and dependency analysis at Success Academy"
+          - "Metric improvement work"
+        applicable_roles:
+          - analytics-engineer
+
+      - skill: "BI Tooling (Looker, Sisense, Power BI)"
+        proficiency: "advanced"  # UPGRADED: led migration, managed 150+ dashboards, 2 BI tools
+        years: 3
+        evidence:
+          - "Created and led the Looker migration and net-new QA process from scratch at Success Academy"
+          - "Maintained 150+ dashboards across 2 BI tools at Success Academy"
+          - "Dependency analysis for downstream dashboards"
+          - "Led client dashboard rebuild at Cision (advocated for new approach)"
+          - "Power BI exposure (listed in multiple resumes)"
+        applicable_roles:
+          - analytics-engineer
+
+  # --------------------------------------------------------------------------
+  # ENGINEERING PRACTICES
+  # --------------------------------------------------------------------------
+  - category: "Engineering Practices"
+    skills:
+      - skill: "CI/CD Pipelines"
+        proficiency: "advanced"
+        years: 4
+        evidence:
+          - "GitHub Actions at QuotaPath (70-90% deployment automation)"
+          - "CircleCI/Prefect workflows at QuotaPath"
+          - "Jenkins CI jobs for data integrity at Cision/Trendkite"
+          - "Automated testing enforcement"
+        applicable_roles:
+          - data-engineer
+          - analytics-engineer
+          - solutions-engineer
+          - platform-architect
+
+      - skill: "Architecture & Design Reviews"
+        proficiency: "advanced"
+        years: 3
+        evidence:
+          - "Led multiple architecture discussions and reviews"
+          - "Design reviews for integration patterns at QuotaPath"
+          - "Influenced Medallion layer design, dbt project structure, BI migration approach, and data quality framework at Success Academy"
+        applicable_roles:
+          - platform-architect
+          - data-engineer
+
+      - skill: "Documentation & Runbooks"
+        proficiency: "expert"
+        years: 5
+        evidence:
+          - "Engineering docs and runbooks at QuotaPath"
+          - "Transformation specifications"
+          - "Confluence governance documentation at Cision"
+          - "dbt documentation at Success Academy"
+        applicable_roles:
+          - data-engineer
+          - analytics-engineer
+          - solutions-engineer
+          - platform-architect
+
+      - skill: "Agile Development"
+        proficiency: "intermediate"  # ADJUSTED: generic evidence; no confirmed scrum ownership or process leadership
+        years: 5
+        evidence:
+          - "Worked in Agile environments across all roles"
+          - "Participated in sprints, standups, retrospectives"
+          - "No confirmed scrum master, sprint ownership, or Agile process leadership"
+        applicable_roles:
+          - data-engineer
+          - analytics-engineer
+          - solutions-engineer
+          - platform-architect
+
+      - skill: "Data Governance / GDPR Compliance"
+        proficiency: "intermediate"
+        years: 3
+        evidence:
+          - "GDPR compliance across ingestion flows at Cision"
+          - "Governance documentation"
+        applicable_roles:
+          - data-engineer
+          - platform-architect
+
+  # --------------------------------------------------------------------------
+  # AI-ASSISTED ENGINEERING
+  # --------------------------------------------------------------------------
+  - category: "AI-Assisted Engineering"
+    skills:
+      - skill: "AI-Assisted Development (Cursor, ChatGPT, Claude)"
+        proficiency: "advanced"
+        years: 2
+        evidence:
+          - "Accelerated modeling, documentation, workflow scaffolding at QuotaPath"
+          - "Schema generation experiments in personal projects"
+        applicable_roles:
+          - data-engineer
+          - analytics-engineer
+          - solutions-engineer
+          - platform-architect
+
+  # --------------------------------------------------------------------------
+  # SOFT SKILLS / LEADERSHIP
+  # --------------------------------------------------------------------------
+  - category: "Soft Skills & Leadership"
+    skills:
+      - skill: "Cross-Functional Collaboration"
+        proficiency: "advanced"
+        years: 5
+        evidence:
+          - "Collaborated with Engineering and Support at Cision"
+          - "Architecture reviews with multiple teams at QuotaPath"
+          - "Stakeholder support across enterprise domains at Success Academy"
+        applicable_roles:
+          - data-engineer
+          - analytics-engineer
+          - solutions-engineer
+          - platform-architect
+
+      - skill: "People Management & Mentorship"
+        proficiency: "advanced"
+        years: 4
+        evidence:
+          - "Managed 2 direct reports at Success Academy"
+          - "Onboarded 2 new hires + 2 contractors at Cision"
+          - "Facilitated 'Rubber Duck' debugging sessions at Success Academy"
+          - "Created best practices sheets and Analytics PR review process"
+          - "Led technical onboarding sessions for new team members"
+          - "Reviewed multiple pull requests per week across teams"
+          - "Facilitated team of 4 technicians at ECP"
+        applicable_roles:
+          - platform-architect
+          - data-engineer
+
+      - skill: "Client / Stakeholder Management"
+        proficiency: "advanced"
+        years: 5
+        evidence:
+          - "Translated 'client speak' into actionable technical implementation at Cision"
+          - "Assessed customer data fitness for automation at QuotaPath; compiled solution recommendations"
+          - "Successfully onboarded and retained complex customer integrations (>80% NRR/GRR/ARR at QuotaPath)"
+          - "Managed conflicting requests from multiple clients at Cision"
+          - "Walked customers through options from simple/temporary to robust/long-term refactoring"
+        applicable_roles:
+          - solutions-engineer
+          - platform-architect
+
+      - skill: "Technical Communication"
+        proficiency: "advanced"
+        years: 5
+        evidence:
+          - "Engineering documentation across all roles"
+          - "Runbooks and transformation specs"
+          - "Governance documentation"
+          - "Created best practices sheets and Analytics PR process at Success Academy"
+          - "AI templates for Notion wiki documentation at QuotaPath"
+        applicable_roles:
+          - data-engineer
+          - analytics-engineer
+          - solutions-engineer
+          - platform-architect

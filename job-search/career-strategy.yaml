@@ -1,0 +1,675 @@
+# ============================================================================
+# CAREER STRATEGY — James Mayo
+# Central decision-making document for job search, application targeting,
+# skill development, and contract/gig work.
+#
+# Sources:
+#   - Career Next Steps (Oct 2025)
+#   - Career Interest Evaluation (Self-Determination Theory, RIASEC, JD-R)
+#   - Application history (13 evaluated, 5 full apps generated)
+#   - Skill taxonomy and master portfolio
+#   - Search strategy and market signals
+#
+# Updated: 2026-02-20
+# ============================================================================
+
+
+# ============================================================================
+# 1. CAREER IDENTITY
+# ============================================================================
+career_identity:
+
+  core_narrative: >
+    Technical systems leader focused on scalable data infrastructure,
+    integration, and automation. Strongest at the intersection of data
+    engineering and solutions engineering: building pipelines, onboarding
+    complex integrations, and translating ambiguous requirements into
+    production systems.
+
+  key_differentiators:
+    - "Build-from-scratch credibility: stood up data quality, QA processes, and dbt environments from zero at two companies"
+    - "Client-facing technical depth: 300+ onboardings/year, scoping with prospects, translating requirements into pipelines"
+    - "dbt expert at scale: 1,900+ production models, testing standards, documentation"
+    - "ELT pipeline design across CRM, financial, and operational data sources"
+    - "AI-augmented workflow: Cursor, ChatGPT, Claude used daily for modeling, documentation, and scaffolding"
+
+  work_style_preferences:
+    # Sourced from Career Interest Evaluation
+    autonomy: "High. Needs documented constraints, not micromanagement. Dislikes autonomy as a substitute for resourcing."
+    learning: "Engaged when mastery is required, but expects funded/supported learning, not 'figure it out' culture."
+    hierarchy: "Comfortable with hierarchy when technical judgment is respected. Disengages when decisions override evidence."
+    pace: "Prefers slow improvement over constant urgency. Needs time allocated for system hardening."
+    ownership: "Prefers clear ownership boundaries. Disengages when ambiguity extends to ownership (who owns what)."
+    interruptions: "Works best with predictable interruption patterns. Can context-switch if domains are related."
+    sustainability: "Ambiguous success metrics and urgency without system improvement are burnout triggers."
+
+  interview_profile:
+    strengths:
+      - "Case studies and take-home assignments (can prepare, demonstrate real thinking)"
+      - "Technical discussion and architecture walkthroughs"
+      - "Client-facing scenarios and stakeholder communication questions"
+    weaknesses:
+      - "Leetcode-style live coding (feels like performing under artificial pressure)"
+    mitigation: >
+      Prioritize companies that use case studies, take-homes, or system design
+      interviews over pure algorithm grinding. When leetcode is unavoidable,
+      practice top 50 patterns in SQL and Python (not 500 problems).
+    compensation_approach: >
+      Confirm alignment with posted/shared ranges rather than anchoring to a
+      specific number. Negotiate after offer, not during screening.
+
+
+# ============================================================================
+# 2. DUAL-TRACK STRATEGY
+# ============================================================================
+dual_track:
+
+  # --------------------------------------------------------------------------
+  # TRACK A: Full-Time Employment
+  # --------------------------------------------------------------------------
+  track_a_fte:
+    priority: "Primary stability track"
+    description: >
+      Secure a full-time role at a company where the 'build from scratch'
+      narrative and cross-functional breadth are valued. Optimize for learning
+      environment, clear ownership, and mission alignment.
+
+    target_org_profile:
+      size: "50-500 employees (sweet spot based on application data)"
+      stage: "Series A through Series D / growth-stage"
+      rationale: >
+        100% of 7.5+ fit scores came from startups/growth-stage companies.
+        At this size, James's breadth (data eng + solutions eng + client-facing)
+        is an asset rather than a 'doesn't fit one box' liability.
+      exceptions: >
+        Established companies are worth evaluating if: (a) the role is on a
+        small, autonomous team within the larger org, or (b) the JD explicitly
+        values build-from-scratch experience over deep specialization.
+
+    domain_preferences:
+      tier_1:
+        - "Data infrastructure / modern data stack (dbt, Snowflake, BigQuery)"
+        - "API integration platforms"
+        - "SaaS RevOps / financial data"
+      tier_2:
+        - "Health tech (data engineering focus, not clinical)"
+        - "Education technology"
+        - "Developer tools"
+      tier_3_mission_driven:
+        - "Civic tech and government data"
+        - "Climate data and sustainability"
+        - "Nonprofit data infrastructure"
+        - "Open data / data-for-good organizations"
+      note: >
+        Mission-driven roles are actively sought, not just a nice-to-have.
+        Apply the same fit score threshold (7.5+) but weight mission alignment
+        as a tie-breaker between otherwise equivalent opportunities.
+
+    geographic_preferences:
+      - "New York City (on-site or hybrid)"
+      - "Remote (US-based)"
+
+    compensation: "Confirm alignment with range. Negotiate after offer."
+
+  # --------------------------------------------------------------------------
+  # TRACK B: Contract / Gig / Consulting
+  # --------------------------------------------------------------------------
+  track_b_contract:
+    priority: "Parallel track for income and skill-building"
+    description: >
+      Take on contract engagements that build portfolio evidence, fill taxonomy
+      gaps, and generate income while the FTE search runs. Each engagement
+      should add at least one concrete line to the portfolio.
+
+    acceptable_terms:
+      min_rate: "$60/hr"
+      preferred_rate: "$75/hr+"
+      min_duration: "1 month"
+      preferred_duration: "3-6 months"
+      max_concurrent: 1
+      note: "Would accept a 6-month contract at $60-75/hr."
+
+    high_value_engagement_types:
+      - type: "dbt consulting"
+        skill_value: "Reinforces expert claim. Adds client diversity to evidence."
+        where_to_find: ["Toptal", "A.Team", "Upwork Pro", "dbt community Slack #jobs"]
+      - type: "Data quality audit / remediation"
+        skill_value: "Directly maps to strongest differentiator."
+        where_to_find: ["Toptal", "Catalant", "direct outreach to startups"]
+      - type: "ELT pipeline design and build"
+        skill_value: "Core competency. Adds new tech stack exposure."
+        where_to_find: ["A.Team", "Upwork Pro", "Lemon.io"]
+      - type: "CRM data cleanup / integration"
+        skill_value: "Leverages Salesforce/HubSpot experience from QuotaPath."
+        where_to_find: ["Upwork", "Fiverr Pro", "direct nonprofit outreach"]
+      - type: "Analytics engineering for nonprofits"
+        skill_value: "Mission-driven. Portfolio case study material."
+        where_to_find: ["Taproot Foundation", "Catchafire", "DataKind", "Code for America"]
+
+    gap_filling_engagements:
+      - type: "Airflow/Dagster pipeline project"
+        gap_addressed: "Pipeline orchestration (currently foundational)"
+        target_outcome: "Upgrade to intermediate with production evidence"
+      - type: "Streaming / event-driven data project"
+        gap_addressed: "Real-time streaming (currently foundational, zero production)"
+        target_outcome: "Gain first production streaming evidence"
+
+    platforms:
+      premium:
+        - name: "Toptal"
+          url: "https://www.toptal.com"
+          notes: "Selective. Strong for data engineering and analytics contracts."
+        - name: "A.Team"
+          url: "https://www.a.team"
+          notes: "Curated missions with tech companies. Strong for data/infra."
+        - name: "Lemon.io"
+          url: "https://lemon.io"
+          notes: "Vetted developers. Good for Python/data engineering gigs."
+      general:
+        - name: "Upwork (Pro / Expert-Vetted)"
+          url: "https://www.upwork.com"
+          notes: "Large volume. Filter for Pro or Expert-Vetted tier only."
+        - name: "Catalant"
+          url: "https://www.catalant.com"
+          notes: "Business consulting marketplace. Good for data strategy engagements."
+      mission_driven:
+        - name: "Taproot Foundation"
+          url: "https://www.taproot.org"
+          notes: "Pro bono consulting for nonprofits. Portfolio material."
+        - name: "Catchafire"
+          url: "https://www.catchafire.org"
+          notes: "Skills-based volunteering. Shorter engagements."
+        - name: "DataKind"
+          url: "https://www.datakind.org"
+          notes: "Data science / engineering for social impact. Volunteer but high credibility."
+        - name: "Code for America"
+          url: "https://www.codeforamerica.org"
+          notes: "Civic tech. Some paid fellowships, some volunteer."
+
+
+# ============================================================================
+# 3. TARGET ROLE MATRIX
+# Derived from transferable skills in skill-taxonomy.yaml, NOT from past
+# application fit scores alone. The goal is to expand what's considered,
+# not reinforce a narrow sample.
+# ============================================================================
+target_roles:
+
+  # Skills are grouped into transferable clusters. Each cluster maps to
+  # multiple role titles, including ones James may not have applied to yet.
+
+  skill_clusters:
+
+    - cluster: "Data Infrastructure & Pipelines"
+      skills_used: ["SQL (expert)", "dbt (expert)", "ELT/ETL Design (advanced)", "Medallion Architecture (expert)", "Data Modeling (expert)", "Python (advanced)", "Pandas/Dask", "Redshift", "Snowflake", "BigQuery"]
+      maps_to_roles:
+        - title: "Data Engineer"
+          fte: true
+          contract: true
+          mission_driven: true
+          notes: "Core competency. Strongest at companies that need build-from-scratch or modernization."
+        - title: "Analytics Engineer"
+          fte: true
+          contract: true
+          mission_driven: true
+          notes: "1,900+ dbt models, Medallion architecture, BI migration experience."
+        - title: "dbt Developer / dbt Analytics Engineer"
+          fte: true
+          contract: true
+          mission_driven: false
+          notes: "Niche but growing. Expert-level dbt is rare and highly marketable."
+        - title: "DataOps Engineer"
+          fte: true
+          contract: true
+          mission_driven: false
+          notes: "Combines data pipelines with CI/CD and operational reliability. Newer title, less competition."
+        - title: "Data Platform Engineer"
+          fte: true
+          contract: false
+          notes: "Heavier infra focus. Position with dbt + CI/CD + data quality angle."
+        - title: "ELT/ETL Developer"
+          fte: true
+          contract: true
+          notes: "More common in mid-market companies. Direct skill match."
+
+    - cluster: "Data Quality & Governance"
+      skills_used: ["Data Quality Automation (advanced)", "Data Governance/GDPR (intermediate)", "Metadata Management (advanced)", "Documentation (expert)", "dbt testing"]
+      maps_to_roles:
+        - title: "Data Quality Engineer"
+          fte: true
+          contract: true
+          mission_driven: true
+          notes: "Strongest differentiator. Built QA from scratch at two companies. Few candidates have this depth."
+        - title: "Data Governance Manager"
+          fte: true
+          contract: true
+          mission_driven: true
+          notes: "GDPR experience at Cision + metadata management + documentation at scale."
+        - title: "Data Operations Manager"
+          fte: true
+          contract: false
+          mission_driven: true
+          notes: "Combines quality, process, and people management. Leverages SA team lead experience."
+        - title: "Head of Data Quality"
+          fte: true
+          contract: false
+          notes: "Stretch title but backed by unique build-from-scratch narrative."
+
+    - cluster: "Client-Facing Technical Delivery"
+      skills_used: ["Client/Stakeholder Management (advanced)", "CRM Integration (advanced)", "REST APIs (intermediate)", "Cross-Functional Collaboration (advanced)", "Technical Communication (advanced)"]
+      maps_to_roles:
+        - title: "Solutions Engineer"
+          fte: true
+          contract: true
+          mission_driven: false
+          notes: "300+ client onboardings/yr, scoping with prospects, translating requirements."
+        - title: "Implementation Engineer"
+          fte: true
+          contract: true
+          mission_driven: false
+          notes: "Directly maps to QuotaPath onboarding workflow."
+        - title: "Integration Engineer"
+          fte: true
+          contract: true
+          mission_driven: false
+          notes: "10+ platform integrations, CRM mapping, API pipelines."
+        - title: "Customer Engineer"
+          fte: true
+          contract: false
+          mission_driven: false
+          notes: "Google-style title. Combines technical depth with client relationship."
+        - title: "Technical Account Manager"
+          fte: true
+          contract: true
+          mission_driven: false
+          notes: "Emphasize NRR/GRR metrics, complex account retention, and solutions scoping."
+        - title: "Partner Engineer"
+          fte: true
+          contract: false
+          mission_driven: false
+          notes: "Newer title at API/platform companies. Cross-company integration work."
+        - title: "Sales Engineer / Pre-Sales Engineer"
+          fte: true
+          contract: true
+          mission_driven: false
+          notes: "Slightly different framing of Solutions Engineer. Same core skills."
+        - title: "Customer Success Engineer"
+          fte: true
+          contract: false
+          mission_driven: false
+          notes: "Post-sale technical support + relationship management. Leverages onboarding depth."
+        - title: "Technical Solutions Consultant"
+          fte: true
+          contract: true
+          mission_driven: true
+          notes: "Consulting framing. Good for contract track and nonprofit data work."
+        - title: "Onboarding Engineer"
+          fte: true
+          contract: true
+          mission_driven: false
+          notes: "Emerging title at SaaS companies. 300+ annual onboardings is a strong story."
+
+    - cluster: "Revenue Operations & CRM"
+      skills_used: ["CRM Integration (advanced)", "ELT/ETL Design (advanced)", "BI Tooling (advanced)", "Salesforce/HubSpot", "Data Validation", "Python automation"]
+      maps_to_roles:
+        - title: "Revenue Operations Engineer"
+          fte: true
+          contract: true
+          mission_driven: false
+          notes: "CRM + financial data + pipeline design. Directly maps to QuotaPath experience."
+        - title: "Marketing Operations Engineer / MarTech Engineer"
+          fte: true
+          contract: true
+          mission_driven: false
+          notes: "CRM data flows + automation. Growing demand. Transferable from RevOps."
+        - title: "Salesforce Data Engineer"
+          fte: true
+          contract: true
+          mission_driven: true
+          notes: "Niche but lucrative. CRM integration + data quality + SQL."
+        - title: "Business Systems Engineer"
+          fte: true
+          contract: true
+          mission_driven: false
+          notes: "Internal tooling + CRM + data integration. Common at mid-size SaaS."
+
+    - cluster: "BI, Reporting & Analytics"
+      skills_used: ["BI Tooling — Looker, Sisense, Power BI (advanced)", "SQL (expert)", "Data Modeling (expert)", "KPI Monitoring (intermediate)", "Stakeholder communication"]
+      maps_to_roles:
+        - title: "BI Engineer / BI Developer"
+          fte: true
+          contract: true
+          mission_driven: true
+          notes: "150+ dashboards, Sisense-to-Looker migration, dependency analysis."
+        - title: "Reporting Engineer"
+          fte: true
+          contract: true
+          mission_driven: true
+          notes: "Similar to BI Engineer with more emphasis on automated reporting."
+        - title: "Analytics Engineer"
+          notes: "Also listed under Data Infrastructure cluster — appears in both."
+
+    - cluster: "Technical Leadership & Program Management"
+      skills_used: ["People Management (advanced, 2 direct reports)", "Architecture Reviews (advanced)", "Agile (intermediate)", "Jira/Confluence (advanced)", "Cross-Functional Collaboration (advanced)", "Documentation (expert)"]
+      maps_to_roles:
+        - title: "Technical Program Manager"
+          fte: true
+          contract: true
+          mission_driven: true
+          notes: "Cross-functional delivery, stakeholder comms, project scoping. Position with data domain expertise."
+        - title: "Data Operations Lead"
+          fte: true
+          contract: false
+          mission_driven: true
+          notes: "People management + data quality + process. Combines technical and leadership."
+        - title: "Engineering Manager, Data"
+          fte: true
+          contract: false
+          notes: "2 direct reports + architecture influence + mentorship. Limited to one role so far."
+        - title: "Solutions Architect"
+          fte: true
+          contract: true
+          notes: "Requires domain-specific depth. Best when the domain is data/CRM/integration."
+
+    - cluster: "Documentation, Enablement & DevRel"
+      skills_used: ["Documentation (expert)", "Technical Communication (advanced)", "Mentorship (advanced)", "AI-Assisted Development (advanced)", "dbt expertise"]
+      maps_to_roles:
+        - title: "Developer Advocate / Developer Relations Engineer"
+          fte: true
+          contract: true
+          mission_driven: false
+          notes: "Technical writing + client-facing + deep product knowledge. Emerging fit for data tool companies (dbt Labs, Airbyte, Hightouch, etc.)."
+        - title: "Technical Writer (Data/Engineering)"
+          fte: true
+          contract: true
+          mission_driven: true
+          notes: "Expert-level documentation, runbooks, governance docs. Contract-friendly."
+        - title: "Enablement Engineer"
+          fte: true
+          contract: false
+          mission_driven: false
+          notes: "Internal training, onboarding, best practices. Leverages mentorship and PR review experience."
+
+  # Roles to deprioritize (not avoid entirely — evaluate case-by-case)
+  deprioritize:
+    description: >
+      These titles have weak transferable skill overlap or require deep
+      specialization that would take 6+ months to develop. Evaluate
+      individual JDs rather than blanket-skipping.
+    titles:
+      - title: "ML Engineer / Data Scientist"
+        reason: "No ML production experience. Foundational-only in experiment design."
+      - title: "Backend Engineer / Full Stack Engineer"
+        reason: "No TypeScript/Node.js/Go. Python is data-focused, not web-framework-focused."
+      - title: "DevOps / SRE / Cloud Architect"
+        reason: "AWS experience is intermediate at best. No Terraform, Kubernetes authoring, or infra-as-code."
+      - title: "Security Engineer"
+        reason: "No security domain experience."
+      - title: "Platform-specific certification roles"
+        reason: "E.g. Databricks SA, Snowflake SA — require deep single-vendor expertise."
+
+
+# ============================================================================
+# 4. LINKEDIN OPTIMIZATION
+# ============================================================================
+linkedin:
+
+  open_to_work_titles:
+    description: >
+      LinkedIn allows 5 titles for 'Open to Work'. These should maximize
+      coverage across the skill clusters, not just the most obvious titles.
+      The 5 slots should span different clusters to cast a wide net for
+      recruiter inbound.
+    current_selection:
+      - title: "Solutions Engineer"
+        cluster: "Client-Facing Technical Delivery"
+        rationale: "Highest-volume recruiter searches for this skill profile."
+      - title: "Data Engineer"
+        cluster: "Data Infrastructure & Pipelines"
+        rationale: "Broadest technical title. Surfaces data infra, pipeline, and platform roles."
+      - title: "Analytics Engineer"
+        cluster: "Data Infrastructure + BI"
+        rationale: "dbt-specific roles often search this title. Growing demand."
+      - title: "Revenue Operations Engineer"
+        cluster: "Revenue Operations & CRM"
+        rationale: "Opens a new category of roles not covered by the other 4 titles."
+      - title: "Technical Program Manager"
+        cluster: "Technical Leadership"
+        rationale: "Surfaces leadership and cross-functional roles that the other titles miss."
+
+  job_alert_titles:
+    description: >
+      Set up LinkedIn job alerts for ALL of these. No limit on alerts.
+      Grouped by skill cluster for reference.
+    data_infrastructure:
+      - "Data Engineer"
+      - "Analytics Engineer"
+      - "dbt Analytics Engineer"
+      - "DataOps Engineer"
+      - "Data Platform Engineer"
+      - "ELT Developer"
+    data_quality_governance:
+      - "Data Quality Engineer"
+      - "Data Governance Manager"
+      - "Data Operations Manager"
+    client_facing:
+      - "Solutions Engineer"
+      - "Implementation Engineer"
+      - "Integration Engineer"
+      - "Customer Engineer"
+      - "Technical Account Manager"
+      - "Partner Engineer"
+      - "Sales Engineer"
+      - "Onboarding Engineer"
+    revops_crm:
+      - "Revenue Operations Engineer"
+      - "Business Systems Engineer"
+      - "Salesforce Data Engineer"
+    bi_reporting:
+      - "BI Engineer"
+      - "BI Developer"
+    leadership:
+      - "Technical Program Manager"
+      - "Solutions Architect"
+      - "Data Operations Lead"
+    devrel_enablement:
+      - "Developer Advocate"
+      - "Technical Writer"
+
+  rotation_strategy: >
+    Review Open to Work titles monthly. Track which titles generate recruiter
+    inbound. If a title produces zero relevant contacts after 4 weeks, swap it
+    for another title from a DIFFERENT cluster to maintain breadth. The goal
+    is to always have at least 3 distinct skill clusters represented in the
+    5 slots.
+
+
+# ============================================================================
+# 5. DECISION FRAMEWORK
+# ============================================================================
+decision_framework:
+
+  when_to_apply:
+    full_application: "Fit score >= 7.5 (resume + cover letter)"
+    fit_eval_only: "Fit score 6.0 - 7.4 (evaluate, archive for reference)"
+    skip: "Fit score < 6.0 or domain is in the 'avoid' list"
+
+  competition_adjustment:
+    posting_age:
+      "<24h": "+0.5"
+      "1-7 days": "+0.25"
+      "1-2 weeks": "0"
+      "2-4 weeks": "-0.25"
+      "1+ months": "-0.5"
+    applicant_count:
+      "<25": "+0.25"
+      "25-100": "0"
+      "100-200": "-0.25"
+      "200+": "-0.5"
+    note: "Competition-Adjusted Score = Base Fit + Recency Modifier + Competition Modifier"
+
+  mission_driven_modifier: >
+    For roles at mission-driven organizations (civic tech, climate, education,
+    nonprofit), add +0.5 to the base fit score before competition adjustment.
+    This reflects the additional motivation and cultural alignment.
+
+  contract_evaluation:
+    must_meet_all:
+      - "Rate >= $60/hr"
+      - "Duration >= 1 month"
+      - "Uses at least one skill from Tier 1 roles"
+    strong_if:
+      - "Fills a gap in the skill taxonomy (e.g., Airflow, streaming)"
+      - "Produces a portfolio-ready case study"
+      - "Is at a mission-driven organization"
+      - "Rate >= $75/hr"
+
+  interview_format_preference:
+    prefer: "Case study, take-home, system design, architecture walkthrough"
+    acceptable: "SQL live coding, technical discussion"
+    avoid_if_possible: "Leetcode-style algorithmic interviews"
+    note: >
+      If a company's interview process is known to be leetcode-heavy
+      (e.g., FAANG-style), factor this into the decision to apply.
+      A 7.5 fit score at a leetcode-heavy company may have lower expected
+      value than a 7.0 at a case-study company.
+
+
+# ============================================================================
+# 6. SKILL DEVELOPMENT PRIORITIES
+# ============================================================================
+skill_development:
+
+  rationale: >
+    Priorities derived from recurring gaps across 13 job applications.
+    Ordered by frequency of appearance in JDs that scored 6+ and practical
+    learnability within the next 3 months.
+
+  high_priority:
+    - skill: "Airflow / Dagster"
+      current_level: "foundational"
+      target_level: "intermediate"
+      gap_frequency: "Appeared in J2 Health, Trovo Health, and multiple skipped JDs"
+      action: "Take a contract project using Dagster or Airflow. Or build a personal project with Dagster."
+      timeline: "Next 1-3 months"
+
+    - skill: "Advanced AWS (Lambda hands-on, Step Functions authoring)"
+      current_level: "intermediate (Lambda), foundational (Step Functions)"
+      target_level: "intermediate+ for both"
+      gap_frequency: "AWS depth appeared in most Data Engineer JDs"
+      action: "Build a Lambda-based ingestion pipeline for a personal or contract project. Author at least one Step Functions workflow."
+      timeline: "Next 2-4 months"
+
+    - skill: "TypeScript / Node.js basics"
+      current_level: "none"
+      target_level: "foundational"
+      gap_frequency: "Appeared in Maven Clinic, Merge, several integration roles"
+      action: "Complete a short TypeScript fundamentals course. Build one API integration in TS."
+      timeline: "Next 2-3 months"
+
+  medium_priority:
+    - skill: "OAuth / SAML / SSO concepts"
+      current_level: "none"
+      target_level: "foundational"
+      gap_frequency: "Appeared in Maven Clinic, several SA roles"
+      action: "Read through OAuth 2.0 and SAML flows. Implement one OAuth integration."
+
+    - skill: "Spark / Databricks basics"
+      current_level: "none"
+      target_level: "foundational"
+      gap_frequency: "Required for most large-company data engineer roles"
+      action: "Databricks Community Edition free tier. Complete Spark fundamentals module."
+      note: "Lower priority because large-company roles score poorly anyway."
+
+  low_priority:
+    - skill: "Streaming / Kafka / Kinesis"
+      current_level: "foundational (zero production)"
+      target_level: "foundational+"
+      action: "Only pursue if a contract opportunity arises. Don't study speculatively."
+
+  leetcode_strategy:
+    approach: >
+      Do not grind 500 problems. Focus on SQL problems (already strong) and
+      the top 30 Python patterns (arrays, hashmaps, two pointers, sliding window).
+      Practice 2-3 problems per week, max 30 minutes each. The goal is damage
+      control, not mastery. Prioritize companies with case-study interviews.
+    resources:
+      - "NeetCode 150 (Python subset)"
+      - "DataLemur SQL questions"
+      - "StrataScratch (data-focused SQL + Python)"
+
+
+# ============================================================================
+# 7. SEARCH CADENCE & TRACKING
+# ============================================================================
+search_cadence:
+
+  daily:
+    - "LinkedIn Jobs: check alerts for all 11 titles"
+    - "Respond to any recruiter inbound within 24 hours"
+
+  every_2_3_days:
+    - "Google ATS board search (Primary + Expanded queries from search-strategy.yaml)"
+    - "Check contract platforms (Toptal, A.Team) for new data/analytics gigs"
+
+  weekly:
+    - "Built In NYC: browse new listings"
+    - "Wellfound: browse new listings"
+    - "Review all applications submitted this week: track response rates"
+    - "Update career-strategy.yaml if market signals shift (e.g., new title trending, domain cooling)"
+
+  monthly:
+    - "Hacker News Who's Hiring thread (1st of month)"
+    - "Review LinkedIn Open to Work titles: rotate underperformers"
+    - "Review contract platform profiles: update with new skills/evidence"
+    - "Audit fit score patterns: are thresholds calibrated correctly?"
+
+  quarterly:
+    - "Run full skill taxonomy audit against recent JDs"
+    - "Update master-portfolio.yaml with any new contract/project experience"
+    - "Re-evaluate dual-track balance: is FTE or contract generating better results?"
+
+
+# ============================================================================
+# 8. APPLICATION HISTORY & OBSERVATIONS
+# ============================================================================
+application_history:
+
+  as_of: "2026-02-20"
+  total_evaluated: 0  # Update with your own count
+  full_applications_generated: 0  # Update with your own count
+  fit_eval_only: 0  # Update with your own count
+
+  observations:
+    note: >
+      These are patterns from a small sample (13 evals). They should inform
+      but not constrain the search. The sample skewed toward a narrow set of
+      titles (Solutions Engineer, Data Engineer, Solutions Architect) and may
+      not reflect fit for the many other roles mapped in the skill clusters above.
+
+    what_scored_well:
+      - "Roles that valued breadth over deep single-tool specialization"
+      - "JDs that mentioned 'build from scratch', 'first hire', or 'greenfield'"
+      - "Companies with 50-500 employees (all 7.5+ scores were in this range)"
+      - "Roles combining technical work with client/stakeholder interaction"
+
+    what_scored_poorly:
+      - "Roles requiring deep vendor-specific certification (Databricks, Snowflake admin)"
+      - "Staff/Principal level at large companies (expect 8+ years of narrow specialization)"
+      - "Niche domains with no transferable overlap (blockchain, DevSecOps)"
+
+    untested_categories:
+      - "Revenue Operations Engineer — strong skill overlap, zero applications so far"
+      - "DataOps Engineer — pipeline + CI/CD + quality, zero applications"
+      - "BI Engineer / BI Developer — 150+ dashboards, BI migration, zero applications"
+      - "Technical Program Manager — cross-functional delivery, zero applications"
+      - "Developer Advocate — documentation expert + client-facing, zero applications"
+      - "Technical Account Manager — NRR/GRR metrics + complex accounts, zero applications"
+      - "Data Quality Engineer — strongest differentiator, zero applications"
+      - "Customer Success Engineer — onboarding + retention, zero applications"
+      - "Business Systems Engineer — CRM + data + internal tools, zero applications"
+
+    recommendation: >
+      Actively seek out roles in untested categories to expand the signal.
+      A single high-scoring fit eval in a new category is more strategically
+      valuable than a fifth Solutions Engineer application.
