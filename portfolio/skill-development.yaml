@@ -1,5 +1,5 @@
 # ============================================================================
-# SKILL DEVELOPMENT TRACKER — James Mayo
+# SKILL DEVELOPMENT TRACKER — [YOUR NAME]
 # Tracks capability gaps, articulation gaps, and interview prep.
 # Grounded in recurring patterns from fit evaluations.
 #
@@ -18,9 +18,9 @@
 # ============================================================================
 
 metadata:
-  last_updated: "2026-02-20"
+  last_updated: "YYYY-MM-DD"
   sourced_from:
-    - "13 fit evaluations (2026-02-20)"
+    - "Fit evaluations (see output/)"
     - "career-strategy.yaml skill_development section"
     - "skill-taxonomy.yaml proficiency levels"
 
@@ -38,184 +38,54 @@ capability_gaps:
   # --------------------------------------------------------------------------
   high_priority:
 
-    - skill: "Airflow / Dagster"
-      category: "Data Infrastructure & Pipelines"
-      taxonomy_level: "foundational"
-      interview_confidence: "low"
-      gap_type: "capability"
+    - skill: "[SKILL NAME — e.g., Airflow / Dagster]"
+      category: "[Skill cluster from career-strategy.yaml]"
+      taxonomy_level: "[Current level from skill-taxonomy.yaml]"
+      interview_confidence: "low | medium | high"
+      gap_type: "capability | articulation | both"
       status: "not_started"
-      jd_frequency: "Very High — appeared in J2 Health, Empassion, Trovo Health, and ~5 skipped JDs"
+      jd_frequency: "[How often this appears in your target JDs]"
       surfaced_in_evals:
-        - "J2 Health (Data Engineer, 8.0) — PARTIAL MATCH"
-        - "Empassion (Data Engineer, 8.5) — MODERATE GAP"
-        - "Trovo Health (Data Engineer, 7.5) — PARTIAL MATCH"
+        - "[Company (Role, fit score) — match rating]"
       gap_summary: >
-        You have workflow/orchestration exposure (CircleCI, Prefect at QuotaPath;
-        Step Functions at Success Academy; Jenkins at Cision) but haven't authored
-        DAGs in production. JDs for data engineer roles almost universally require
-        Airflow or Dagster. This is the single highest-ROI skill to build.
+        [1-2 sentences describing the nature of the gap and why it matters
+        for your target roles.]
 
       concepts_to_review:
-        airflow:
-          - "Core concepts: DAGs, tasks, operators, sensors, hooks"
-          - "Scheduling: cron expressions, timetables, catchup=False"
-          - "Operators: PythonOperator, BashOperator, BranchPythonOperator"
-          - "XComs: passing data between tasks"
-          - "Connections and Variables: managing credentials"
-          - "TaskFlow API (modern pattern with @task decorator)"
-          - "Airflow vs. Dagster vs. Prefect: when to choose each"
-        dagster:
-          - "Assets vs. ops vs. jobs — the core mental model"
-          - "Software-defined assets: how Dagster thinks about pipelines"
-          - "Partitions and backfills"
-          - "Sensors and schedules"
-          - "Dagster with dbt: a natural pairing (key differentiator)"
+        - "[Sub-topic 1]"
+        - "[Sub-topic 2]"
+        - "[Sub-topic 3]"
 
       resources:
-        - name: "Dagster University (free, official)"
-          url: "https://courses.dagster.io/"
+        - name: "[Resource name]"
+          url: "[URL]"
+          type: "docs | course | article | practice | sandbox"
+          estimated_time: "[e.g., 4-6 hours]"
+          priority: 1
+          notes: "[Why this resource specifically. What to focus on.]"
+
+        - name: "[Resource name]"
+          url: "[URL]"
           type: "course"
-          estimated_time: "4-6 hours"
-          priority: 1
-          notes: "Start here. Dagster's documentation and learning resources are significantly better than Airflow's. Dagster + dbt is also a natural pairing for your background."
-
-        - name: "Dagster + dbt quickstart"
-          url: "https://docs.dagster.io/integrations/dbt/using-dbt-with-dagster"
-          type: "docs + hands-on"
-          estimated_time: "2-3 hours"
+          estimated_time: "[e.g., 3-4 hours]"
           priority: 2
-          notes: "Combine your dbt expertise with Dagster. This is immediately demonstrable in interviews."
-
-        - name: "Astronomer Academy: Intro to Apache Airflow (free)"
-          url: "https://academy.astronomer.io/path/airflow-101"
-          type: "course"
-          estimated_time: "4-5 hours"
-          priority: 3
-          notes: "Do after Dagster. Airflow has a steeper setup curve; use Astro CLI to avoid Docker headaches."
-
-        - name: "Airflow documentation: Core Concepts"
-          url: "https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/index.html"
-          type: "docs"
-          estimated_time: "2 hours"
-          priority: 4
 
       practice_project: >
-        Build a Dagster pipeline that: (1) pulls data from a public API (e.g., NYC Open Data),
-        (2) loads to a local DuckDB or Snowflake sandbox, (3) runs dbt transformations,
-        (4) outputs a simple quality check report. This directly connects your existing
-        dbt + data quality expertise with a new orchestration layer.
+        [Describe a concrete project that practices this skill in a way that
+        produces something you can reference in an interview.]
 
-    - skill: "OAuth 2.0 / SAML / SSO concepts"
-      category: "Integration & Authentication"
-      taxonomy_level: "none"
+    - skill: "[SKILL NAME]"
+      category: "[Skill cluster]"
+      taxonomy_level: "[none | foundational | intermediate | advanced | expert]"
       interview_confidence: "low"
       gap_type: "capability"
       status: "not_started"
-      jd_frequency: "High — appeared in Maven Clinic, several SA and integration roles"
-      surfaced_in_evals:
-        - "Maven Clinic (Sr. Integrations Engineer, 7.0) — GAP for OAuth/SAML/SCIM"
-        - "Multiple SE roles (recurring in integration JDs)"
-      gap_summary: >
-        You've worked with APIs that USE OAuth (Salesforce, HubSpot) but haven't
-        built the auth layer yourself. For integrations engineer and SE roles at
-        SaaS companies, understanding the auth flow is expected knowledge even if
-        you don't implement it daily.
-
-      concepts_to_review:
-        oauth2:
-          - "Authorization Code flow (the main one — web apps)"
-          - "Client Credentials flow (machine-to-machine)"
-          - "Refresh tokens vs. access tokens"
-          - "Scopes and permissions"
-          - "PKCE (Proof Key for Code Exchange) — what it solves"
-        saml:
-          - "SP-initiated vs. IdP-initiated login"
-          - "Assertions, metadata, and trust relationships"
-          - "When SAML vs. OAuth/OIDC vs. SCIM"
-        scim:
-          - "What SCIM is: user provisioning/deprovisioning"
-          - "How it connects to IdPs like Okta, Azure AD"
-          - "Why SaaS companies implement it (enterprise SSO requirements)"
-        interview_angles:
-          - "Describe how OAuth 2.0 Authorization Code flow works"
-          - "What's the difference between authentication and authorization?"
-          - "When would you use SAML vs. OAuth?"
-          - "What is SCIM and why do enterprise customers require it?"
-
-      resources:
-        - name: "OAuth 2.0 Simplified (Aaron Parecki)"
-          url: "https://www.oauth.com/"
-          type: "free guide"
-          estimated_time: "3-4 hours"
-          priority: 1
-          notes: "The clearest plain-English OAuth explanation that exists. Read chapters 1-6."
-
-        - name: "Auth0 Identity Fundamentals (free)"
-          url: "https://auth0.com/docs/get-started/identity-fundamentals"
-          type: "docs"
-          estimated_time: "2 hours"
-          priority: 2
-
-        - name: "SAML explained in plain English"
-          url: "https://www.cloudflare.com/learning/access-management/what-is-saml/"
-          type: "article"
-          estimated_time: "30 minutes"
-          priority: 3
-
-      practice_project: >
-        Build a simple Flask or FastAPI app that implements OAuth 2.0 login via GitHub.
-        Walk through the Authorization Code flow manually — see the redirect, the code exchange,
-        and the access token. This gives you a concrete example to reference in interviews.
-
-    - skill: "TypeScript / JavaScript basics"
-      category: "Programming Languages"
-      taxonomy_level: "none"
-      interview_confidence: "low"
-      gap_type: "capability"
-      status: "not_started"
-      jd_frequency: "High — appeared in Maven Clinic, Merge, several integrations/SE roles"
-      surfaced_in_evals:
-        - "Maven Clinic (Sr. Integrations Engineer) — GAP"
-        - "Merge (Solutions Engineer) — mentioned"
-      gap_summary: >
-        Most integration-heavy SE/IE roles want at least one JavaScript-family language.
-        Python is your primary language and sufficient for most data roles, but TypeScript
-        literacy (not mastery) would unlock more integration-focused opportunities.
-        Goal is foundational — read/write simple scripts and understand async patterns.
-
-      concepts_to_review:
-        - "Types: string, number, boolean, any, unknown, interfaces, type aliases"
-        - "Functions: typed parameters, return types, arrow functions"
-        - "Async/await and Promises — how JS handles async differently than Python"
-        - "Fetch API / axios: making HTTP requests"
-        - "Node.js basics: require vs. import, package.json, npm"
-        - "When TypeScript vs. JavaScript: why TS exists"
-
-      resources:
-        - name: "TypeScript Handbook (official, free)"
-          url: "https://www.typescriptlang.org/docs/handbook/intro.html"
-          type: "docs"
-          estimated_time: "4-5 hours"
-          priority: 1
-          notes: "Read 'The Basics' through 'More on Functions'. Skip decorators and advanced generics for now."
-
-        - name: "TypeScript Deep Dive (free ebook, Basarat)"
-          url: "https://basarat.gitbook.io/typescript/"
-          type: "free ebook"
-          estimated_time: "3-4 hours (selective)"
-          priority: 2
-
-        - name: "Execute Program: TypeScript (paid, ~$19/mo)"
-          url: "https://www.executeprogram.com/courses/typescript"
-          type: "interactive course"
-          estimated_time: "6-8 hours"
-          priority: 3
-          notes: "Best interactive TypeScript learning tool. Worth 1 month if you're serious about this."
-
-      practice_project: >
-        Build a simple TypeScript script that: (1) calls a REST API (e.g., GitHub API),
-        (2) parses the typed response, (3) writes results to a JSON file. This mirrors
-        the kind of integration work in SE/IE roles and gives you something concrete.
+      jd_frequency: "[Frequency description]"
+      surfaced_in_evals: []
+      gap_summary: ""
+      concepts_to_review: []
+      resources: []
+      practice_project: ""
 
   # --------------------------------------------------------------------------
   # MEDIUM PRIORITY
@@ -223,147 +93,17 @@ capability_gaps:
   # --------------------------------------------------------------------------
   medium_priority:
 
-    - skill: "AWS depth (Lambda hands-on, Step Functions authoring)"
-      category: "Cloud Infrastructure"
-      taxonomy_level: "intermediate (Lambda) / foundational (Step Functions)"
-      interview_confidence: "medium"
-      gap_type: "both"
-      status: "not_started"
-      jd_frequency: "Medium-High — appeared in most Data Engineer JDs as PARTIAL MATCH"
-      surfaced_in_evals:
-        - "Multiple data engineer roles — Lambda/Step Functions depth flagged"
-        - "Motion Recruitment — cloud infrastructure gap"
-        - "GitLab — Kubernetes/container gap (separate but related)"
-      gap_summary: >
-        You've worked within AWS environments and tested Lambda functions, but you
-        haven't authored production Lambda functions or Step Functions workflows from
-        scratch. Most data engineering JDs want hands-on AWS experience beyond
-        'worked in an AWS environment.' Your gap is practice depth, not conceptual.
-
-      concepts_to_review:
-        lambda:
-          - "Triggers: API Gateway, S3 events, EventBridge, SQS"
-          - "Lambda layers: packaging dependencies"
-          - "Cold starts: what they are and when they matter"
-          - "Timeouts and memory configuration"
-          - "Lambda + IAM: execution roles and permissions"
-        step_functions:
-          - "State machine concepts: Task, Choice, Wait, Parallel, Map states"
-          - "Standard vs. Express workflows (use cases)"
-          - "Error handling: Catch and Retry"
-          - "Step Functions + Lambda: the common pattern"
-          - "Step Functions + Glue / ECS: for data workflows"
-        interview_angles:
-          - "Describe a Lambda-based ingestion pipeline you'd design"
-          - "How would you orchestrate a multi-step ETL using AWS native services?"
-          - "What are the trade-offs between Lambda and a containerized service?"
-
-      resources:
-        - name: "AWS Lambda Developer Guide"
-          url: "https://docs.aws.amazon.com/lambda/latest/dg/welcome.html"
-          type: "docs"
-          estimated_time: "3-4 hours (selective)"
-          priority: 1
-
-        - name: "AWS Step Functions Workshop (free, official)"
-          url: "https://catalog.workshops.aws/stepfunctions/en-US"
-          type: "hands-on workshop"
-          estimated_time: "4-5 hours"
-          priority: 2
-          notes: "AWS workshops are free and hands-on. This is the fastest path to real Step Functions experience."
-
-        - name: "A Cloud Guru: AWS Lambda Deep Dive (paid)"
-          url: "https://www.pluralsight.com/cloud-guru"
-          type: "course"
-          estimated_time: "5-6 hours"
-          priority: 3
-
-      practice_project: >
-        Build an event-driven ingestion pipeline: S3 file upload → Lambda trigger →
-        parse/transform → write to RDS or DynamoDB. Then orchestrate a 3-step workflow
-        with Step Functions (ingest → transform → notify). Use the AWS free tier.
-
-    - skill: "LookML authoring"
-      category: "BI, Reporting & Analytics"
-      taxonomy_level: "advanced (Looker user) / foundational (LookML author)"
+    - skill: "[SKILL NAME]"
+      category: "[Skill cluster]"
+      taxonomy_level: "[Current level]"
       interview_confidence: "low"
       gap_type: "capability"
       status: "not_started"
-      jd_frequency: "Low-Medium — specific to analytics engineer and BI engineer roles"
-      surfaced_in_evals:
-        - "Lightdash (Analytics Engineering Advocate, 8.5) — PARTIAL MATCH"
-      gap_summary: >
-        You led a Sisense-to-Looker migration and built/managed 150+ dashboards,
-        but your LookML authoring was limited — you understood and reviewed definitions
-        more than wrote them. For analytics engineer roles that use Looker, this is
-        a gap. Note: Lightdash is dbt-native (no LookML needed) so this matters
-        more for Looker-specific roles.
-
-      concepts_to_review:
-        - "Views: dimension, measure, derived tables"
-        - "Explores and joins: how Looker builds the data model layer"
-        - "Dimension groups: for dates/times"
-        - "Liquid templating: dynamic LookML"
-        - "PDTs (Persistent Derived Tables): SQL-based vs. native derived tables"
-        - "LookML vs. dbt: what each handles, how they complement each other"
-
-      resources:
-        - name: "Looker LookML 101 (Google Cloud Skills Boost — free)"
-          url: "https://www.cloudskillsboost.google/course_templates/323"
-          type: "course"
-          estimated_time: "4-5 hours"
-          priority: 1
-          notes: "Free with a Google account. Official Looker training from Google."
-
-        - name: "LookML reference documentation"
-          url: "https://cloud.google.com/looker/docs/reference/lookml-quick-reference"
-          type: "docs"
-          estimated_time: "2 hours (reference)"
-          priority: 2
-
-        - name: "Looker Studio + LookML sandbox (Looker developer instance)"
-          url: "https://cloud.google.com/looker/docs/looker-core-developer-edition"
-          type: "sandbox"
-          estimated_time: "ongoing"
-          priority: 3
-
-    - skill: "Spark / Databricks basics"
-      category: "Data Infrastructure & Pipelines"
-      taxonomy_level: "none"
-      interview_confidence: "low"
-      gap_type: "capability"
-      status: "not_started"
-      jd_frequency: "Medium — required for large-company data engineer roles; less relevant for 50-500 targets"
-      surfaced_in_evals:
-        - "Databricks SSA (skipped — too specialized)"
-        - "Snowflake SA (skipped)"
-      gap_summary: >
-        Spark/Databricks appears frequently in large-company data engineering JDs
-        (Databricks, Snowflake, etc.) but those roles tend to score poorly anyway
-        (requires deep single-tool specialization). Lower priority than Airflow/OAuth/TypeScript
-        unless you want to expand into enterprise data engineering.
-
-      concepts_to_review:
-        - "RDDs vs. DataFrames vs. Datasets: the evolution"
-        - "Spark SQL: how it sits on top of DataFrames"
-        - "Partitioning: why it matters for performance"
-        - "Databricks notebooks and clusters"
-        - "Delta Lake basics: ACID transactions on data lakes"
-        - "Unity Catalog: Databricks' governance layer"
-
-      resources:
-        - name: "Databricks Academy: Data Engineering with Databricks (free)"
-          url: "https://www.databricks.com/learn/training/home"
-          type: "course"
-          estimated_time: "8-10 hours"
-          priority: 1
-          notes: "Use Databricks Community Edition (free). The official course is self-paced."
-
-        - name: "Databricks Community Edition (free sandbox)"
-          url: "https://community.cloud.databricks.com/"
-          type: "sandbox"
-          estimated_time: "ongoing"
-          priority: 2
+      jd_frequency: "[Frequency description]"
+      surfaced_in_evals: []
+      gap_summary: ""
+      concepts_to_review: []
+      resources: []
 
   # --------------------------------------------------------------------------
   # LOW PRIORITY / WATCH
@@ -371,44 +111,14 @@ capability_gaps:
   # --------------------------------------------------------------------------
   low_priority:
 
-    - skill: "Kafka / Kinesis (streaming)"
-      category: "Data Infrastructure & Pipelines"
-      taxonomy_level: "foundational (zero production)"
-      interview_confidence: "low"
+    - skill: "[SKILL NAME]"
+      category: "[Skill cluster]"
+      taxonomy_level: "[Current level]"
       gap_type: "capability"
       status: "not_started"
-      jd_frequency: "Low for target role cluster — occasionally appears in senior DE roles"
+      jd_frequency: "[Frequency description]"
       notes: >
-        Only pursue if a contract project or strong-fit job explicitly requires it.
-        Your target roles (50-500 company data engineering) rarely use Kafka in
-        production. Don't study speculatively.
-
-    - skill: "Public content creation (blog, video)"
-      category: "Documentation, Enablement & DevRel"
-      taxonomy_level: "none (public) / expert (internal)"
-      interview_confidence: "low"
-      gap_type: "capability"
-      status: "not_started"
-      jd_frequency: "Low — only relevant for DevRel/advocate roles"
-      surfaced_in_evals:
-        - "Lightdash (Analytics Engineering Advocate, 8.5) — MODERATE GAP"
-      notes: >
-        Relevant only if pursuing DevRel or advocate roles. A single published blog post
-        (e.g., on Medium or personal site) would partially close this gap.
-        Consider writing about the dbt + Dagster project once built.
-
-    - skill: "Open-source contributions"
-      category: "Documentation, Enablement & DevRel"
-      taxonomy_level: "foundational"
-      interview_confidence: "low"
-      gap_type: "capability"
-      status: "not_started"
-      jd_frequency: "Low — primarily relevant for DevRel/open-source company roles"
-      surfaced_in_evals:
-        - "Lightdash (Analytics Engineering Advocate) — MINOR GAP"
-      notes: >
-        A single meaningful PR to a project you actually use (dbt, dbt-utils,
-        Dagster, etc.) would check this box. Don't manufacture contributions.
+        [When/why to pursue this. Trigger condition if applicable.]
 
 
 # ============================================================================
@@ -419,88 +129,26 @@ capability_gaps:
 
 articulation_gaps:
 
-  - skill: "dbt modeling architecture"
-    taxonomy_level: "expert"
+  - skill: "[SKILL NAME — e.g., dbt modeling architecture]"
+    taxonomy_level: "[expert | advanced | intermediate]"
     interview_confidence: "medium"
     gap_type: "articulation"
     status: "not_started"
     common_interview_questions:
-      - "Walk me through your dbt model organization strategy."
-      - "How do you handle incremental models? When do you use them vs. full refresh?"
-      - "Explain your testing philosophy in dbt. What tests do you write?"
-      - "How do you manage dbt in CI/CD? What does your PR review process look like?"
-      - "What's a dbt macro and when would you write one vs. using a package?"
-      - "How does dbt fit into a broader data stack — where does it start and end?"
+      - "[Question 1]"
+      - "[Question 2]"
+      - "[Question 3]"
     prep_approach: >
-      Write out answers to each question in plain English BEFORE practicing out loud.
-      Record yourself answering. The goal is to speak naturally about architecture decisions
-      you made — not recite definitions. Reference specific decisions from Success Academy
-      (1,900+ models, staging/intermediate/mart layers, GitHub Actions CI).
+      [How to prepare: write out answers, record yourself, build STAR stories,
+      reference specific decisions from your real experience.]
 
-  - skill: "Data quality methodology"
-    taxonomy_level: "expert"
+  - skill: "[SKILL NAME]"
+    taxonomy_level: "[Level]"
     interview_confidence: "medium"
     gap_type: "articulation"
     status: "not_started"
-    common_interview_questions:
-      - "How do you define data quality? What are the dimensions you test for?"
-      - "Walk me through a data quality framework you built from scratch."
-      - "How do you balance coverage vs. maintenance burden for data tests?"
-      - "How did you handle a data quality incident in production? What was your RCA process?"
-      - "How do you communicate data quality issues to non-technical stakeholders?"
-    prep_approach: >
-      This is your strongest differentiator and you should be able to answer these fluently.
-      Build 2-3 STAR-format stories: (1) building the framework from scratch at Success Academy,
-      (2) a specific incident + RCA + resolution, (3) communicating a quality issue to leadership.
-
-  - skill: "ELT pipeline architecture decisions"
-    taxonomy_level: "advanced"
-    interview_confidence: "medium"
-    gap_type: "articulation"
-    status: "not_started"
-    common_interview_questions:
-      - "How do you decide between ELT and ETL for a new pipeline?"
-      - "Walk me through the architecture of a pipeline you designed end-to-end."
-      - "How do you handle schema changes upstream? What's your strategy?"
-      - "How do you monitor pipeline health? What alerts do you set?"
-      - "What's your approach to idempotency in pipelines?"
-    prep_approach: >
-      Pick 2 real pipelines you built (QuotaPath commission calculations, Success Academy
-      school-level aggregations) and be able to describe them: source → ingestion → transform →
-      serve, including the decisions you made and why. Have a whiteboard-ready diagram in mind.
-
-  - skill: "REST API integration patterns"
-    taxonomy_level: "intermediate"
-    interview_confidence: "medium"
-    gap_type: "articulation"
-    status: "not_started"
-    common_interview_questions:
-      - "How do you handle pagination in a REST API integration?"
-      - "What do you do when an API rate-limits you?"
-      - "How do you handle API versioning changes?"
-      - "Describe how you'd build a resilient integration that handles transient failures."
-      - "What's the difference between REST and GraphQL? When would you choose each?"
-    prep_approach: >
-      Review the specific API integrations you built at QuotaPath (Salesforce, HubSpot,
-      QuickBooks, Stripe). For each, be ready to describe: auth method used, pagination
-      strategy, error handling, retry logic. Have one concrete 'failure mode' example.
-
-  - skill: "Project/implementation management"
-    taxonomy_level: "advanced"
-    interview_confidence: "medium"
-    gap_type: "articulation"
-    status: "not_started"
-    common_interview_questions:
-      - "How do you manage multiple implementation projects simultaneously?"
-      - "Describe a time you had to push back on a client's timeline expectation."
-      - "How do you handle scope creep during an implementation?"
-      - "What's your approach to risk identification at the start of a project?"
-      - "How do you communicate bad news (delays, blockers) to clients and internal stakeholders?"
-    prep_approach: >
-      This is critical for the HiBob Implementation Manager role and similar positions.
-      Build STAR stories for: (1) managing 300+ concurrent projects at QuotaPath with a
-      prioritization system, (2) a specific scope creep situation, (3) communicating a risk
-      or delay professionally.
+    common_interview_questions: []
+    prep_approach: ""
 
 
 # ============================================================================
@@ -511,53 +159,32 @@ articulation_gaps:
 coding_prep:
 
   strategy: >
-    Do not grind hundreds of problems. Focus on SQL (already strong) and the top
-    Python patterns that appear in data/SE technical screens. Target 2-3 problems
-    per week, 30 minutes max each. Goal: damage control + maintaining sharpness,
-    not competitive programming mastery. Deprioritize if interviews use case studies.
+    [Your approach to interview coding prep. Be realistic about time available
+    and which companies in your target list use coding screens vs. case studies.]
 
   sql_focus:
     target_topics:
-      - "Window functions: ROW_NUMBER, RANK, DENSE_RANK, LAG, LEAD, NTILE"
-      - "PARTITION BY vs. GROUP BY: when each applies"
-      - "CTEs: chaining multiple steps, readability patterns"
-      - "Self-joins: finding gaps, hierarchies, comparisons"
-      - "Date/time manipulation: DATEADD, DATEDIFF, EXTRACT, date truncation"
-      - "NULL handling: COALESCE, NULLIF, IS NULL in WHERE vs. JOIN"
-      - "Query optimization: reading EXPLAIN plans, index awareness"
+      - "[e.g., Window functions: ROW_NUMBER, RANK, LAG, LEAD]"
+      - "[e.g., CTEs: chaining multiple steps]"
+      - "[e.g., Query optimization: EXPLAIN plans]"
     resources:
-      - name: "DataLemur SQL Interview Questions"
-        url: "https://datalemur.com/questions"
+      - name: "[Resource name]"
+        url: "[URL]"
         type: "practice"
-        notes: "Best data-focused SQL practice. Start with Medium difficulty."
-      - name: "StrataScratch"
-        url: "https://www.stratascratch.com/"
-        type: "practice"
-        notes: "Real interview questions from data companies. Good variety."
-      - name: "Mode Analytics SQL Tutorial"
-        url: "https://mode.com/sql-tutorial/"
-        type: "reference"
-        notes: "Good refresher on advanced SQL patterns."
-    current_target: "5 DataLemur medium problems + 3 StrataScratch problems per week"
+        notes: "[Notes]"
+    current_target: "[e.g., X problems per week]"
 
   python_focus:
     target_patterns:
-      - "Hash maps / frequency counting: most common patterns in array problems"
-      - "Two pointers: sorted arrays, palindromes, container problems"
-      - "Sliding window: substrings, subarrays with constraints"
-      - "Binary search: on sorted arrays, on answer space"
-      - "BFS/DFS: tree traversal, shortest path, connected components"
-      - "Dynamic programming: only the most common patterns (climbing stairs, coin change)"
+      - "[e.g., Hash maps / frequency counting]"
+      - "[e.g., Two pointers]"
+      - "[e.g., Sliding window]"
     resources:
-      - name: "NeetCode.io — NeetCode 150"
-        url: "https://neetcode.io/practice"
+      - name: "[Resource name]"
+        url: "[URL]"
         type: "practice"
-        notes: "Best curated list. Work through the Roadmap: Arrays → Hashing → Two Pointers → Sliding Window. Stop at Graphs unless you have time."
-      - name: "NeetCode YouTube channel"
-        url: "https://www.youtube.com/@NeetCode"
-        type: "video explanations"
-        notes: "Watch explanations for patterns before trying problems, not after."
-    current_target: "2 NeetCode problems per week (Python, Easy/Medium only)"
+        notes: "[Notes]"
+    current_target: "[e.g., X problems per week]"
 
   status:
     sql_completed: 0
@@ -574,66 +201,35 @@ roadmap:
 
   current_sprint:
     label: "Sprint 1"
-    focus: "Dagster fundamentals + dbt integration"
+    focus: "[Skill to focus on this sprint]"
     rationale: >
-      Airflow/Dagster is the single highest-frequency gap across evaluations.
-      Dagster is the better starting point because: (1) better documentation,
-      (2) natural dbt pairing, (3) growing adoption in target company size range.
+      [Why this skill first. What makes it the highest ROI right now.]
     goal: >
-      Complete Dagster University. Build a working local pipeline: API → DuckDB → dbt → quality check.
-      Be able to describe it in an interview as a real project.
+      [What 'done' looks like for this sprint. Be specific.]
     tasks:
-      - "Complete Dagster University (dagster.io/courses) — 4-6 hours"
-      - "Work through Dagster + dbt quickstart tutorial"
-      - "Build practice project: public API → DuckDB → dbt → Dagster schedule"
-      - "Write 3-5 sentences describing the project for interview use"
-    start_date: "2026-02-24"
-    target_completion: "2026-03-10"
+      - "[Task 1 — include estimated time]"
+      - "[Task 2]"
+      - "[Task 3]"
+    start_date: "YYYY-MM-DD"
+    target_completion: "YYYY-MM-DD"
     status: "not_started"
 
   next_sprint:
     label: "Sprint 2"
-    focus: "OAuth 2.0 / SAML conceptual fluency"
-    rationale: >
-      Recurring gap in integration/SE roles. Foundational knowledge that also
-      helps you support enterprise clients who ask about SSO. No heavy coding required.
-    goal: >
-      Understand and explain the Authorization Code flow, client credentials flow,
-      and SAML assertion flow clearly. Build one OAuth integration as a practice project.
-    tasks:
-      - "Read OAuth 2.0 Simplified (chapters 1-6) — 3-4 hours"
-      - "Read Auth0 identity fundamentals overview"
-      - "Build Flask/FastAPI app with GitHub OAuth login"
-      - "Write interview answers for the 4 common auth questions"
-    target_completion: "2026-03-24"
-    status: "not_started"
-
-  sprint_3:
-    label: "Sprint 3"
-    focus: "TypeScript basics + Airflow DAG authoring"
-    goal: >
-      Achieve TypeScript literacy (read/write simple typed scripts).
-      Complete Astronomer Airflow 101 to complement Dagster knowledge.
-    tasks:
-      - "Read TypeScript Handbook: The Basics + Everyday Types — 3 hours"
-      - "Build TypeScript REST API integration script (GitHub API)"
-      - "Complete Astronomer Airflow 101"
-      - "Write 1 Airflow DAG that mirrors the Dagster pipeline from Sprint 1"
-    target_completion: "2026-04-07"
+    focus: "[Next skill]"
+    rationale: ""
+    goal: ""
+    tasks: []
+    target_completion: "YYYY-MM-DD"
     status: "not_started"
 
   backlog:
-    - "AWS Lambda + Step Functions hands-on (AWS Workshop)"
-    - "LookML authoring (Google Cloud Skills Boost)"
-    - "Spark / Databricks basics (only if enterprise DE opportunity arises)"
-    - "Kafka fundamentals (only if streaming role opportunity arises)"
-    - "Write first public blog post (dbt + Dagster project walkthrough)"
+    - "[Skill or task — include trigger condition if applicable]"
+    - "[Skill or task]"
 
   on_hold:
-    - skill: "Open-source contributions"
-      trigger: "Once Dagster or dbt personal project is complete — submit a PR for documentation or a small fix"
-    - skill: "Streaming / Kafka"
-      trigger: "Contract opportunity requiring Kafka, or strong-fit role in streaming-heavy domain"
+    - skill: "[SKILL NAME]"
+      trigger: "[What would cause you to pull this off hold]"
 
 
 # ============================================================================
@@ -650,27 +246,7 @@ gap_tracking_log:
     This keeps the roadmap grounded in real application patterns, not speculation.
 
   recent_additions:
-    - date: "2026-02-20"
-      skill: "Airflow / Dagster"
-      source_evals: ["J2 Health", "Empassion", "Trovo Health"]
-      action: "Added to high_priority capability_gaps"
-
-    - date: "2026-02-20"
-      skill: "OAuth / SAML / SSO"
-      source_evals: ["Maven Clinic"]
-      action: "Added to high_priority capability_gaps"
-
-    - date: "2026-02-20"
-      skill: "TypeScript / JavaScript"
-      source_evals: ["Maven Clinic", "Merge"]
-      action: "Added to high_priority capability_gaps"
-
-    - date: "2026-02-20"
-      skill: "AWS Lambda / Step Functions depth"
-      source_evals: ["Multiple DE roles", "Motion Recruitment"]
-      action: "Added to medium_priority capability_gaps"
-
-    - date: "2026-02-20"
-      skill: "LookML authoring"
-      source_evals: ["Lightdash"]
-      action: "Added to medium_priority capability_gaps"
+    - date: "YYYY-MM-DD"
+      skill: "[Skill name]"
+      source_evals: ["[Company 1]", "[Company 2]"]
+      action: "[What you did — added to high_priority, etc.]"
