@@ -1,0 +1,30 @@
+metadata:
+  last_updated: "YYYY-MM-DD"
+  notes: >
+    Application tracker. Update status using:
+    python scripts/tracker.py --update --company "CompanyName" --app-status interviewing
+    Valid statuses: applied, interviewing, offer, rejected, ghosted, skipped, pending_application, pending_evaluation
+
+applications:
+
+  # --- Example entries (replace with your own) ---
+
+  - company: Example Company
+    role: Solutions Engineer
+    date_evaluated: "YYYY-MM-DD"
+    fit_score: 8.5
+    recommendation: "APPLY — strong match on integration motion and data stack"
+    status: applied
+    date_applied: ""
+    output_file: output/application-example-company-solutions-engineer-YYYY-MM-DD.md
+    notes: "Strongest match in current batch."
+
+  - company: Another Company
+    role: Data Engineer
+    date_evaluated: "YYYY-MM-DD"
+    fit_score: 4.5
+    recommendation: SKIP
+    status: skipped
+    date_applied: ""
+    output_file: output/application-another-company-data-engineer-YYYY-MM-DD.md
+    notes: "Missing Spark, streaming, and domain knowledge."

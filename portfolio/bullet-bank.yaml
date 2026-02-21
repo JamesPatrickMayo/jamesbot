@@ -1,0 +1,279 @@
+# ============================================================================
+# BULLET BANK — James Mayo
+# Pre-written, tagged resume bullet variants per company.
+# Used by generate_resume.py to pre-select bullets before LLM pass.
+#
+# Schema per bullet:
+#   text:             Full bullet text (strong action verb, metrics where available)
+#   tags:             Keyword tags for JD matching (snake_case, lowercase)
+#   clusters:         High-level skill clusters (matches role template emphasis areas)
+#   applicable_roles: Role slugs where this bullet is most relevant (empty = all roles)
+#
+# The scorer pre-selects the top N bullets per company by tag overlap with JD keywords.
+# The LLM reorders, tightens wording, and mirrors JD language — but does NOT replace them.
+# ============================================================================
+
+companies:
+
+  # --------------------------------------------------------------------------
+  - company: QuotaPath
+    role_context: "Solutions Engineer / Data Platform Architect (Aug 2024 – Sep 2025)"
+    bullets:
+
+      # --- Implementation & Client Onboarding ---
+      - text: >
+          Engineered and delivered tailored integration solutions for 300+ client
+          onboarding projects annually across 10+ CRM, financial, and payroll platforms
+          (Salesforce, HubSpot, QuickBooks, Stripe, ADP, NetSuite, Google Sheets/Excel).
+        tags: [implementation, onboarding, client_facing, scale, crm, integration, saas]
+        clusters: [Client-Facing Technical Delivery, Integration Engineering]
+        applicable_roles: [solutions-engineer, platform-architect]
+
+      - text: >
+          Assessed customer data fitness for platform automation and compiled solution
+          recommendations spanning lightweight configurations to robust long-term
+          integrations, communicating trade-offs directly to clients and account executives.
+        tags: [client_facing, solution_design, assessment, communication, recommendation]
+        clusters: [Client-Facing Technical Delivery, Pre-Sales & Scoping]
+        applicable_roles: [solutions-engineer]
+
+      - text: >
+          Scoped integration requirements with prospects and account executives during
+          the sales cycle, qualifying technical feasibility and translating client
+          business objectives into actionable data integration specifications.
+        tags: [pre_sales, scoping, requirements, client_facing, communication, collaboration]
+        clusters: [Pre-Sales & Scoping, Client-Facing Technical Delivery]
+        applicable_roles: [solutions-engineer]
+
+      - text: >
+          Prioritized 300+ concurrent client implementations by ARR and account size,
+          ensuring highest-value accounts received focused attention without sacrificing
+          service levels across the broader portfolio.
+        tags: [prioritization, project_management, client_satisfaction, scale, operational_efficiency]
+        clusters: [Client-Facing Technical Delivery, Project Management]
+        applicable_roles: [solutions-engineer, platform-architect]
+
+      - text: >
+          Partnered with Customer Success and Sales to scope and implement scalable data
+          integrations for complex commission plan structures, reducing time-to-value
+          through reusable templates and standardized onboarding documentation.
+        tags: [onboarding, collaboration, cross_functional, customer_success, templates, saas]
+        clusters: [Client-Facing Technical Delivery, Cross-Functional Collaboration]
+        applicable_roles: [solutions-engineer]
+
+      # --- Data Engineering & Pipelines ---
+      - text: >
+          Designed scalable ELT pipelines integrating CRM and financial system data
+          (Salesforce, HubSpot, ADP, NetSuite, Stripe) into Snowflake environments using
+          dbt Medallion architecture, serving TB-scale data across customer workspaces.
+        tags: [data_engineering, pipeline, etl_elt, snowflake, dbt, crm, integration]
+        clusters: [Data Infrastructure & Pipelines, Integration Engineering]
+        applicable_roles: [data-engineer, platform-architect, solutions-engineer]
+
+      - text: >
+          Migrated customer workspaces from row-by-row SQL calculations to Python-based
+          custom transformations (Dask/Pandas), reducing pipeline runtimes from hours
+          to minutes and enabling the team to achieve the 75% GRR/ARR milestone first.
+        tags: [python, data_engineering, performance, pipeline, migration, dask, pandas]
+        clusters: [Data Infrastructure & Pipelines, Performance Engineering]
+        applicable_roles: [data-engineer, platform-architect]
+
+      - text: >
+          Led company-wide Python migration initiative targeting customers with extended
+          sync times; coordinated with engineering and onboarding teams, achieving 75%
+          GRR/ARR migration target ahead of peer teams.
+        tags: [python, migration, leadership, project_management, collaboration, grr]
+        clusters: [Data Infrastructure & Pipelines, Project Management]
+        applicable_roles: [data-engineer, platform-architect, solutions-engineer]
+
+      - text: >
+          Implemented CI/CD pipelines using GitHub Actions to enforce version control
+          and automated testing across customer data transformations, reaching 70–90%
+          deployment automation and cutting production incidents by 50%+.
+        tags: [ci_cd, github_actions, automation, deployment, testing, devops]
+        clusters: [Data Infrastructure & Pipelines, DevOps & Automation]
+        applicable_roles: [data-engineer, platform-architect]
+
+      - text: >
+          Built modular dbt models aligned to Medallion architecture (Bronze/Silver/Gold)
+          and authored SQL-based data validation frameworks to enforce schema consistency
+          and ingestion reliability at scale.
+        tags: [dbt, data_modeling, sql, data_quality, validation, architecture]
+        clusters: [Analytics Engineering, Data Infrastructure & Pipelines]
+        applicable_roles: [data-engineer, analytics-engineer, platform-architect]
+
+      # --- AI & Automation ---
+      - text: >
+          Built AI-assisted scoping workflows using prompt templates and historical
+          customer context, reducing manual pre-implementation analysis time by 5–10
+          hours per week and improving client solution consistency.
+        tags: [ai, automation, prompt_engineering, efficiency, templates, operational_efficiency]
+        clusters: [AI & Automation, DevOps & Automation]
+        applicable_roles: [solutions-engineer, platform-architect]
+
+      # --- Architecture & Technical Leadership ---
+      - text: >
+          Led architecture and design reviews to align customer integration patterns
+          with long-term scalability goals; authored engineering runbooks, transformation
+          specifications, and data documentation standards.
+        tags: [architecture, design_review, documentation, leadership, scalability]
+        clusters: [Architecture & Design, Technical Leadership]
+        applicable_roles: [platform-architect, solutions-engineer, data-engineer]
+
+      - text: >
+          Mentored junior engineers and led technical onboarding sessions, reviewing
+          multiple pull requests per week and establishing coding standards for
+          Python transformations and dbt model development.
+        tags: [mentorship, leadership, code_review, onboarding, collaboration]
+        clusters: [Technical Leadership, Cross-Functional Collaboration]
+        applicable_roles: [data-engineer, platform-architect, solutions-engineer]
+
+  # --------------------------------------------------------------------------
+  - company: Success Academy Charter Schools
+    role_context: "Data Quality Analyst / Analytics Engineer (Feb 2022 – Jun 2024)"
+    bullets:
+
+      # --- Build from Scratch / Ownership ---
+      - text: >
+          Created the data quality function from scratch after rapid promotion from
+          QA Tech to QA Lead to Team Lead; defined scope, governance standards, and
+          workflow processes for a 51-school enterprise serving 18,000+ users.
+        tags: [data_quality, ownership, greenfield, leadership, governance, build_from_scratch]
+        clusters: [Data Quality & Governance, Technical Leadership]
+        applicable_roles: [data-engineer, analytics-engineer, platform-architect]
+
+      - text: >
+          Conducted a comprehensive audit of 1,900+ dbt models, mapping each to downstream
+          dependencies and classifying active vs. orphaned models; established data quality
+          standards across the full catalog.
+        tags: [dbt, data_quality, audit, lineage, governance, sql, scale]
+        clusters: [Analytics Engineering, Data Quality & Governance]
+        applicable_roles: [data-engineer, analytics-engineer, platform-architect]
+
+      # --- dbt & Analytics Engineering ---
+      - text: >
+          Built and maintained 1,900+ dbt models across a Raw → Staging → Analytics
+          layer architecture, including tests, macros, and automated documentation
+          for DOE compliance and stakeholder reporting.
+        tags: [dbt, data_modeling, analytics_engineering, sql, documentation, compliance]
+        clusters: [Analytics Engineering, Data Infrastructure & Pipelines]
+        applicable_roles: [data-engineer, analytics-engineer, platform-architect]
+
+      - text: >
+          Structured dbt project using Raw → Staging → Analytics layer organization,
+          applied Medallion architecture principles across enterprise domains, and
+          reduced data incidents by 50%+ through automated testing and freshness checks.
+        tags: [dbt, data_modeling, data_quality, architecture, medallion, testing, automation]
+        clusters: [Analytics Engineering, Data Quality & Governance]
+        applicable_roles: [data-engineer, analytics-engineer]
+
+      # --- AWS & Infrastructure ---
+      - text: >
+          Designed and implemented a 3-tier dev/stage/prod AWS environment including
+          direct management of EC2 virtual machines and Redshift instances, supporting
+          TB-scale data operations for 51+ schools.
+        tags: [aws, redshift, infrastructure, devops, architecture, data_engineering]
+        clusters: [Cloud Infrastructure & DevOps, Data Infrastructure & Pipelines]
+        applicable_roles: [data-engineer, platform-architect]
+
+      - text: >
+          Led multi-phase system migrations — Sisense → Looker (150+ dashboards) and
+          Matillion → Talend → dbt — maintaining data continuity for 18,000+ users
+          and two concurrent BI tools throughout each transition.
+        tags: [migration, looker, dbt, data_engineering, bi, risk_management, leadership]
+        clusters: [Data Infrastructure & Pipelines, Project Management]
+        applicable_roles: [data-engineer, platform-architect, analytics-engineer]
+
+      # --- Cross-Functional / Stakeholder ---
+      - text: >
+          Led cross-functional delivery with Engineering, Analytics, and Operations;
+          documented 90+ ETL pipeline lineages in Confluence/dbt Docs and prepared
+          reporting for executive leadership and DOE audit requirements.
+        tags: [cross_functional, documentation, stakeholder, reporting, compliance, collaboration]
+        clusters: [Cross-Functional Collaboration, Data Quality & Governance]
+        applicable_roles: [data-engineer, analytics-engineer, solutions-engineer]
+
+      - text: >
+          Managed 2 direct reports; delegated QA tasks via Jira sprint planning, defined
+          requirements, and facilitated stakeholder reviews to maintain 150+ dashboards
+          serving analytics data across 51 schools.
+        tags: [leadership, management, jira, project_management, stakeholder, reporting]
+        clusters: [Technical Leadership, Cross-Functional Collaboration]
+        applicable_roles: [data-engineer, platform-architect]
+
+  # --------------------------------------------------------------------------
+  - company: Cision Global
+    role_context: "Production Engineer / Data Quality Analyst / Enterprise Account Architect (Oct 2018 – Feb 2022)"
+    bullets:
+
+      # --- Production Engineering ---
+      - text: >
+          Analyzed large volumes of production data using advanced SQL, PostgreSQL,
+          and Elasticsearch queries in Jupyter Notebooks, identifying and triaging
+          300+ platform bugs across severity and risk dimensions.
+        tags: [sql, data_analysis, debugging, bug_triage, production, elasticsearch]
+        clusters: [Data Quality & Governance, Technical Analysis]
+        applicable_roles: [data-engineer, analytics-engineer]
+
+      - text: >
+          Developed procedures for new support functions as software products launched;
+          collaborated with Engineering and Product Management to identify system gaps
+          and implement scalable resolution processes.
+        tags: [process_improvement, collaboration, engineering, product, support, saas]
+        clusters: [Cross-Functional Collaboration, Data Quality & Governance]
+        applicable_roles: [solutions-engineer, analytics-engineer]
+
+      # --- Data Quality ---
+      - text: >
+          Ensured legal and technical compliance of data-ingestion and data-procurement
+          across all major Cision platforms during GDPR implementation, applying
+          compliance-driven data quality standards across multi-system workflows.
+        tags: [data_quality, gdpr, compliance, data_engineering, governance]
+        clusters: [Data Quality & Governance, Compliance & Security]
+        applicable_roles: [data-engineer, analytics-engineer]
+
+      - text: >
+          Ran and maintained Jenkins CI jobs and Jupyter Notebook scripts for ongoing
+          data integrity monitoring; built an NLA document automation script that
+          resolved an unsustainable manual unsubscribe request volume.
+        tags: [jenkins, automation, ci_cd, data_quality, python, scripts]
+        clusters: [Data Infrastructure & Pipelines, DevOps & Automation]
+        applicable_roles: [data-engineer]
+
+      # --- Client-Facing / Account Architect ---
+      - text: >
+          Constructed complex SQL queries, dashboards, and analytics campaigns for
+          large enterprise accounts; translated client requirements into actionable
+          technical configurations and presented findings to senior stakeholders.
+        tags: [sql, client_facing, dashboard, analytics, communication, enterprise, stakeholder]
+        clusters: [Client-Facing Technical Delivery, Technical Analysis]
+        applicable_roles: [solutions-engineer, analytics-engineer]
+
+      - text: >
+          Translated ambiguous "client speak" into actionable technical specifications,
+          managing multi-timezone support handoffs in a high-growth startup environment
+          and advocating for client success through data-driven dashboard redesigns.
+        tags: [client_facing, communication, translation, startup, adaptability, support]
+        clusters: [Client-Facing Technical Delivery, Cross-Functional Collaboration]
+        applicable_roles: [solutions-engineer]
+
+  # --------------------------------------------------------------------------
+  - company: Personal Projects
+    role_context: "Independent technical projects demonstrating continued skill development"
+    bullets:
+
+      - text: >
+          Built a Personal Finance ETL System using Python, PostgreSQL, and Docker
+          on a self-hosted Unraid server — ingesting, transforming, and visualizing
+          multi-source financial data with automated daily pipeline runs.
+        tags: [python, postgresql, docker, etl, data_engineering, personal_project, automation]
+        clusters: [Data Infrastructure & Pipelines, Personal Projects]
+        applicable_roles: [data-engineer, platform-architect]
+
+      - text: >
+          Architected jamesbot — an AI-powered resume and job application system using
+          YAML-based skills data, Python orchestration scripts, and Cursor AI agent,
+          demonstrating applied LLM engineering and agentic workflow design.
+        tags: [python, ai, llm, automation, yaml, cursor, personal_project, engineering]
+        clusters: [AI & Automation, Personal Projects]
+        applicable_roles: [solutions-engineer, data-engineer, platform-architect]

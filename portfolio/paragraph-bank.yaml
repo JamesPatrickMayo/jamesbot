@@ -1,0 +1,183 @@
+# ============================================================================
+# PARAGRAPH BANK — James Mayo
+# Pre-written cover letter paragraph blocks for recurring scenarios.
+# Used by generate_resume.py to pre-select paragraphs before LLM pass.
+#
+# Schema per paragraph:
+#   scenario:         Short identifier for this paragraph's use case
+#   description:      When to use this paragraph
+#   tags:             Keyword tags for JD matching
+#   applicable_roles: Role slugs where this paragraph is most relevant (empty = all)
+#   text:             The actual paragraph text (first-person, conversational)
+#
+# The scorer selects the top 2-3 paragraphs by tag overlap, then the LLM
+# stitches them together with transitions and adapts tone to the specific company.
+# ============================================================================
+
+paragraphs:
+
+  # --- Opening / Hook paragraphs -------------------------------------------
+
+  - scenario: opening_implementation_sa
+    description: >
+      Opening for implementation or SA roles where the core motion maps directly
+      to QuotaPath SE work (client onboarding, integration scoping, deployment).
+    tags: [implementation, onboarding, client_facing, solutions_engineer, saas, integration]
+    applicable_roles: [solutions-engineer]
+    text: >
+      After leading 300+ client implementations at QuotaPath — spanning CRM, payroll,
+      and financial integrations across Salesforce, HubSpot, ADP, and NetSuite — I know
+      what makes an onboarding succeed and what makes it stall. It's rarely the technical
+      complexity. It's whether the implementation team can bridge the gap between what
+      clients think they need and what their data can actually support. That's the work
+      I've spent the last year doing every day, and it's exactly what your role describes.
+
+  - scenario: opening_data_engineering
+    description: >
+      Opening for data engineering roles where the dbt / pipeline credential is the primary
+      hook and build-from-scratch experience is relevant.
+    tags: [data_engineering, dbt, pipeline, analytics_engineering, build_from_scratch]
+    applicable_roles: [data-engineer, analytics-engineer]
+    text: >
+      I've spent the past three years in the kind of data environments most engineers
+      encounter once: a 1,900-model dbt project with no catalog, inconsistent tests,
+      and a migration from three different tools in flight simultaneously. At Success
+      Academy I built the quality function from scratch — defined the standards,
+      audited every model, and stood up a 3-tier dev/stage/prod architecture on AWS.
+      At QuotaPath I built ELT pipelines for TB-scale customer data across 10+
+      integration platforms. That combination of precision and scale is what I'm
+      looking to bring to your team.
+
+  - scenario: opening_platform_architect
+    description: >
+      Opening for platform or staff-level engineering roles where architecture and
+      systems thinking is the primary qualification.
+    tags: [architecture, platform, data_platform, staff_engineer, infrastructure]
+    applicable_roles: [platform-architect]
+    text: >
+      The systems I've built over the past seven years have a consistent thread: they
+      were designed for the team, not just the immediate ticket. At QuotaPath, that
+      meant a Medallion-architecture Snowflake warehouse with CI/CD and dbt models
+      that any engineer could pick up. At Success Academy, it meant a 3-tier AWS
+      environment with Redshift, documented lineage for 90+ pipelines, and a dbt
+      project audited down to the last orphaned model. I don't just build — I build
+      things that scale and explain themselves.
+
+  - scenario: opening_integration_engineer
+    description: >
+      Opening for integration engineering roles emphasizing API work,
+      system connectivity, and cross-platform data flow.
+    tags: [integration, api, rest, webhook, data_pipeline, connector, saas]
+    applicable_roles: [solutions-engineer, data-engineer]
+    text: >
+      Integration work is where I'm most at home. At QuotaPath, I connected 10+
+      platforms — Salesforce, HubSpot, ADP, NetSuite, Stripe, QuickBooks, and
+      more — into scalable ELT pipelines, handling everything from API
+      authentication to schema drift to the edge cases clients discover on day
+      one of go-live. I've scoped integrations with engineering teams, debugged
+      production issues at 11pm, and written the runbook so the next engineer
+      doesn't have to. That end-to-end ownership is what I bring.
+
+  # --- Middle / Credential paragraphs --------------------------------------
+
+  - scenario: client_facing_scale
+    description: >
+      Body paragraph highlighting the 300+ implementations credential and the SE
+      motion at QuotaPath. Use when client volume, scale, or end-to-end ownership
+      is a key requirement.
+    tags: [client_facing, scale, implementation, onboarding, project_management, delivery]
+    applicable_roles: [solutions-engineer]
+    text: >
+      At QuotaPath I managed 300+ concurrent client implementations, prioritized
+      by ARR and account complexity. Each engagement required scoping the integration
+      architecture, assessing the client's data fitness, communicating constraints
+      to non-technical stakeholders, and then building the actual pipeline —
+      sometimes the same day. That combination of technical depth and client-facing
+      communication, compressed into a high-volume environment, is the credential
+      I'd put against any implementation role.
+
+  - scenario: build_from_scratch
+    description: >
+      Body paragraph for roles that value greenfield experience, ownership, or
+      the ability to create process where none exists (startup, founding, first hire).
+    tags: [build_from_scratch, greenfield, ownership, startup, founding, process_creation]
+    applicable_roles: [data-engineer, analytics-engineer, platform-architect, solutions-engineer]
+    text: >
+      I tend to find the greenfield work most energizing. At Success Academy, the data
+      quality function didn't exist when I joined — I created the QA process, the
+      testing standards, the governance documentation, and the on-call escalation
+      playbook from scratch. At QuotaPath, I built the AI-assisted scoping workflow,
+      the Python migration framework, and the standardized onboarding toolkit before
+      any of them existed. I'm not the kind of engineer who needs a detailed spec
+      to get started. I identify the gap, propose the solution, and ship it.
+
+  - scenario: dbt_data_quality_credential
+    description: >
+      Body paragraph emphasizing the dbt expertise and data quality track record.
+      Use for analytics engineering, data engineering, or roles requiring strong
+      dbt and data modeling credentials.
+    tags: [dbt, data_quality, analytics_engineering, sql, data_modeling, testing]
+    applicable_roles: [data-engineer, analytics-engineer, platform-architect]
+    text: >
+      My strongest credential in this space is the dbt work at Success Academy:
+      1,900+ models audited, documented, and tested; a Raw → Staging → Analytics
+      layer structure I designed from scratch; and data incident reduction of 50%+
+      after we standardized testing across the catalog. That level of dbt fluency —
+      not just writing models, but owning the architecture, the governance, and the
+      migration from legacy tools — is what I'd bring on day one.
+
+  - scenario: domain_gap_bridge
+    description: >
+      Body paragraph for roles where the domain is new (healthcare, HR tech, fintech)
+      but the technical skills transfer directly. Acknowledges the gap honestly and
+      frames the candidate's learning trajectory.
+    tags: [domain_gap, transferable_skills, learning, adaptability, new_domain]
+    applicable_roles: [solutions-engineer, data-engineer, analytics-engineer]
+    text: >
+      I'll be direct: the [DOMAIN] space is newer territory for me than the
+      technical stack. But the integration work, the data quality standards, and
+      the client-facing delivery motion are not. I've ramped on new domains quickly
+      before — GDPR compliance requirements at Cision, commission plan structures
+      at QuotaPath — and I approach new domain knowledge the same way I approach
+      a new codebase: read everything, ask good questions, and build a mental model
+      before I touch anything. I'd rather start one quarter behind on domain
+      terminology than three years behind on the technical fundamentals.
+
+  # --- Closing paragraphs --------------------------------------------------
+
+  - scenario: closing_why_this_company
+    description: >
+      Generic closing that invites substitution of company-specific details.
+      LLM should fill in [COMPANY] and [SPECIFIC_REASON] from JD context.
+    tags: [closing, why_company, culture_fit, motivation]
+    applicable_roles: []
+    text: >
+      What draws me to [COMPANY] specifically is [SPECIFIC_REASON]. I'd welcome the
+      chance to discuss how my background maps to what you're building. Happy to do
+      a technical screen, walk through a system design, or just talk through the role
+      in more detail — whatever's most useful for you.
+
+  - scenario: closing_startup_energy
+    description: >
+      Closing for startup or early-stage roles emphasizing scrappiness,
+      speed, and ownership mindset.
+    tags: [startup, early_stage, founding, ownership, adaptability, fast_paced]
+    applicable_roles: [solutions-engineer, data-engineer]
+    text: >
+      The fast-paced, building-something-real energy of [COMPANY] is exactly the kind
+      of environment I do my best work in. I move quickly, ask for forgiveness not
+      permission when the path is clear, and hold a high bar for quality even when
+      the timeline is tight. I'd love to bring that to your team.
+
+  - scenario: closing_mission_driven
+    description: >
+      Closing for mission-driven organizations (healthcare, education, nonprofit-adjacent).
+      Acknowledges the mission as a genuine motivator.
+    tags: [mission_driven, healthcare, education, impact, purpose]
+    applicable_roles: []
+    text: >
+      The mission matters to me. I spent two years at Success Academy — a 51-school
+      public charter network — and the work felt different when the data I was
+      maintaining connected back to real kids and real outcomes. [COMPANY]'s focus
+      on [MISSION] has that same quality, and it's a meaningful part of why I'm
+      applying here specifically rather than to a generic engineering role.
