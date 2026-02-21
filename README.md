@@ -1,168 +1,144 @@
-# jamesbot — AI-Powered Resume & Application System
+# JamesBot — Resume & Application Generation System
 
-A personal AI system that functions as a **canonical skills database** and automates the creation of tailored job application materials: fit evaluations, resumes, and cover letters — all from a single source of truth.
+A structured, maintainable system that uses a canonical skills database to produce
+targeted resumes, fit evaluations, and cover letters for specific job applications.
 
-Built to run inside [Cursor](https://cursor.sh) as an AI agent workflow. No code to run; just open the project, paste a job description, and the agent generates a complete application package.
-
----
-
-## What this does
-
-1. **Evaluates job fit** — Scores a job posting against your skills and experience profile (0–10), with a structured gap analysis and recommendation (Apply / Skip / Investigate)
-2. **Generates a tailored resume** — Pulls from your canonical portfolio YAML, selects and reorders bullets based on the job's priorities, adjusts language to match the JD
-3. **Writes a cover letter** — Structured, voice-consistent, human-sounding, with built-in countermeasures for AI detection
-4. **Maintains a career strategy** — Dual-track job search (FTE + contract), target role matrix organized by transferable skill clusters, LinkedIn optimization, and decision framework
-
-All outputs are saved as `.md` files in `output/`. All configuration is in YAML.
-
----
-
-## Project structure
+## Architecture
 
 ```
 jamesbot/
-├── portfolio/
-│   ├── master-portfolio.yaml        # Canonical source of truth: all experience, projects, metrics
-│   ├── skill-taxonomy.yaml          # Skills with proficiency levels, evidence, and applicable roles
-│   └── questionnaire.yaml           # Q&A to expand and strengthen the portfolio over time
+├── portfolio/                        # Canonical skills database
+│   ├── master-portfolio.yaml         # Full career history, responsibilities, impact metrics
+│   ├── skill-taxonomy.yaml           # Normalized: role → skill → proficiency → evidence
+│   ├── questionnaire.yaml            # Expansion questions + responses
+│   ├── skill-development.yaml        # Skill gaps, learning roadmap, interview prep, resources
+│   └── audit-2026-02-20.md           # Legitimacy sweep & cross-reference audit
 │
-├── templates/
-│   ├── fit-evaluation-structure.yaml    # Schema for consistent fit evaluations
-│   ├── cover-letter-structure.yaml      # Cover letter schema + writing style + AI detection countermeasures
-│   ├── resume-standards.md              # Resume formatting rules and constraints
-│   ├── linkedin-optimization.yaml       # Section-by-section LinkedIn profile recommendations
-│   └── structures/                      # Role-specific resume structures
-│       ├── solutions-engineer.yaml
+├── templates/                        # Format definitions & reusable schemas
+│   ├── resume-standards.md           # Global resume formatting rules and conventions
+│   ├── fit-evaluation-structure.yaml # Reusable fit evaluation schema (8 sections)
+│   ├── cover-letter-structure.yaml   # Cover letter generation schema
+│   ├── linkedin-optimization.yaml   # LinkedIn profile section-by-section recommendations
+│   └── structures/                   # Role-specific resume structures
 │       ├── data-engineer.yaml
 │       ├── analytics-engineer.yaml
+│       ├── solutions-engineer.yaml
 │       └── platform-architect.yaml
 │
-├── prompts/
-│   ├── fit-evaluation.md            # Agent prompt: evaluate a job posting
-│   ├── resume-generator.md          # Agent prompt: generate a tailored resume
-│   └── cover-letter.md              # Agent prompt: generate a cover letter
+├── prompts/                          # LLM prompt templates
+│   ├── resume-generator.md           # Resume generation prompt + Cursor workflow
+│   ├── fit-evaluation.md             # Fit evaluation prompt + Cursor workflow
+│   └── cover-letter.md               # Cover letter prompt + Cursor workflow
 │
-├── job-search/
-│   ├── career-strategy.yaml         # Dual-track strategy, target role matrix, decision framework
-│   └── search-strategy.yaml         # Search queries, platforms, and cadence
+├── archive/                          # Unstructured source material
+│   ├── job-desc-*.txt                # Saved job descriptions (one per application)
+│   ├── *.pdf                         # Old resumes, cover letters, portfolio docs
+│   └── *.csv                         # Interview prep notes, skill archives
 │
-├── archive/
-│   ├── README.md                    # How to use this directory
-│   └── job-desc-*.txt               # Raw job descriptions (inputs to the workflow)
+├── job-search/                       # Job search strategy & tracking
+│   ├── career-strategy.yaml          # Central career strategy (identity, dual-track, decisions)
+│   └── search-strategy.yaml          # Search queries, recommended titles, sites
 │
-├── output/
-│   └── application-[company]-[role]-[date].md   # Generated fit evals, resumes, cover letters
+├── output/                           # Generated artifacts (gitignored)
+│   ├── application-*.md              # Consolidated per-job files (fit eval + resume + cover letter)
+│   └── prompt-*.md                   # Assembled LLM prompts (intermediate artifacts)
 │
 ├── scripts/
-│   └── generate_resume.py           # Utility script for resume generation
+│   └── generate_resume.py            # Prompt assembly orchestrator (resume, fit-eval, cover-letter)
 │
-└── .cursor/
-    └── rules/
-        └── resume-system.mdc        # Cursor agent rules that govern the entire workflow
+└── .cursor/rules/
+    └── resume-system.mdc             # Cursor rules for maintaining this system
 ```
 
----
+## Workflow
 
-## How to use it
+### For Each Job Application
 
-### Prerequisites
+1. **Save** the job description to `archive/job-desc-{company}-{role}.txt`
+2. **Ask Cursor** to evaluate and (if qualified) generate a full application:
+   > Evaluate my fit for this job at `archive/job-desc-{company}-{role}.txt`.
+   > If the fit score is 7.5/10 or higher, also generate a resume and cover letter.
+   > Write everything to a single file: `output/application-{company}-{role}-{date}.md`.
+3. **Review the output:**
+   - If score < 7.5: file contains fit evaluation only, with a SKIP recommendation
+   - If score >= 7.5: file contains fit evaluation + tailored resume + cover letter
+4. **Iterate** — provide feedback on tone, style, and content
 
-- [Cursor](https://cursor.sh) — the AI agent runs natively here
-- Basic familiarity with YAML
+### Batch Processing
 
-### Setup
+You can also provide multiple job URLs/descriptions at once. Cursor will:
+1. Fetch and save all JDs to `archive/`
+2. Run fit evaluations on all jobs
+3. Only generate full applications (resume + cover letter) for jobs scoring 7.5+
+4. Output one consolidated `application-*.md` file per job
 
-1. **Fork or clone this repo**
+### Using the Python Script (Optional)
 
-2. **Populate your portfolio files**
-   - `portfolio/master-portfolio.yaml` — your full career history, projects, education
-   - `portfolio/skill-taxonomy.yaml` — your skills with evidence and proficiency levels
-   - Work through `portfolio/questionnaire.yaml` to surface details you might have left out
+The script assembles LLM prompts from YAML data files — useful if you want to use
+the prompts outside of Cursor:
 
-3. **Update career strategy**
-   - `job-search/career-strategy.yaml` — adjust the dual-track strategy, target roles, and decision framework to match your goals
+```bash
+python scripts/generate_resume.py --job archive/job-desc-{company}-{role}.txt --role {closest-role} --mode fit-eval
+python scripts/generate_resume.py --job archive/job-desc-{company}-{role}.txt --role {closest-role} --mode resume
+python scripts/generate_resume.py --job archive/job-desc-{company}-{role}.txt --role {closest-role} --mode cover-letter
+```
 
-4. **Open the project in Cursor**
-   - The `.cursor/rules/resume-system.mdc` file automatically loads the system context for the AI agent
+### Ongoing Maintenance
 
-### Workflow: evaluating a job
+- When you gain new skills or complete projects, update `skill-taxonomy.yaml` first
+- When you change jobs, update `master-portfolio.yaml`
+- Periodically review `questionnaire.yaml` for unanswered expansion prompts
+- Review and update `job-search/search-strategy.yaml` for new titles and sites
+- Run periodic audits (see `portfolio/audit-*.md`) to verify taxonomy accuracy
+- See `.cursor/rules/resume-system.mdc` for Cursor-specific conventions
 
-1. Find a job posting
-2. Save the raw job description text to `archive/job-desc-[company]-[role].txt`
-3. In Cursor chat, say:
+## Key Concepts
 
-   > Evaluate this role: [paste job URL or reference the archive file]
+- **Skill Taxonomy** — Normalized table mapping each skill to proficiency level, years
+  of experience, concrete evidence, and applicable roles. Single source of truth for
+  what the candidate can credibly claim.
 
-4. The agent will:
-   - Score the fit (0–10) using `templates/fit-evaluation-structure.yaml`
-   - Identify your strengths, gaps, and positioning strategy
-   - Recommend Apply / Skip / Investigate
-   - If score ≥ 7.5: generate a tailored resume and cover letter automatically
-   - Save everything to `output/application-[company]-[role]-[date].md`
+- **Resume Structures** — Role-specific YAML files that define section order, emphasis
+  areas, keyword targets, and which skill categories to prioritize. Currently supports:
+  Data Engineer, Analytics Engineer, Solutions Engineer, Platform Architect.
 
----
+- **Master Portfolio** — Complete, unfiltered career record covering all roles from
+  Kinsmen Homes (2011) through QuotaPath (2024–present). Includes responsibilities,
+  impact metrics, confirmed contributions, and environment details per role.
 
-## Key concepts
+- **Fit Evaluation** — Structured 8-section analysis comparing candidate skills against
+  a specific JD. Produces a 1-10 fit score, skill match matrix, gap analysis,
+  positioning strategy, and an APPLY / APPLY WITH CAVEATS / SKIP recommendation.
 
-### The canonical portfolio
+- **Cover Letter** — Tailored letter generated from the fit evaluation's positioning
+  strategy, gap mitigation notes, and the candidate's strongest matching evidence.
 
-`master-portfolio.yaml` is the **single source of truth** for all career information. Every resume generated pulls from this file. You never write a resume from scratch — you curate the source and let the agent select and tailor.
+- **Archive** — Raw material (old resumes, interview prep notes, job descriptions) that
+  feeds into the taxonomy over time. Includes both PDFs and a detailed CSV of
+  interview answers, accomplishments, and an "elevator pitch."
 
-### Skill taxonomy
+- **Career Strategy** — Central decision-making document covering career identity,
+  dual-track strategy (FTE + contract/gig), target role matrix, LinkedIn optimization,
+  decision framework, skill development priorities, and search cadence. Lives at
+  `job-search/career-strategy.yaml`.
 
-`skill-taxonomy.yaml` maps each skill to:
-- Proficiency level (foundational / intermediate / advanced / expert)
-- Years of experience
-- Concrete evidence (specific accomplishments, not generic claims)
-- Roles where the skill is applicable
+- **Job Search Strategy** — Maintained search queries for job boards, recommended titles
+  based on the candidate's experience, and a list of tracked sites (FTE and contract).
 
-The fit evaluation uses this to score JD requirements against demonstrated evidence, not just keyword presence.
+- **Audit Trail** — Periodic legitimacy sweeps that cross-reference taxonomy claims
+  against confirmed evidence, flag LLM-generated inflation from old resumes, and
+  ensure proficiency levels are honest.
 
-### Dual-track strategy
+## Generation Modes
 
-`career-strategy.yaml` separates the job search into two parallel tracks:
-- **Track A (FTE)** — full-time employment, target org profile, domain preferences
-- **Track B (Contract/Gig)** — parallel income track, acceptable rates and durations, platforms
+| Mode | Flag | Output | Purpose |
+|---|---|---|---|
+| Resume | `--mode resume` | `prompt-resume-*.md` | ATS-optimized one-page resume |
+| Fit Evaluation | `--mode fit-eval` | `prompt-fit-eval-*.md` | Should-I-apply analysis |
+| Cover Letter | `--mode cover-letter` | `prompt-cover-letter-*.md` | Tailored cover letter |
 
-### AI detection countermeasures
+## Requirements
 
-`templates/cover-letter-structure.yaml` includes a documented section on how AI detectors work (perplexity, burstiness, pattern recognition) and specific writing rules the agent applies to generate cover letters that read as human-written.
-
----
-
-## Example outputs
-
-The `output/` directory contains real application packages generated by this system. Each file includes:
-
-- Full fit evaluation with a scored skill match matrix
-- Gap analysis and positioning strategy
-- Tailored resume
-- Cover letter
-
----
-
-## Customization
-
-To adapt this for yourself:
-
-| File | What to change |
-|---|---|
-| `portfolio/master-portfolio.yaml` | Replace all experience, education, and projects with your own |
-| `portfolio/skill-taxonomy.yaml` | Replace skills and evidence with your own |
-| `job-search/career-strategy.yaml` | Replace target roles, domains, and preferences |
-| `templates/structures/` | Add or modify role-specific resume structures for your target roles |
-| `templates/cover-letter-structure.yaml` | Adjust writing style preferences in the `voice_and_style` section |
-
----
-
-## Built by
-
-James Mayo — [linkedin.com/in/jamespatrickmayo](https://linkedin.com/in/jamespatrickmayo)
-
-The portfolio data in this repo (skills, experience, projects) is James's real career history, provided as a working example. Fork it and replace with your own.
-
----
-
-## License
-
-MIT — use this freely, adapt it, build on it.
+```bash
+pip install pyyaml
+```

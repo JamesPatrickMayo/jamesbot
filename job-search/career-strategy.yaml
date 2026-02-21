@@ -538,7 +538,14 @@ decision_framework:
 # ============================================================================
 # 6. SKILL DEVELOPMENT PRIORITIES
 # ============================================================================
+# NOTE: Full skill development tracker has moved to portfolio/skill-development.yaml
+# That file includes: capability gaps by priority tier, articulation gaps, interview
+# coding prep (SQL + Python), sprint-based learning roadmap, and gap tracking log.
+# The summary below is kept here for quick reference only.
+# ============================================================================
 skill_development:
+
+  see_also: "portfolio/skill-development.yaml — full roadmap, resources, and sprint plan"
 
   rationale: >
     Priorities derived from recurring gaps across 13 job applications.
@@ -636,9 +643,9 @@ search_cadence:
 application_history:
 
   as_of: "2026-02-20"
-  total_evaluated: 0  # Update with your own count
-  full_applications_generated: 0  # Update with your own count
-  fit_eval_only: 0  # Update with your own count
+  total_evaluated: 13
+  full_applications_generated: 5
+  fit_eval_only: 8
 
   observations:
     note: >
