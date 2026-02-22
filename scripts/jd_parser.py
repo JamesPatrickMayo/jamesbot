@@ -31,10 +31,14 @@ ARCHIVE_DIR = ROOT / "archive"
 # ---- Section header patterns ------------------------------------------------
 # Order matters: more specific patterns first.
 SECTION_PATTERNS = [
-    (r"(?i)^(requirements?|qualifications?|what you.ll bring|what we.re looking for"
+    (r"(?i)^(requirements?|required|qualifications?|required skills?|required experience"
+     r"|required qualifications?|required competenc|specialized knowledge"
+     r"|skills? (and|&) requirements?"
+     r"|what you.ll bring|what we.re looking for"
      r"|you.ll have|you (will )?have|must.have|we.re looking for|we want to hear)", "requirements"),
-    (r"(?i)^(responsibilities?|what you.ll do|what you will do|the role|about the role"
-     r"|your role|what will you do|job responsibilities?|in this role|you will)", "responsibilities"),
+    (r"(?i)^(responsibilities?|primary (job )?duties?|what you.ll do|what you will do"
+     r"|the role|about the role|your role|what will you do"
+     r"|job responsibilities?|in this role|you will|key responsibilities?)", "responsibilities"),
     (r"(?i)^(nice.to.have|preferred|bonus|plus|good.to.have|added bonus)", "preferred"),
     (r"(?i)^(about us|about the company|who we are|company overview|our mission)", "about"),
     (r"(?i)^(benefits?|what we offer|perks|why work|compensation|why join)", "benefits"),
@@ -71,9 +75,14 @@ TECH_SKILL_PATTERNS = [
     r"\blooker\b", r"\btableau\b", r"\bpower bi\b", r"\bmetabase\b",
     r"\bsisense\b", r"\bdomo\b", r"\bmicrostrategy\b", r"\bgrafana\b",
     r"\blookml\b",
+    # Microsoft SQL Server stack (legacy enterprise)
+    r"\bssis\b", r"\bssrs\b", r"\bssas\b", r"\bt-sql\b", r"\btsql\b",
+    r"\bms sql\b", r"\bms sql server\b", r"\bsql server\b", r"\bssms\b",
+    r"\bvisual studio\b", r"\bssdt\b", r"\bdynamic 365\b", r"\bpowerbi\b",
     # Databases
     r"\bpostgresql\b", r"\bpostgres\b", r"\bmysql\b", r"\bmongodb\b",
     r"\bcassandra\b", r"\bredis\b", r"\bneo4j\b", r"\bcosmosdb\b",
+    r"\boracle\b", r"\bdb2\b", r"\bmariadb\b", r"\bsqlite\b",
     # DevOps / Engineering
     r"\bgit\b", r"\bgithub\b", r"\bci/cd\b", r"\bjenkins\b",
     r"\bcircleci\b", r"\bgitlab ci\b", r"\bjira\b", r"\bconfluence\b",

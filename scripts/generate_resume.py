@@ -136,9 +136,20 @@ def format_precomputed_context(parsed_jd: dict | None, scores: dict | None) -> s
         partial = summary.get("partial_matching_skills", [])
         if partial:
             lines.append(f"**Partial matching skills:** {', '.join(partial[:6])}")
+        absent = summary.get("required_but_absent", [])
+        if absent:
+            candidate_side = summary.get("candidate_side_score", summary.get("estimated_fit_score", "?"))
+            penalty = summary.get("absence_penalty", 0)
+            lines.append(
+                f"**⚠ Required skills NOT in candidate taxonomy (hard gaps):** {', '.join(absent[:6])}"
+            )
+            lines.append(
+                f"  → Candidate-side score was {candidate_side}/10 before -{penalty} absence penalty."
+                f" Treat these as CRITICAL gaps unless the candidate has unlisted experience."
+            )
         gaps = summary.get("likely_gaps", [])
         if gaps:
-            lines.append(f"**Likely skill gaps:** {', '.join(gaps[:5])}")
+            lines.append(f"**Likely skill gaps (taxonomy skills not in JD):** {', '.join(gaps[:5])}")
         lines.append("")
 
         # Top scored skills detail table

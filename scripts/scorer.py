@@ -169,15 +169,82 @@ def run_scoring(jd_path: Path, parsed_jd_path: Path, taxonomy: dict) -> tuple[li
     return scores, summary
 
 
+def _find_required_but_absent(parsed_jd: dict, scores: dict) -> list[str]:
+    """Find specific tech tools required by the JD that have no taxonomy match.
+
+    Only checks required_skills (specific tech tools extracted from the requirements
+    section by jd_parser). Does NOT check raw_keywords (context/soft-skill signals)
+    because those reflect cultural or domain language, not hard tool requirements.
+    """
+    # Build a set of taxonomy skill names (lowercased) that scored at least partial
+    matched_skills = {
+        s["skill"].lower() for s in scores
+        if s["match_category"] in ("STRONG_MATCH", "PARTIAL_MATCH")
+    }
+
+    # Only check required_skills — these are specific tech tools from the req section
+    jd_required = parsed_jd.get("required_skills", []) or []
+
+    # Also look for tools in required_other_mentioned_skills (from the full text)
+    # that appear to be specific named technologies (not generic terms)
+    other_mentioned = parsed_jd.get("other_mentioned_skills", []) or []
+
+    absent = []
+    checked: set[str] = set()
+
+    # Generic terms that appear in both JDs and taxonomy but aren't specific tools
+    generic_skip = {
+        "sql", "etl", "api", "rest", "git", "data", "cloud", "python", "java",
+        "ml", "ai", "elt", "pipeline", "documentation", "communication",
+        "collaboration", "integration", "agile", "rest api", "mysql",
+    }
+
+    for item in list(jd_required) + list(other_mentioned):
+        item_lower = _normalize(str(item))
+        if item_lower in checked or not item_lower:
+            continue
+        checked.add(item_lower)
+
+        if item_lower in generic_skip:
+            continue
+        if len(item_lower) < 3:
+            continue
+
+        # Check if this item matches any of our taxonomy skill names.
+        # Use whole-word tokenization to avoid "sql" matching "t-sql" or "mysql".
+        # Treat slash-separated acronyms (ci/cd, s3/glacier) as compound tokens.
+        item_normalized = re.sub(r"/", " ", item_lower)
+        item_tokens = set(re.findall(r"[a-z][a-z0-9+#.]{1,}", item_normalized))
+        found = False
+        for matched in matched_skills:
+            matched_tokens = set(re.findall(r"[a-z][a-z0-9+#.]{1,}", matched))
+            # Require meaningful overlap: shared tokens must be > 2 chars
+            # and the overlap must cover most of the item tokens
+            overlap = {t for t in item_tokens & matched_tokens if len(t) >= 2}
+            if overlap and len(overlap) / max(1, len(item_tokens)) >= 0.6:
+                found = True
+                break
+        if not found:
+            absent.append(item)
+
+    return absent[:8]
+
+
 def _compute_summary(scores: list[dict], parsed_jd: dict) -> dict:
     strong = [s for s in scores if s["match_category"] == "STRONG_MATCH"]
     partial = [s for s in scores if s["match_category"] == "PARTIAL_MATCH"]
     weak = [s for s in scores if s["match_category"] == "WEAK_SIGNAL"]
     not_in = [s for s in scores if s["match_category"] == "NOT_IN_JD"]
 
-    # Estimated fit: weighted average of top-10 confidence scores
+    # Estimated fit: weighted average of top-10 confidence scores (candidate-side)
     top10 = [s["confidence"] for s in scores[:10]]
-    estimated = round(sum(top10) / len(top10), 1) if top10 else 0.0
+    candidate_side = round(sum(top10) / len(top10), 1) if top10 else 0.0
+
+    # JD-side coverage: penalize for required skills the candidate doesn't have
+    required_but_absent = _find_required_but_absent(parsed_jd, scores)
+    # Each unmatched required skill reduces the estimate by 0.8, capped at -4.0
+    absence_penalty = round(min(4.0, len(required_but_absent) * 0.8), 1)
+    estimated = round(max(0.0, candidate_side - absence_penalty), 1)
 
     # Likely gaps = skills NOT in JD that we have at intermediate+ proficiency
     gap_levels = {"intermediate", "advanced", "expert"}
@@ -191,6 +258,9 @@ def _compute_summary(scores: list[dict], parsed_jd: dict) -> dict:
         "inferred_role": parsed_jd.get("inferred_role", ""),
         "seniority": parsed_jd.get("seniority", ""),
         "estimated_fit_score": estimated,
+        "candidate_side_score": candidate_side,
+        "absence_penalty": absence_penalty,
+        "required_but_absent": required_but_absent,
         "strong_match_count": len(strong),
         "partial_match_count": len(partial),
         "weak_signal_count": len(weak),
@@ -205,7 +275,14 @@ def print_summary(summary: dict) -> None:
     print("\n" + "=" * 55)
     print(f"  Pre-Score Summary: {summary.get('company')} — {summary.get('inferred_role')}")
     print("=" * 55)
-    print(f"  Estimated fit score : {summary['estimated_fit_score']}/10")
+    candidate_side = summary.get("candidate_side_score", summary["estimated_fit_score"])
+    penalty = summary.get("absence_penalty", 0.0)
+    if penalty > 0:
+        print(f"  Candidate-side score: {candidate_side}/10")
+        print(f"  Absence penalty     : -{penalty} (required skills not in taxonomy)")
+        print(f"  Estimated fit score : {summary['estimated_fit_score']}/10  [PENALIZED]")
+    else:
+        print(f"  Estimated fit score : {summary['estimated_fit_score']}/10")
     print(f"  Seniority signal    : {summary.get('seniority', 'unknown')}")
     print(f"  Strong matches      : {summary['strong_match_count']}")
     print(f"  Partial matches     : {summary['partial_match_count']}")
@@ -214,6 +291,9 @@ def print_summary(summary: dict) -> None:
         print(f"  Top skills          : {', '.join(summary['top_matching_skills'][:6])}")
     if summary["partial_matching_skills"]:
         print(f"  Partial matches     : {', '.join(summary['partial_matching_skills'][:5])}")
+    absent = summary.get("required_but_absent", [])
+    if absent:
+        print(f"  Required but absent : {', '.join(absent[:5])}")
     if summary["likely_gaps"]:
         print(f"  Likely gaps         : {', '.join(summary['likely_gaps'][:4])}")
     print("=" * 55 + "\n")
