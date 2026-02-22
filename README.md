@@ -1,6 +1,6 @@
-# JamesBot — AI Resume & Application Generation System
+# JamesBot: AI Resume and Application Generation System
 
-> **This is a working proof-of-concept** — a real system built and used for active job searching,
+> **This is a working proof-of-concept** built and used for active job searching,
 > open-sourced as a template for others to fork and adapt.
 > The portfolio data in this repo is placeholder-only. See the [Setup](#setup) section to populate it with your own.
 
@@ -9,8 +9,9 @@
 A structured, maintainable system that maintains a canonical skills database and
 produces tailored resumes, fit evaluations, and cover letters for specific job
 applications. The system uses a preprocessing pipeline to reduce LLM cognitive
-load — parsing JDs, pre-scoring skill matches, and pre-selecting content — so the
-LLM validates and refines rather than deriving everything from scratch.
+load by parsing JDs, pre-scoring skill matches, and pre-selecting content before
+the LLM pass. The LLM validates and refines rather than deriving everything from
+scratch.
 
 ## Architecture
 
@@ -155,24 +156,24 @@ Job URL  ──►  fetch_jd.py  ──►  archive/job-desc-*.txt
         (application log)          (auto-appended gaps)
 ```
 
-**LLM role shift:** Without pre-computed context, the LLM discovers structure,
-scores skills, and generates from scratch. With `--parsed-jd` + `--pre-scores`,
-it validates scores, adjusts where warranted, and refines — substantially reducing
-reasoning load and improving consistency.
+Without pre-computed context, the LLM discovers structure, scores skills, and
+generates from scratch. With `--parsed-jd` and `--pre-scores`, it validates
+scores, adjusts where warranted, and refines. This substantially reduces reasoning
+load and improves consistency across evaluations.
 
 ## Key Concepts
 
 - **Skill Taxonomy** — Normalized table mapping each skill to proficiency level, years
   of experience, concrete evidence, and applicable roles. Single source of truth for
-  what the candidate can credibly claim. Skills include `honest_gaps` blocks where a
-  skill was recalibrated (e.g., a tool you used peripherally but didn't author at scale).
-  Includes a **Domain Experience** category for industry-specific knowledge that isn't
-  a named tool (e.g., TV Media Monitoring, ad tech, vertical SaaS domain familiarity).
+  what the candidate can credibly claim. Includes `honest_gaps` blocks where a skill
+  was recalibrated (e.g., a tool you used peripherally but did not author at scale).
+  Also includes a **Domain Experience** category for industry-specific knowledge that
+  is not a named tool (e.g., TV Media Monitoring, ad tech familiarity).
 
-- **Master Portfolio** — Complete, unfiltered career record. The single source of
-  truth for experience, impact metrics, and confirmed contributions. Roles can include
-  a `media_platform_context` block where industry context is non-obvious from the
-  title alone.
+- **Master Portfolio** — Complete, unfiltered career record. Single source of truth
+  for experience, impact metrics, and confirmed contributions. Roles can include a
+  `media_platform_context` block where the industry context is not obvious from the
+  job title alone.
 
 - **Resume Structures** — Role-specific YAML files defining section order, emphasis
   areas, keyword targets, and which skill categories to prioritize. Supports:
@@ -185,27 +186,27 @@ reasoning load and improving consistency.
 - **Pre-Scorer** — Matches each taxonomy skill against JD mentions using a weighted
   keyword index. Produces a `candidate_side_score`, applies an `absence_penalty` for
   required tools not in taxonomy, and outputs an `estimated_fit_score`. The LLM
-  validates and adjusts — it does not re-derive from scratch. Known limitations
+  validates and adjusts rather than re-deriving from scratch. Known limitations are
   tracked in `archive/scorer-calibration.yaml` with an `improvement_backlog`.
 
 - **Scorer Calibration Log** — `archive/scorer-calibration.yaml` tracks every
   evaluation's pre-score vs. LLM-validated score, records the delta and error type
   (FALSE_POSITIVE / FALSE_NEGATIVE / CALIBRATED), documents root causes, and
-  maintains a prioritized `improvement_backlog` for scorer enhancements.
+  maintains a prioritized `improvement_backlog` for scorer improvements.
 
-- **Two-Score Evaluation System** — Roles can be scored on two tracks when relevant:
-  (1) **Primary search score** — evaluated against your full target profile.
-  (2) **Bridge mode score** — evaluated under a relaxed threshold when financial
-  pressure or deliberate recovery makes a lower-stakes role strategically sound.
-  Define your bridge scenario in `career-strategy.yaml`.
+- **Two-Score Evaluation System** — Roles can be scored on two tracks when relevant.
+  The primary search score is evaluated against the full target profile. The bridge
+  mode score is evaluated under a relaxed threshold when financial pressure or
+  deliberate recovery makes a lower-stakes role strategically sound. Define your
+  bridge scenario in `career-strategy.yaml`.
 
 - **Bullet Bank** — Pre-written resume bullet variants per company, tagged by skill
   cluster and applicable role. The assembler pre-selects the top N bullets by JD
-  keyword overlap; the LLM reorders and tightens, not rewrites from scratch.
+  keyword overlap. The LLM reorders and tightens rather than rewriting from scratch.
 
 - **Paragraph Bank** — Pre-written cover letter paragraphs for recurring scenarios
   (build-from-scratch, client-facing scale, domain gap bridge, career narrative).
-  Tagged by applicable role; top 2-3 selected before the LLM pass.
+  Tagged by applicable role. Top 2-3 are selected before the LLM pass.
 
 - **Application Tracker** — `output/tracker.yaml` logs every evaluated role with
   fit score, scorer estimate, scorer delta, calibration status, recommendation,
@@ -217,8 +218,8 @@ reasoning load and improving consistency.
   recalibrations and new gaps surfaced through evaluations.
 
 - **Gap Sync** — `evaluate.py` scans application outputs for MODERATE/CRITICAL GAP
-  mentions and auto-appends them to `portfolio/skill-development.yaml` gap log,
-  keeping the learning roadmap in sync with the application pipeline.
+  mentions and auto-appends them to `portfolio/skill-development.yaml`, keeping the
+  learning roadmap in sync with the application pipeline.
 
 - **Career Strategy** — Central decision-making document at `job-search/career-strategy.yaml`
   covering career identity, dual-track strategy, target role matrix, decision framework,
@@ -244,7 +245,7 @@ reasoning load and improving consistency.
 | `skipped` | Evaluated but did not apply (low score, domain gap, etc.) |
 | `pending_application` | Recommended to apply but not yet submitted |
 | `pending_evaluation` | JD was incomplete; re-evaluate with full JD |
-| `bridge_candidate` | Below primary search threshold but viable under a relaxed bridge scenario |
+| `bridge_candidate` | Below primary search threshold but viable under bridge scenario (see `bridge_scenario` in career-strategy.yaml) |
 
 ## Maintenance
 
@@ -257,7 +258,7 @@ reasoning load and improving consistency.
 ### When correcting skill claims
 - Update `skill-taxonomy.yaml` proficiency level and add an `honest_gaps` block
 - Update `master-portfolio.yaml` to remove or reword any inflated role descriptions
-- Update `skill-development.yaml` to reclassify the gap type (articulation → capability if needed)
+- Update `skill-development.yaml` to reclassify the gap type (articulation to capability if needed)
 - Add a dated entry to `skill-development.yaml` gap_tracking_log
 
 ### When new skills or experience are confirmed
@@ -275,7 +276,7 @@ reasoning load and improving consistency.
 ### Resume format
 - All resumes use plain-text format (no markdown bullet markers) for Rezi compatibility
 - Section headers in ALL CAPS; job title on one line, company | location | dates on next
-- Each bullet is a standalone plain text line — no `- ` prefix
+- Each bullet is a standalone plain text line with no `- ` prefix
 - See `.cursor/rules/resume-system.mdc` for full Cursor agent conventions
 
 ## Requirements
@@ -307,7 +308,7 @@ To use this system with your own data:
    ```
 
 The `questionnaire.yaml` file contains expansion prompts to help you think through skills
-and experiences that are easy to forget — fill it in over time to strengthen your portfolio.
+and experiences that are easy to forget. Fill it in over time to strengthen your portfolio.
 
 ## License
 
