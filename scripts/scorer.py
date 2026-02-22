@@ -212,13 +212,15 @@ def _find_required_but_absent(parsed_jd: dict, scores: dict) -> list[str]:
 
         # Check if this item matches any of our taxonomy skill names.
         # Use whole-word tokenization to avoid "sql" matching "t-sql" or "mysql".
-        item_tokens = set(re.findall(r"[a-z][a-z0-9+#.]{1,}", item_lower))
+        # Treat slash-separated acronyms (ci/cd, s3/glacier) as compound tokens.
+        item_normalized = re.sub(r"/", " ", item_lower)
+        item_tokens = set(re.findall(r"[a-z][a-z0-9+#.]{1,}", item_normalized))
         found = False
         for matched in matched_skills:
             matched_tokens = set(re.findall(r"[a-z][a-z0-9+#.]{1,}", matched))
             # Require meaningful overlap: shared tokens must be > 2 chars
             # and the overlap must cover most of the item tokens
-            overlap = {t for t in item_tokens & matched_tokens if len(t) > 2}
+            overlap = {t for t in item_tokens & matched_tokens if len(t) >= 2}
             if overlap and len(overlap) / max(1, len(item_tokens)) >= 0.6:
                 found = True
                 break

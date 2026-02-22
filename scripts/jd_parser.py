@@ -31,8 +31,9 @@ ARCHIVE_DIR = ROOT / "archive"
 # ---- Section header patterns ------------------------------------------------
 # Order matters: more specific patterns first.
 SECTION_PATTERNS = [
-    (r"(?i)^(requirements?|qualifications?|required skills?|required experience"
-     r"|required competenc|specialized knowledge|skills? (and|&) requirements?"
+    (r"(?i)^(requirements?|required|qualifications?|required skills?|required experience"
+     r"|required qualifications?|required competenc|specialized knowledge"
+     r"|skills? (and|&) requirements?"
      r"|what you.ll bring|what we.re looking for"
      r"|you.ll have|you (will )?have|must.have|we.re looking for|we want to hear)", "requirements"),
     (r"(?i)^(responsibilities?|primary (job )?duties?|what you.ll do|what you will do"
