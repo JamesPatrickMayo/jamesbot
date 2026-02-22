@@ -47,6 +47,7 @@ jamesbot/
 │   ├── job-desc-*.txt                # Saved job descriptions (one per application)
 │   ├── jd-parsed-*.yaml              # Parsed JD output (from jd_parser.py)
 │   ├── jd-scores-*.yaml              # Pre-scored skill matches (from scorer.py)
+│   ├── scorer-calibration.yaml       # Scorer vs. LLM delta log + improvement backlog
 │   └── *.pdf / *.csv                 # Old resumes, interview prep notes
 │
 ├── job-search/                       # Job search strategy & tracking
@@ -163,7 +164,15 @@ reasoning load and improving consistency.
 
 - **Skill Taxonomy** — Normalized table mapping each skill to proficiency level, years
   of experience, concrete evidence, and applicable roles. Single source of truth for
-  what the candidate can credibly claim.
+  what the candidate can credibly claim. Skills include `honest_gaps` blocks where a
+  skill was recalibrated (e.g., a tool you used peripherally but didn't author at scale).
+  Includes a **Domain Experience** category for industry-specific knowledge that isn't
+  a named tool (e.g., TV Media Monitoring, ad tech, vertical SaaS domain familiarity).
+
+- **Master Portfolio** — Complete, unfiltered career record. The single source of
+  truth for experience, impact metrics, and confirmed contributions. Roles can include
+  a `media_platform_context` block where industry context is non-obvious from the
+  title alone.
 
 - **Resume Structures** — Role-specific YAML files defining section order, emphasis
   areas, keyword targets, and which skill categories to prioritize. Supports:
@@ -174,8 +183,21 @@ reasoning load and improving consistency.
   high-signal context keywords.
 
 - **Pre-Scorer** — Matches each taxonomy skill against JD mentions using a weighted
-  keyword index. Strong matches (7+/10) are surfaced for the LLM to validate rather
-  than rediscover. Includes gap detection for intermediate+ skills absent from the JD.
+  keyword index. Produces a `candidate_side_score`, applies an `absence_penalty` for
+  required tools not in taxonomy, and outputs an `estimated_fit_score`. The LLM
+  validates and adjusts — it does not re-derive from scratch. Known limitations
+  tracked in `archive/scorer-calibration.yaml` with an `improvement_backlog`.
+
+- **Scorer Calibration Log** — `archive/scorer-calibration.yaml` tracks every
+  evaluation's pre-score vs. LLM-validated score, records the delta and error type
+  (FALSE_POSITIVE / FALSE_NEGATIVE / CALIBRATED), documents root causes, and
+  maintains a prioritized `improvement_backlog` for scorer enhancements.
+
+- **Two-Score Evaluation System** — Roles can be scored on two tracks when relevant:
+  (1) **Primary search score** — evaluated against your full target profile.
+  (2) **Bridge mode score** — evaluated under a relaxed threshold when financial
+  pressure or deliberate recovery makes a lower-stakes role strategically sound.
+  Define your bridge scenario in `career-strategy.yaml`.
 
 - **Bullet Bank** — Pre-written resume bullet variants per company, tagged by skill
   cluster and applicable role. The assembler pre-selects the top N bullets by JD
@@ -186,19 +208,21 @@ reasoning load and improving consistency.
   Tagged by applicable role; top 2-3 selected before the LLM pass.
 
 - **Application Tracker** — `output/tracker.yaml` logs every evaluated role with
-  fit score, recommendation, status, and output file path. `tracker.py` provides
-  CLI commands to add, update, print status, and export to CSV.
+  fit score, scorer estimate, scorer delta, calibration status, recommendation,
+  status, and output file path. `tracker.py` provides CLI commands to add, update,
+  print status, and export to CSV.
+
+- **Skill Development Tracker** — `portfolio/skill-development.yaml` tracks capability
+  gaps, articulation gaps, certifications, and the learning roadmap. A gap log records
+  recalibrations and new gaps surfaced through evaluations.
 
 - **Gap Sync** — `evaluate.py` scans application outputs for MODERATE/CRITICAL GAP
   mentions and auto-appends them to `portfolio/skill-development.yaml` gap log,
   keeping the learning roadmap in sync with the application pipeline.
 
-- **Master Portfolio** — Complete, unfiltered career record. The single source of
-  truth for experience, impact metrics, and confirmed contributions.
-
 - **Career Strategy** — Central decision-making document at `job-search/career-strategy.yaml`
   covering career identity, dual-track strategy, target role matrix, decision framework,
-  and skill development priorities.
+  compensation approach, and skill development priorities.
 
 ## Generation Modes
 
@@ -218,17 +242,41 @@ reasoning load and improving consistency.
 | `rejected` | Rejection received |
 | `ghosted` | No response after 3+ weeks |
 | `skipped` | Evaluated but did not apply (low score, domain gap, etc.) |
-| `pending_application` | Fit score ≥ 7.5 but not yet applied |
+| `pending_application` | Recommended to apply but not yet submitted |
 | `pending_evaluation` | JD was incomplete; re-evaluate with full JD |
+| `bridge_candidate` | Below primary search threshold but viable under a relaxed bridge scenario |
 
 ## Maintenance
 
-- When you gain new skills or complete projects, update `skill-taxonomy.yaml`
-- When experience accumulates, add bullets to `bullet-bank.yaml` with tags
-- Periodically review `questionnaire.yaml` for unanswered expansion prompts
-- Review `job-search/career-strategy.yaml` to update search focus as needs change
+### After each evaluation session
+- Add new evaluation to `output/tracker.yaml` with `scorer_estimate`, `scorer_delta`, and `calibration`
+- Add calibration entry to `archive/scorer-calibration.yaml` with root cause if delta > 1.0
+- Update `portfolio/skill-development.yaml` gap log with any new gaps surfaced
+- If a role context reveals new domain experience, update `master-portfolio.yaml` and `skill-taxonomy.yaml`
+
+### When correcting skill claims
+- Update `skill-taxonomy.yaml` proficiency level and add an `honest_gaps` block
+- Update `master-portfolio.yaml` to remove or reword any inflated role descriptions
+- Update `skill-development.yaml` to reclassify the gap type (articulation → capability if needed)
+- Add a dated entry to `skill-development.yaml` gap_tracking_log
+
+### When new skills or experience are confirmed
+- Add to `skill-taxonomy.yaml` with `proficiency`, `years`, `evidence`, and `applicable_roles`
+- If domain-specific (industry knowledge, not a technical tool), add to the `Domain Experience` category
+- Add supporting context to the relevant role in `master-portfolio.yaml`
+
+### Periodic reviews
+- Review `career-strategy.yaml` when financial situation, target role focus, or priorities change
+- Review `skill-development.yaml` roadmap weekly; update sprint `status` and task completion
 - Run `tracker.py --status` weekly to maintain application momentum
-- See `.cursor/rules/resume-system.mdc` for Cursor agent conventions
+- Review `scorer-calibration.yaml` improvement_backlog monthly; implement highest-priority fixes
+- Periodically review `questionnaire.yaml` for unanswered expansion prompts
+
+### Resume format
+- All resumes use plain-text format (no markdown bullet markers) for Rezi compatibility
+- Section headers in ALL CAPS; job title on one line, company | location | dates on next
+- Each bullet is a standalone plain text line — no `- ` prefix
+- See `.cursor/rules/resume-system.mdc` for full Cursor agent conventions
 
 ## Requirements
 
