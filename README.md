@@ -9,9 +9,8 @@
 A structured, maintainable system that maintains a canonical skills database and
 produces tailored resumes, fit evaluations, and cover letters for specific job
 applications. The system uses a preprocessing pipeline to reduce LLM cognitive
-load by parsing JDs, pre-scoring skill matches, and pre-selecting content before
-the LLM pass. The LLM validates and refines rather than deriving everything from
-scratch.
+load (parsing JDs, pre-scoring skill matches, and pre-selecting content) so the
+LLM validates and refines rather than deriving everything from scratch.
 
 ## Architecture
 
@@ -156,10 +155,10 @@ Job URL  ──►  fetch_jd.py  ──►  archive/job-desc-*.txt
         (application log)          (auto-appended gaps)
 ```
 
-Without pre-computed context, the LLM discovers structure, scores skills, and
-generates from scratch. With `--parsed-jd` and `--pre-scores`, it validates
-scores, adjusts where warranted, and refines. This substantially reduces reasoning
-load and improves consistency across evaluations.
+**LLM role shift:** Without pre-computed context, the LLM discovers structure,
+scores skills, and generates from scratch. With `--parsed-jd` + `--pre-scores`,
+it validates scores, adjusts where warranted, and refines, substantially reducing
+reasoning load and improving consistency.
 
 ## Key Concepts
 
