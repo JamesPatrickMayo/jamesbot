@@ -11,6 +11,11 @@ Global rules that apply to all generated resumes regardless of target role.
 5. **No fluff** — remove soft-skill bullets unless they demonstrate measurable leadership
 6. **ATS-friendly** — no tables, columns, graphics, or headers inside text boxes
 
+## Punctuation and Style (Public-Facing)
+
+- **No em-dashes (—)** in resumes or cover letters. Use commas, parentheses, or rephrase. Em-dashes waste space inside bullets and are not used in diagrams only. Exception: diagrams/charts.
+- **Every bullet ends with a period.** No exceptions for experience, skills, or project bullets.
+
 ## Bullet Formula
 
 Every experience bullet should follow this pattern where possible:
@@ -20,9 +25,9 @@ Every experience bullet should follow this pattern where possible:
 ```
 
 Examples:
-- "Architected Medallion-style warehousing layers in dbt Cloud, scaling to 1,900+ models across 6 enterprise domains"
-- "Reduced data incident rate by 40% by implementing automated freshness and schema validation tests across 90+ pipelines"
-- "Designed CI/CD pipelines via GitHub Actions, increasing deployment frequency 2x while reducing hotfixes by 30%"
+- "Architected Medallion-style warehousing layers in dbt Cloud, scaling to 1,900+ models across 6 enterprise domains."
+- "Reduced data incident rate by 40% by implementing automated freshness and schema validation tests across 90+ pipelines."
+- "Designed CI/CD pipelines via GitHub Actions, increasing deployment frequency 2x while reducing hotfixes by 30%."
 
 When metrics are unavailable, use **scale indicators**: row counts, model counts, team size, number of stakeholders, pipeline counts.
 
@@ -126,12 +131,12 @@ EXPERIENCE
 Solutions Engineer / Data Platform Architect -- QuotaPath
 Aug 2024 - Sep 2025 | Remote
 
-Designed and maintained integrations across 10+ enterprise SaaS platforms
-Built automated data validation frameworks reducing incidents by 50%+
-Developed Python-based automation workflows reducing runtimes from hours to minutes
+Designed and maintained integrations across 10+ enterprise SaaS platforms.
+Built automated data validation frameworks reducing incidents by 50%+.
+Developed Python-based automation workflows reducing runtimes from hours to minutes.
 
 EDUCATION
-B.B.A. in Management Information Systems -- Lamar University, 2018
+B.B.A. in Management Information Systems, Lamar University, 2018.
 ```
 
 ## Visual Formatting (for final PDF export from Rezi)

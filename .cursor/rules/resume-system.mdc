@@ -26,9 +26,10 @@ alwaysApply: true
 
 - Always read all four inputs: portfolio, taxonomy, role structure, and standards
 - Filter taxonomy skills to those applicable to the target role
-- Never fabricate metrics — use scale indicators when numbers aren't available
+- Never fabricate metrics; use scale indicators when numbers aren't available
 - Include a `<!-- GENERATION NOTES -->` block with gap analysis
 - Output to `output/` with the standard naming convention
+- **Style:** No em-dashes (—) on public-facing content (resumes, cover letters). Use commas or parentheses. Every bullet ends with a period.
 
 ## When Adding New Roles
 
