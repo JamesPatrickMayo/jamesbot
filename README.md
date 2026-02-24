@@ -276,6 +276,7 @@ reasoning load and improving consistency.
 - All resumes use plain-text format (no markdown bullet markers) for Rezi compatibility
 - Section headers in ALL CAPS; job title on one line, company | location | dates on next
 - Each bullet is a standalone plain text line with no `- ` prefix
+- Resume style rules (no em-dashes; every bullet ends with a period) are defined in `templates/resume-standards.md`.
 - See `.cursor/rules/resume-system.mdc` for full Cursor agent conventions
 
 ## Requirements
