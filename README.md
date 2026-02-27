@@ -22,7 +22,8 @@ jamesbot/
 │   ├── questionnaire.yaml            # Expansion questions + responses
 │   ├── skill-development.yaml        # Skill gaps, learning roadmap, interview prep, resources
 │   ├── bullet-bank.yaml              # Pre-written, tagged bullet variants per role+company
-│   └── paragraph-bank.yaml          # Pre-written cover letter paragraph blocks by scenario
+│   ├── paragraph-bank.yaml          # Pre-written cover letter paragraph blocks by scenario
+│   └── signature-stories.yaml       # Reusable interview stories (STAR); used to suggest stories per role
 │
 ├── templates/                        # Format definitions & reusable schemas
 │   ├── resume-standards.md           # Global resume formatting rules and conventions
@@ -79,6 +80,14 @@ python scripts/evaluate.py --job archive/job-desc-merge-solutions-engineer.txt
 ```
 
 The orchestrator walks you through each step interactively.
+
+### Developing from VS Code (or any editor)
+
+This project is editor-agnostic. All workflows run from the terminal.
+
+- **Open folder:** Open the repo root in VS Code (File → Open Folder).
+- **Python:** Scripts assume you run from repo root (`python scripts/evaluate.py ...`).
+- **Dependencies:** `pip install -r requirements.txt` (see [Requirements](#requirements) for optional deps).
 
 ### Check application status
 
@@ -207,6 +216,11 @@ reasoning load and improving consistency.
   (build-from-scratch, client-facing scale, domain gap bridge, career narrative).
   Tagged by applicable role. Top 2-3 are selected before the LLM pass.
 
+- **Signature Stories** — `portfolio/signature-stories.yaml` holds reusable STAR-format
+  interview stories. Each story has `skills_demonstrated` and `interview_prompts` so
+  fit evaluations and application packs can suggest which stories to prepare for a
+  given role.
+
 - **Application Tracker** — `output/tracker.yaml` logs every evaluated role with
   fit score, scorer estimate, scorer delta, calibration status, recommendation,
   status, and output file path. `tracker.py` provides CLI commands to add, update,
@@ -278,6 +292,12 @@ reasoning load and improving consistency.
 - Each bullet is a standalone plain text line with no `- ` prefix
 - Resume style rules (no em-dashes; every bullet ends with a period) are defined in `templates/resume-standards.md`.
 - See `.cursor/rules/resume-system.mdc` for full Cursor agent conventions
+
+## Handoff checklist (switching editors or pausing work)
+
+- [ ] Save all files; commit or stash local changes so work isn’t lost.
+- [ ] Open the same folder in the new editor; run `pip install -r requirements.txt` if using a new environment.
+- [ ] Key artifacts: `output/`, `portfolio/`, `scripts/` (evaluate, generate_resume, tracker).
 
 ## Requirements
 
