@@ -15,24 +15,24 @@ sections:
     questions:
       - id: Q1
         question: "What is the largest dataset you've worked with (rows or GB/TB)?"
-        status: unanswered
-        response: ""
+        status: answered
+        response: "TB-scale datasets"
         feeds_into:
           - skill-taxonomy.yaml (Data Modeling, ELT/ETL Design)
           - master-portfolio.yaml (impact_metrics)
 
       - id: Q2
         question: "Did you ever optimize a slow query? By how much (e.g., 10x faster, from 30min to 3min)?"
-        status: unanswered
-        response: ""
+        status: answered
+        response: "Yes — achieved 2-5x performance improvements"
         feeds_into:
           - skill-taxonomy.yaml (SQL proficiency evidence)
           - master-portfolio.yaml (impact_metrics)
 
       - id: Q3
         question: "Have you reduced pipeline runtime? By how much?"
-        status: unanswered
-        response: ""
+        status: answered
+        response: "At QuotaPath, significantly improved pipeline runtimes for many customers by migrating workspaces from row-by-row SQL calculations running on production data to Python-based custom transformations."
         feeds_into:
           - skill-taxonomy.yaml (ELT/ETL Design, Pipeline Orchestration)
           - master-portfolio.yaml (impact_metrics)
@@ -45,28 +45,28 @@ sections:
       - id: Q4
         question: "How many production dbt jobs ran daily at Success Academy?"
         status: unanswered
-        response: ""
+        response: null
         feeds_into:
           - skill-taxonomy.yaml (dbt Cloud evidence)
 
       - id: Q5
         question: "Did you implement incremental models in dbt? How many?"
-        status: unanswered
-        response: ""
+        status: answered
+        response: "Implemented QA checks and testing standards into dbt models alongside the engineering team at Success Academy. Focus was on quality standards rather than incremental materialization."
         feeds_into:
           - skill-taxonomy.yaml (dbt Cloud proficiency)
 
       - id: Q6
         question: "Did you use dbt macros extensively? Custom macros or mostly built-in?"
-        status: unanswered
-        response: ""
+        status: answered
+        response: "Minimal macro usage — primarily built-in macros"
         feeds_into:
           - skill-taxonomy.yaml (dbt Cloud proficiency)
 
       - id: Q7
         question: "Did you implement source freshness monitoring in dbt?"
-        status: unanswered
-        response: ""
+        status: answered
+        response: "Conceptually explored on the team but never fully implemented"
         feeds_into:
           - skill-taxonomy.yaml (Data Quality Automation)
 
@@ -77,31 +77,35 @@ sections:
     questions:
       - id: Q8
         question: "Did you deploy AWS Lambda functions directly (write code + deploy)?"
-        status: unanswered
-        response: ""
+        status: answered
+        response: "Translated QA, data requirements, and business logic into specifications for engineers to build in Lambda. Tested the functions personally with test scripts."
         feeds_into:
           - skill-taxonomy.yaml (AWS Lambda proficiency)
 
       - id: Q9
         question: "Did you write Step Functions state machine definitions?"
-        status: unanswered
-        response: ""
+        status: answered
+        response: "Reviewed/understood Step Functions definitions but didn't write them directly"
         feeds_into:
           - skill-taxonomy.yaml (AWS Step Functions proficiency)
 
       - id: Q10
         question: "Did you configure RDS instances (provisioning, scaling, backups)?"
-        status: unanswered
-        response: ""
+        status: answered
+        response: >
+          At Success Academy, helped design and implement a 3-tier dev/stage/prod architecture
+          that included directly managing AWS virtual machines and Redshift instances (Redshift
+          was the primary warehouse, not RDS). Involved environment provisioning and infrastructure
+          management hands-on. Not RDS specifically, but equivalent hands-on Redshift infrastructure work.
         feeds_into:
-          - skill-taxonomy.yaml (AWS RDS proficiency)
+          - skill-taxonomy.yaml (AWS RDS → reclassify to AWS Redshift; upgrade proficiency)
 
       - id: Q11
         question: "Did you interact with EKS clusters operationally (deploy, monitor, troubleshoot)?"
-        status: unanswered
-        response: ""
+        status: answered
+        response: "Aware of EKS in the stack at Success Academy but did not interact with it directly."
         feeds_into:
-          - skill-taxonomy.yaml (AWS EKS proficiency)
+          - skill-taxonomy.yaml (AWS EKS — confirm foundational)
 
   # --------------------------------------------------------------------------
   # SNOWFLAKE
@@ -110,29 +114,34 @@ sections:
     questions:
       - id: Q12
         question: "Did you manage Snowflake warehouses (sizing, auto-suspend, scheduling)?"
-        status: unanswered
-        response: ""
+        status: answered
+        response: "Used existing warehouses only — no direct warehouse administration"
         feeds_into:
           - skill-taxonomy.yaml (Snowflake proficiency)
 
       - id: Q13
         question: "Did you optimize Snowflake cost (warehouse sizing, query optimization, clustering)?"
-        status: unanswered
-        response: ""
+        status: answered
+        response: >
+          Snowflake was evaluated at Success Academy but the team chose Redshift as the primary warehouse.
+          Snowflake encountered primarily through customer data setups at QuotaPath — worked within
+          customer Snowflake environments but did not own warehouse administration or cost management.
         feeds_into:
-          - skill-taxonomy.yaml (Snowflake proficiency)
+          - skill-taxonomy.yaml (Snowflake — confirm intermediate, customer-context only)
 
       - id: Q14
         question: "Did you design schemas directly in Snowflake (vs. just through dbt)?"
-        status: unanswered
-        response: ""
+        status: answered
+        response: >
+          At QuotaPath, Snowflake schemas were primarily managed through dbt and existing customer
+          infrastructure. Schema design was done via dbt models rather than direct Snowflake DDL.
         feeds_into:
-          - skill-taxonomy.yaml (Snowflake proficiency)
+          - skill-taxonomy.yaml (Snowflake — dbt-mediated schema design)
 
       - id: Q15
         question: "Did you implement role-based access control (RBAC) in Snowflake?"
-        status: unanswered
-        response: ""
+        status: answered
+        response: "Aware of RBAC in Snowflake but didn't manage it directly"
         feeds_into:
           - skill-taxonomy.yaml (Snowflake, Data Governance)
 
@@ -143,22 +152,25 @@ sections:
     questions:
       - id: Q16
         question: "Did you build feature tables for ML models? What kind?"
-        status: unanswered
-        response: ""
+        status: answered
+        response: "No — data work was upstream of any ML usage. Aggregated datasets were built for analytics but not formal ML feature tables."
         feeds_into:
-          - skill-taxonomy.yaml (ML Dataset Preparation)
+          - skill-taxonomy.yaml (ML Dataset Preparation — confirm foundational)
 
       - id: Q17
         question: "Did you collaborate on A/B testing? What was your role?"
-        status: unanswered
-        response: ""
+        status: answered
+        response: >
+          Yes — conducted A/B testing for internal stakeholders around BI dashboard design and
+          usability at Success Academy. Role was to support data-driven decisions on dashboard
+          structure and layout, not product feature experimentation.
         feeds_into:
-          - skill-taxonomy.yaml (Experiment Design Collaboration)
+          - skill-taxonomy.yaml (Experiment Design Collaboration — foundational, BI context)
 
       - id: Q18
         question: "Did you define metrics for experiments? Which metrics?"
         status: unanswered
-        response: ""
+        response: null
         feeds_into:
           - skill-taxonomy.yaml (KPI Monitoring / Metric Definitions)
 
@@ -169,15 +181,17 @@ sections:
     questions:
       - id: Q19
         question: "Have you designed near-real-time ingestion? What technologies?"
-        status: unanswered
-        response: ""
+        status: answered
+        response: >
+          Partial — worked with webhook-based and event-driven triggers across roles.
+          All primary pipelines were batch-based. No sub-minute latency ingestion design.
         feeds_into:
-          - skill-taxonomy.yaml (Real-time Streaming)
+          - skill-taxonomy.yaml (Real-time Streaming — confirm foundational, webhook exposure)
 
       - id: Q20
         question: "Have you worked with event-based systems (Kafka, Kinesis, SNS/SQS)?"
         status: unanswered
-        response: ""
+        response: null
         feeds_into:
           - skill-taxonomy.yaml (Real-time Streaming)
 
@@ -188,16 +202,16 @@ sections:
     questions:
       - id: Q21
         question: "What percentage of code deployments were automated at QuotaPath?"
-        status: unanswered
-        response: ""
+        status: answered
+        response: "70-90% automated via CI/CD"
         feeds_into:
           - skill-taxonomy.yaml (CI/CD Pipelines)
           - master-portfolio.yaml (QuotaPath impact_metrics)
 
       - id: Q22
         question: "Did you reduce production errors after CI/CD adoption? By how much?"
-        status: unanswered
-        response: ""
+        status: answered
+        response: "Yes — both fewer production incidents after CI/CD adoption, and more issues caught pre-deployment in staging before reaching production. Cannot quantify precisely."
         feeds_into:
           - skill-taxonomy.yaml (CI/CD Pipelines)
           - master-portfolio.yaml (QuotaPath impact_metrics)
@@ -209,23 +223,23 @@ sections:
     questions:
       - id: Q23
         question: "Did you train or mentor junior analysts/engineers? How many? How often?"
-        status: unanswered
-        response: ""
+        status: answered
+        response: "Formally mentored 1-2 people. Informal mentorship through code reviews, pairing, and Q&A. Led technical onboarding sessions."
         feeds_into:
           - skill-taxonomy.yaml (Mentorship)
           - master-portfolio.yaml (leadership)
 
       - id: Q24
         question: "Did you review pull requests regularly? Roughly how many per week?"
-        status: unanswered
-        response: ""
+        status: answered
+        response: "Yes — multiple PRs per week"
         feeds_into:
           - skill-taxonomy.yaml (Mentorship, Engineering Practices)
 
       - id: Q25
         question: "Did you lead or present architecture discussions/reviews?"
-        status: unanswered
-        response: ""
+        status: answered
+        response: "Yes — led a few architecture discussions/reviews"
         feeds_into:
           - skill-taxonomy.yaml (Architecture & Design Reviews)
 
@@ -236,36 +250,42 @@ sections:
     questions:
       - id: Q26
         question: "What measurable business outcomes did your work enable? (revenue, efficiency, etc.)"
-        status: unanswered
-        response: ""
+        status: answered
+        response: >
+          All of: client retention/account health (GRR/NRR), reduced client time-to-value via
+          faster onboarding, reduced engineering burden/tech debt, improved commission calculation
+          accuracy for clients, and enabled new product features and integration types.
         feeds_into:
           - master-portfolio.yaml (all impact_metrics sections)
 
       - id: Q27
         question: "What revenue did the pipelines/systems you built support? (ARR, transactions, etc.)"
-        status: unanswered
-        response: ""
+        status: answered
+        response: >
+          Client contract values ranged from thousands to hundreds of thousands of dollars —
+          a mix of SMB and mid-market accounts. No direct visibility into company-level ARR figures.
+          Impact was operational/retention-focused rather than directly tied to a revenue number.
         feeds_into:
           - master-portfolio.yaml (impact_metrics)
 
       - id: Q28
         question: "How much time did your automation save? (hours/week, FTE equivalent, etc.)"
-        status: unanswered
-        response: ""
+        status: answered
+        response: "Moderate — 5-10 hours/week saved"
         feeds_into:
           - master-portfolio.yaml (impact_metrics)
 
       - id: Q29
         question: "What error/incident reduction can you quantify? (%, count, frequency)"
-        status: unanswered
-        response: ""
+        status: answered
+        response: "Reduced incidents significantly — 50%+"
         feeds_into:
           - master-portfolio.yaml (impact_metrics)
 
       - id: Q30
         question: "Did you accelerate onboarding for new team members or new integrations? By how much?"
-        status: unanswered
-        response: ""
+        status: answered
+        response: "Yes — documentation, templates, and reusable configurations meaningfully reduced client time-to-value. Cannot quantify a specific percentage."
         feeds_into:
           - master-portfolio.yaml (QuotaPath impact_metrics)
 
@@ -276,30 +296,34 @@ sections:
     questions:
       - id: Q31
         question: "Did you implement automated testing coverage metrics at QuotaPath?"
-        status: unanswered
-        response: ""
+        status: answered
+        response: "Introduced and set up dbt testing standards at QuotaPath. Did not formally track coverage percentages — testing was implemented and adopted by the team without a coverage dashboard."
         feeds_into:
           - master-portfolio.yaml (QuotaPath responsibilities)
           - skill-taxonomy.yaml (Data Quality Automation)
 
       - id: Q32
         question: "Did you reduce manual reporting effort at QuotaPath? By how much?"
-        status: unanswered
-        response: ""
+        status: answered
+        response: "Yes — all three stakeholder groups benefited: clients needed less manual data intervention (automation handled it), SE team had reusable templates and tooling reducing per-client manual setup, engineering team had fewer client integration incidents to debug."
         feeds_into:
           - master-portfolio.yaml (QuotaPath impact_metrics)
 
       - id: Q33
         question: "Did you redesign an inefficient pipeline at QuotaPath? What was the improvement?"
-        status: unanswered
-        response: ""
+        status: answered
+        response: >
+          Yes — in addition to regular per-customer Python migrations (row-by-row SQL → Python/Dask),
+          led a larger company-wide project to migrate all users with long sync times to the new Python
+          system. Team goal was 75% GRR/ARR on the new system. Team was the first to hit 75%,
+          achieved shortly before departure in September 2025.
         feeds_into:
           - master-portfolio.yaml (QuotaPath responsibilities)
 
       - id: Q34
         question: "Did you introduce dbt best practices to the QuotaPath team?"
-        status: unanswered
-        response: ""
+        status: answered
+        response: "Yes — established dbt testing standards that the team adopted"
         feeds_into:
           - master-portfolio.yaml (QuotaPath responsibilities)
           - skill-taxonomy.yaml (Mentorship)
@@ -311,37 +335,42 @@ sections:
     questions:
       - id: Q35
         question: "Did you improve query performance at Success Academy? By how much?"
-        status: unanswered
-        response: ""
+        status: answered
+        response: >
+          Main project was a comprehensive dbt model audit to identify which of the 1,900+ models
+          were actively used by downstream systems vs. orphaned/unused. Alongside this, established
+          data quality standards across all dbt models. Talend was the new ETL tool being implemented
+          alongside dbt as part of the Matillion → Talend+dbt migration. Performance improvements
+          came primarily through the migration itself rather than targeted query tuning.
         feeds_into:
-          - master-portfolio.yaml (Success Academy impact_metrics)
+          - master-portfolio.yaml (Success Academy impact_metrics, responsibilities)
 
       - id: Q36
         question: "Did you redesign a failing pipeline at Success Academy?"
-        status: unanswered
-        response: ""
+        status: answered
+        response: "Yes — a mix of types: rebuilt pipelines that were actively breaking in production, the migration itself replaced fragile legacy Matillion pipelines with Talend+dbt, and identified and fixed silent failures (pipelines returning wrong results without erroring)."
         feeds_into:
           - master-portfolio.yaml (Success Academy responsibilities)
 
       - id: Q37
         question: "Did you introduce dbt testing standards at Success Academy?"
-        status: unanswered
-        response: ""
+        status: answered
+        response: "Significantly expanded and standardized dbt testing that existed but was inconsistent. Did not build from scratch — materially improved coverage, consistency, and team-wide adoption of standards."
         feeds_into:
           - master-portfolio.yaml (Success Academy responsibilities)
           - skill-taxonomy.yaml (Data Quality Automation)
 
       - id: Q38
         question: "Did you reduce audit findings at Success Academy?"
-        status: unanswered
-        response: ""
+        status: answered
+        response: "Yes — both reporting errors reaching stakeholders and emergency escalations/fire drills around data accuracy were measurably reduced."
         feeds_into:
           - master-portfolio.yaml (Success Academy impact_metrics)
 
       - id: Q39
         question: "Did you influence architecture decisions at Success Academy? Which ones?"
-        status: unanswered
-        response: ""
+        status: answered
+        response: "Yes — influenced Medallion layer design, dbt project structure, BI migration approach, and data quality framework"
         feeds_into:
           - master-portfolio.yaml (Success Academy responsibilities)
           - skill-taxonomy.yaml (Architecture & Design Reviews)
@@ -353,29 +382,29 @@ sections:
     questions:
       - id: Q40
         question: "Did you build monitoring dashboards at Cision?"
-        status: unanswered
-        response: ""
+        status: answered
+        response: "No dedicated monitoring dashboards. Monitoring was more manual and process-based rather than dashboard-driven."
         feeds_into:
           - master-portfolio.yaml (Cision responsibilities)
 
       - id: Q41
         question: "Did you automate issue detection at Cision?"
-        status: unanswered
-        response: ""
+        status: answered
+        response: "Developed systematic processes and checklists that replaced ad hoc detection. More structured than before, but not fully automated. Improved consistency and coverage of issue detection."
         feeds_into:
           - master-portfolio.yaml (Cision responsibilities)
 
       - id: Q42
         question: "Did you reduce support escalations at Cision? By how much?"
-        status: unanswered
-        response: ""
+        status: answered
+        response: "Yes — measurably fewer client-facing issues after implementing process improvements. Cannot quantify a specific percentage."
         feeds_into:
           - master-portfolio.yaml (Cision impact_metrics)
 
       - id: Q43
         question: "Did you redesign an ingestion schema at Cision?"
-        status: unanswered
-        response: ""
+        status: answered
+        response: "Identified schema issues and worked with engineers who made the actual schema changes. Did not write schema migrations directly — role was identifying and specifying the fix."
         feeds_into:
           - master-portfolio.yaml (Cision responsibilities)
 
@@ -386,37 +415,40 @@ sections:
     questions:
       - id: Q44
         question: "What cloud environment did you use for personal projects? (AWS, local, GCP, etc.)"
-        status: unanswered
-        response: ""
+        status: answered
+        response: >
+          Self-hosted: built a personal finance ETL system in Python with a Postgres database
+          running on an Unraid server via Docker (local/home lab environment). Also maintaining
+          the jamesbot AI resume and job application system (this project) as an active personal project.
         feeds_into:
           - master-portfolio.yaml (projects)
 
       - id: Q45
         question: "What data volumes did your personal projects handle?"
-        status: unanswered
-        response: ""
+        status: answered
+        response: "Personal finance ETL handles personal-scale data (small volume — personal transactions and accounts). Not a high-volume system."
         feeds_into:
           - master-portfolio.yaml (projects)
 
       - id: Q46
         question: "What orchestration tool did you use for personal projects?"
-        status: unanswered
-        response: ""
+        status: answered
+        response: "No formal orchestration in personal projects. Used Prefect at QuotaPath (work context). Have not set up Airflow or Dagster locally yet — building Dagster is the current Sprint 1 goal."
         feeds_into:
           - master-portfolio.yaml (projects)
           - skill-taxonomy.yaml (Pipeline Orchestration)
 
       - id: Q47
         question: "Did you use Snowflake or a local DB for personal projects?"
-        status: unanswered
-        response: ""
+        status: answered
+        response: "Local/self-hosted Postgres in Docker on Unraid server. No Snowflake in personal projects."
         feeds_into:
           - master-portfolio.yaml (projects)
 
       - id: Q48
         question: "Did you simulate or implement real-time ingestion in personal projects?"
-        status: unanswered
-        response: ""
+        status: answered
+        response: "No real-time ingestion in personal projects. All batch-based."
         feeds_into:
           - skill-taxonomy.yaml (Real-time Streaming)
 
@@ -427,15 +459,52 @@ sections:
     questions:
       - id: Q49
         question: "What is your degree, institution, and graduation year?"
-        status: unanswered
-        response: ""
+        status: answered
+        response: "B.B.A. in Management Information Systems, Lamar University, Beaumont TX. Graduated 2018."
         feeds_into:
           - master-portfolio.yaml (education)
 
       - id: Q50
         question: "Do you have any certifications (Snowflake, AWS, dbt, etc.)?"
-        status: unanswered
-        response: ""
+        status: answered
+        response: "No certifications currently. Not actively pursuing one at this time."
         feeds_into:
           - master-portfolio.yaml (education)
           - skill-taxonomy.yaml (various proficiency upgrades)
+
+  # --------------------------------------------------------------------------
+  # NEW QUESTIONS (added 2026-02-21)
+  # --------------------------------------------------------------------------
+  - section: "Role Clarifications & Articulation Prep"
+    questions:
+      - id: Q51
+        question: "How was the dbt project structured at Success Academy? What layer naming/organization?"
+        status: answered
+        response: "Raw → Staging → Analytics layer organization."
+        feeds_into:
+          - master-portfolio.yaml (Success Academy responsibilities)
+          - skill-development.yaml (dbt articulation gap)
+
+      - id: Q52
+        question: "At QuotaPath, which integrations did you own most deeply end-to-end (auth, data mapping, error handling)?"
+        status: answered
+        response: "All of: Salesforce, HubSpot, QuickBooks, Stripe, other financial/payroll systems (ADP, NetSuite, etc.), CSV/flat-file, and Google Sheets/Excel/unstructured data."
+        feeds_into:
+          - master-portfolio.yaml (QuotaPath responsibilities, environment)
+          - skill-taxonomy.yaml (CRM Integration, REST APIs)
+
+      - id: Q53
+        question: "How did you prioritize among 300+ concurrent client implementations at QuotaPath?"
+        status: answered
+        response: "Primarily by account size / ARR — larger accounts received priority attention."
+        feeds_into:
+          - master-portfolio.yaml (QuotaPath responsibilities)
+          - skill-development.yaml (project/implementation management articulation)
+
+      - id: Q54
+        question: "Can you describe a specific data quality incident you owned end-to-end?"
+        status: answered
+        response: "Yes — has a specific clear example. Details not yet recorded. TODO: walk through detection, RCA, fix, and stakeholder communication in a follow-up session."
+        feeds_into:
+          - skill-development.yaml (data quality methodology articulation)
+          - master-portfolio.yaml (confirmed_contributions)

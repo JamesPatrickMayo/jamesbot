@@ -63,15 +63,21 @@ categories:
   - category: "Data Engineering & Warehousing"
     skills:
       - skill: "dbt Cloud"
-        proficiency: "expert"
+        proficiency: "intermediate"  # RECALIBRATED 2026-02-21: primary role was QA/governance consumer, not model author
         years: 3
         evidence:
-          - "1,900+ production models at Success Academy"
-          - "Tests, macros, documentation at scale"
-          - "Modular Medallion-aligned models at QuotaPath"
-          - "Implemented QA checks and testing standards into dbt models alongside engineering team"
-          - "Primarily built-in macros; focused on testing/standards over custom macro development"
-          # TODO: How many production dbt jobs ran daily?
+          - "Audited 1,900+ existing dbt models at Success Academy — mapped downstream dependencies, identified orphaned models, documented lineage"
+          - "Significantly expanded dbt test coverage (schema tests, freshness checks, custom SQL tests) — standardized testing across the full catalog"
+          - "Established Analytics PR process and governance standards governing changes to underlying models"
+          - "Structured project organization: Raw → Staging → Analytics layer naming and conventions"
+          - "Wrote modular dbt models at QuotaPath (smaller scope — commission calculation logic, Medallion-aligned staging/mart layers)"
+          - "Consumed and validated dbt model outputs for 150+ dashboards; designed SQL views on top of existing marts"
+          - "Used dbt APIs for ETL maintenance and model catalog queries"
+        honest_gaps:
+          - "Did NOT author the majority of the 1,900 models — those were written by the engineering team prior to/during tenure"
+          - "Limited Jinja macro authoring (used built-in macros; did not write complex custom macros)"
+          - "Limited incremental model design experience"
+          - "Limited dbt CI/CD pipeline ownership (followed/enforced the process, did not build the CI setup)"
         applicable_roles:
           - data-engineer
           - analytics-engineer
@@ -133,13 +139,17 @@ categories:
           - platform-architect
 
       - skill: "Data Modeling"
-        proficiency: "expert"
+        proficiency: "advanced"  # RECALIBRATED 2026-02-21: primary modeling evidence was auditing/consuming existing models, not authoring at scale
         years: 5
         evidence:
-          - "1,900+ dbt models (dimensional + staging + marts)"
+          - "Designed commission calculation data models at QuotaPath (staging/mart layers, Medallion-aligned)"
+          - "Structured data access layers and naming conventions for 1,900+ model catalog at Success Academy"
           - "SQL-first data models for personal analytics"
-          - "Structured data access layers at QuotaPath"
-          - "TB-scale dataset modeling"
+          - "TB-scale dataset design understanding (consumed/validated, not sole author)"
+          - "Dimensional modeling concepts: staging, intermediate, mart layer patterns"
+        honest_gaps:
+          - "Large-scale model authoring (100+ models) not confirmed as primary author"
+          - "Star schema / Kimball-style dimensional modeling not explicitly demonstrated"
         applicable_roles:
           - data-engineer
           - analytics-engineer
@@ -160,13 +170,15 @@ categories:
           - platform-architect
 
       - skill: "Pipeline Orchestration"
-        proficiency: "intermediate"  # RE-UPGRADED: CircleCI/Prefect at QuotaPath is real orchestration tooling
-        years: 2
+        proficiency: "intermediate"  # Prefect used in production at QuotaPath; Step Functions at Success Academy; Airflow/Dagster not yet authored
+        years: 3
         evidence:
-          - "CircleCI/Prefect orchestration workflows at QuotaPath"
+          - "Prefect orchestration workflows at QuotaPath (production use)"
+          - "CircleCI orchestration at QuotaPath"
           - "Worked within Step Functions-based workflows at Success Academy (didn't author definitions)"
-          - "Airflow exposure at QuotaPath"
+          - "Airflow exposure at QuotaPath (did not author DAGs)"
           - "Jenkins CI jobs for data integrity at Cision/Trendkite"
+          - "No Dagster production experience yet (Sprint 1 learning goal)"
         applicable_roles:
           - data-engineer
           - platform-architect
@@ -232,12 +244,14 @@ categories:
           - data-engineer
           - platform-architect
 
-      - skill: "AWS RDS"
-        proficiency: "foundational"  # ADJUSTED: used RDS-backed systems, didn't configure/manage instances
+      - skill: "AWS Redshift / RDS"
+        proficiency: "intermediate"  # UPGRADED: directly managed Redshift instances and AWS VMs in 3-tier architecture at Success Academy
         years: 2
         evidence:
-          - "Queried and validated data in RDS-backed systems at Success Academy"
-          - "Did not configure instances, manage backups, or handle scaling"
+          - "Designed and managed 3-tier dev/stage/prod environment at Success Academy including AWS virtual machine and Redshift instance management"
+          - "Queried and validated data in Redshift-backed systems at Success Academy"
+          - "Redshift was primary warehouse at Success Academy; Snowflake evaluated but not adopted"
+          - "Note: Snowflake exposure was primarily through customer environments at QuotaPath, not direct admin"
         applicable_roles:
           - data-engineer
           - platform-architect
@@ -246,8 +260,8 @@ categories:
         proficiency: "foundational"
         years: 1
         evidence:
-          - "EKS environment at Success Academy"
-          # TODO: Did you interact with EKS clusters operationally?
+          - "EKS was present in the stack at Success Academy but not interacted with directly"
+          - "Awareness only — no deployment, monitoring, or troubleshooting hands-on"
         applicable_roles:
           - platform-architect
 
@@ -324,6 +338,15 @@ categories:
         applicable_roles:
           - data-engineer
 
+      - skill: "Workato"
+        proficiency: "intermediate"
+        years: 1
+        evidence:
+          - "Supported Workato integrations for several QuotaPath customers (CRM, ERP, and QuotaPath Commission Automation platform)"
+        applicable_roles:
+          - solutions-engineer
+          - data-engineer
+
       - skill: "Zapier"
         proficiency: "intermediate"
         years: 1
@@ -331,6 +354,16 @@ categories:
           - "Workflow automation at QuotaPath"
         applicable_roles:
           - solutions-engineer
+
+      - skill: "Postman"
+        proficiency: "intermediate"
+        years: 3
+        evidence:
+          - "Used Postman at Cision to test and validate API integrations for data vendors, inspecting JSON/XML payloads and responses"
+          - "Used Postman at QuotaPath to test and debug API connections for customer CRM and ERP integrations"
+        applicable_roles:
+          - solutions-engineer
+          - data-engineer
 
       - skill: "ReTool"
         proficiency: "foundational"
@@ -349,6 +382,16 @@ categories:
         applicable_roles:
           - data-engineer
           - solutions-engineer
+
+      - skill: "JSON / XML Data Formats"
+        proficiency: "intermediate"
+        years: 4
+        evidence:
+          - "JSON as primary data format for integrations at QuotaPath; reading and writing JSON payloads for CRM, ERP, and financial system APIs"
+          - "Used XML exports of web applications at QuotaPath to aid data discovery for new integrations, verifying actual field names and structures beyond UI labels"
+        applicable_roles:
+          - solutions-engineer
+          - data-engineer
 
       - skill: "Zendesk"
         proficiency: "intermediate"
@@ -406,6 +449,19 @@ categories:
         applicable_roles:
           - data-engineer
 
+      - skill: "Grafana"
+        proficiency: "foundational"
+        years: 1
+        evidence:
+          - "Part of the tech stack at Trendkite/Cision — exposure during tenure (2018-2022)"
+          - "Observability/monitoring dashboards in the context of data pipeline and platform work"
+        honest_gaps:
+          - "Exposure-level familiarity; did not build or own Grafana dashboards independently"
+          - "Sufficient to recognize, navigate, and discuss — not to configure from scratch"
+        applicable_roles:
+          - data-engineer
+          - solutions-engineer
+
   # --------------------------------------------------------------------------
   # DATA TOOLS & LIBRARIES
   # --------------------------------------------------------------------------
@@ -461,6 +517,18 @@ categories:
           - data-engineer
           - solutions-engineer
 
+      - skill: "SAP / SAP HANA"
+        proficiency: "foundational"
+        years: 0
+        evidence:
+          - "Lamar University MIS degree focused on ERP fundamentals on the SAP stack"
+          - "Hands-on projects using SAP and SAP HANA across multiple courses"
+        note: "Academic; no production use post-graduation. Relevant for roles requiring SAP/HANA familiarity or ERP fundamentals."
+        applicable_roles:
+          - data-engineer
+          - analytics-engineer
+          - solutions-engineer
+
   # --------------------------------------------------------------------------
   # BIG DATA
   # --------------------------------------------------------------------------
@@ -484,11 +552,12 @@ categories:
           - platform-architect
 
       - skill: "Real-time Streaming"
-        proficiency: "foundational"  # AUDIT NOTE: no production experience — listing may invite questions with no backing
-        years: 0
+        proficiency: "foundational"  # Webhook/event-driven trigger exposure; all primary pipelines are batch
+        years: 1
         evidence:
-          - "Architectural exposure and ingestion design discussions only"
-          - "No production hands-on with Kafka, Kinesis, or similar"
+          - "Worked with webhook-based and event-driven triggers across roles"
+          - "No production Kafka, Kinesis, or sub-minute ingestion design"
+          - "All primary pipelines were batch-based"
         applicable_roles:
           - data-engineer
           - platform-architect
@@ -499,11 +568,12 @@ categories:
   - category: "Analytics & ML Support"
     skills:
       - skill: "Experiment Design Collaboration"
-        proficiency: "foundational"  # ADJUSTED: never confirmed A/B testing or metric definition for experiments
+        proficiency: "foundational"  # Confirmed: BI dashboard A/B testing for internal stakeholders at Success Academy
         years: 1
         evidence:
-          - "General awareness of experiment design practices"
-          - "No confirmed A/B testing collaboration or experiment metric definition"
+          - "Conducted A/B testing for internal stakeholders at Success Academy around BI dashboard design and usability"
+          - "Role was data-driven support for dashboard structure decisions, not product feature experimentation"
+          - "No confirmed metric definition for product experiments"
         applicable_roles:
           - analytics-engineer
           - data-engineer
@@ -527,17 +597,19 @@ categories:
         applicable_roles:
           - analytics-engineer
 
-      - skill: "BI Tooling (Looker, Sisense, Power BI)"
-        proficiency: "advanced"  # UPGRADED: led migration, managed 150+ dashboards, 2 BI tools
+      - skill: "BI Tooling (Looker, Sisense, Power BI, Tableau)"
+        proficiency: "advanced"  # UPGRADED: led migration, managed 150+ dashboards, 2 BI tools; Tableau at QuotaPath
         years: 3
         evidence:
           - "Created and led the Looker migration and net-new QA process from scratch at Success Academy"
           - "Maintained 150+ dashboards across 2 BI tools at Success Academy"
+          - "Integrated customer Tableau environments with QuotaPath Commission Automation platform; supported customers using Tableau for reporting and analytics"
           - "Dependency analysis for downstream dashboards"
           - "Led client dashboard rebuild at Cision (advocated for new approach)"
           - "Power BI exposure (listed in multiple resumes)"
         applicable_roles:
           - analytics-engineer
+          - solutions-engineer
 
   # --------------------------------------------------------------------------
   # ENGINEERING PRACTICES
@@ -683,3 +755,42 @@ categories:
           - analytics-engineer
           - solutions-engineer
           - platform-architect
+
+  # --------------------------------------------------------------------------
+  # DOMAIN EXPERIENCE
+  # Industry-specific knowledge accumulated across roles.
+  # --------------------------------------------------------------------------
+  - category: "Domain Experience"
+    skills:
+
+      - skill: "TV Media Monitoring & Content Data"
+        proficiency: "intermediate"
+        years: 3
+        evidence:
+          - "Trendkite/Cision (2018-2022): platform ingested TV media data via TVEyes and a competing TV monitoring provider, covering brand and competitor mentions across broadcast and cable programming"
+          - "Built search query logic to accurately surface brand mentions within TV closed captioning transcripts — required understanding of transcript data structure, false-positive patterns, and content metadata"
+          - "Built client-facing analytics and reporting from TV media data including brand mention volume, segment reach, and sentiment across broadcast and cable programming"
+          - "Enterprise clients were large brands and PR agencies monitoring their TV presence in real time"
+        honest_gaps:
+          - "Content/analytics side of TV media, not the advertising/monetization side"
+          - "No direct experience with programmatic advertising, ad servers, SSPs, or DSPs"
+          - "openRTB and IAB ad tech standards not directly encountered"
+        applicable_roles:
+          - solutions-engineer
+          - data-engineer
+        interview_note: >
+          Relevant to ad tech roles (FreeWheel, The Trade Desk, etc.) because the underlying
+          data — TV content, programming schedules, closed captioning, broadcast metadata — is
+          the same data that ad tech platforms work with for targeting and verification. The
+          overlap is content data and TV ecosystem familiarity, not advertising mechanics.
+
+      - skill: "Media Intelligence Platform (Cision/Trendkite)"
+        proficiency: "advanced"
+        years: 3
+        evidence:
+          - "3+ years as Enterprise Account Architect and Data Quality Analyst on Cision/Trendkite Next Gen platform"
+          - "Platform spanned digital, print (LexisNexis), and TV (TVEyes) media monitoring"
+          - "Deep familiarity with media data ingestion pipelines, search/relevance tuning, and multi-source content aggregation"
+          - "Worked directly with enterprise PR and communications clients using the platform to track TV, digital, and print coverage"
+        applicable_roles:
+          - solutions-engineer

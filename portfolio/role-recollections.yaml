@@ -1,24 +1,61 @@
 # ============================================================================
-# ROLE RECOLLECTIONS (template)
+# ROLE RECOLLECTIONS — James Mayo
 # Narrative memories per role: context, day-to-day, and scope. Use to:
 #   - Connect details across signature-stories and master-portfolio bullets.
 #   - Surface additional story ideas, clarifying questions, and skills.
 #   - Prep for "tell me about your role" and behavioral follow-ups.
 #
-# Replace placeholders with your own company/role names and narrative.
+# Not a substitute for master-portfolio (canonical responsibilities/metrics).
 # ============================================================================
 
 recollections:
 
-  - company: "(Company name)"
-    role_context: "(Title or role type)"
+  - company: QuotaPath
+    role_context: Solutions Engineer / Data Platform Architect
     narrative: >
-      (Write 2–4 sentences: what the company did, who you worked with, what you
-      owned day-to-day, and how custom logic or integrations fit in.)
+      QuotaPath is a commission automation platform. I worked directly with
+      customers to integrate their source systems with the platform — typically
+      CRM platforms (Salesforce, HubSpot, etc.) and ERP or financial platforms
+      (Stripe, Sage Intacct, etc.). We had dedicated customer pools and
+      supported customers from onboarding and on an ongoing basis.
+      That meant supporting their payouts process and cadences as they used our
+      platform to run payouts, especially when using our integration with
+      Rippling. I helped scope out source systems as well as the actual data
+      involved, so we could map their data fields and any custom business logic
+      into the platform. Often custom logic was required for integrations:
+      individual custom calculations or full transformation scripts written in
+      Python and run within our CI/CD pipeline via GitHub.
     themes_for_stories:
-      - "(Theme 1 — e.g. Customer-facing integration scoping)"
-      - "(Theme 2 — e.g. CI/CD and production pipelines)"
+      - Customer-facing integration scoping and delivery
+      - CRM + ERP/financial data mapping and custom logic
+      - Payouts, Rippling, and ongoing support cadences
+      - Python transforms and CI/CD (GitHub) for production integrations
+      - Dedicated customer pools and handoffs (Account AI, documentation)
     clarifying_questions_to_expect:
-      - "(Example: How did you prioritize across many concurrent projects?)"
+      - "How did you prioritize across 300+ concurrent implementations?"
+      - "Describe a complex integration you scoped and delivered."
+      - "How did you handle custom business logic vs. out-of-the-box features?"
+      - "What did handoffs look like before and after Account AI?"
 
-  # Add more roles as needed.
+  - company: Cision Global
+    role_context: Data Quality Analyst; Production Engineer; (earlier Trendkite roles)
+    narrative: >
+      (Add: high-level memory of Cision — media monitoring platform, Zendesk/Jira/Slack,
+      Global Support triage, Data Issues channel, TV/digital/print ingestion, etc.
+      Expand when recalling more detail.)
+    themes_for_stories:
+      - Data Issues Slack channel (Zendesk + Jira triage)
+      - Support escalation and bug prioritization
+      - Data quality across multi-source ingestion (TV, digital, print)
+    clarifying_questions_to_expect: []
+
+  - company: Success Academy Charter Schools
+    role_context: QA Tech → QA Lead → Team Lead, Data Quality
+    narrative: >
+      (Add: memory of building QA from scratch, 1,900+ dbt models, migrations,
+      ​51 schools, stakeholder coordination, etc. Expand when recalling more detail.)
+    themes_for_stories:
+      - Building QA process from scratch
+      - Migrations (Sisense → Looker; Matillion → Talend → dbt)
+      - Scale (dashboards, ETL jobs, dbt catalog)
+    clarifying_questions_to_expect: []

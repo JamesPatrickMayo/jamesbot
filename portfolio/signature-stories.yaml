@@ -1,0 +1,288 @@
+# ============================================================================
+# SIGNATURE STORIES — James Mayo
+# Reusable narrative anchors for interviews and role evaluations.
+#
+# Use:
+#   - During fit evaluation: suggest which stories to prepare for likely questions.
+#   - Interview prep: pull by skills_demonstrated or interview_prompts to match JD themes.
+#
+# Schema per story:
+#   id:                  Short slug (e.g. nippon-power-query)
+#   title:               One-line label
+#   company:             Company where it happened
+#   situation:           Context and problem
+#   constraints:         Time, scope, or technical limits
+#   action:              What you did (technical and collaborative)
+#   outcome:             Result and impact
+#   lessons:             What you’d do again or differently
+#   skills_demonstrated: Tags that map to skill-taxonomy or JD (for matching)
+#   interview_prompts:   When to use this story (e.g. "Handling messy data")
+# ============================================================================
+
+stories:
+
+  - id: account-ai-quotapath
+    title: Account AI — automated customer-level documentation via LLM + CRM and correspondence
+    company: QuotaPath
+    situation: >
+      Handoffs between SEs and new team members looking at an account were often
+      under-informed. Context lived in Salesforce, Gong call and email transcripts,
+      Slack, and scattered technical notes, so anyone new to an account had to hunt
+      for context.
+    constraints: >
+      Multiple systems (Salesforce, Gong, Slack, internal notes); no single
+      source of truth; solution had to stay within existing tooling and
+      security boundaries.
+    action: >
+      Built "Account AI": an automated, customer-level documentation system using
+      LLM integrations that pulled from the CRM (Salesforce), correspondence
+      (Gong call and email transcripts), Slack, and technical notes. The output
+      gave a single, synthesized view per account so handoffs were informed and
+      anyone new could get their bearings quickly.
+    outcome: >
+      Handoffs became much more informed; new team members could onboard to an
+      account faster; reduced time spent digging for context across systems.
+    lessons: >
+      LLM-assisted synthesis across heterogeneous sources (CRM, transcripts, Slack)
+      is high-leverage for knowledge work when you define clear prompts and
+      boundaries; ownership and refresh cadence matter for keeping it useful.
+    skills_demonstrated:
+      - llm_integration
+      - salesforce
+      - gong
+      - slack
+      - knowledge_management
+      - handoffs
+      - automation
+    interview_prompts:
+      - "Tell me about a time you improved handoffs or onboarding."
+      - "How have you used AI or LLMs in production?"
+      - "Automating documentation or knowledge synthesis."
+      - "Integrating multiple systems (CRM, communication tools) for a single outcome."
+
+  - id: integration-scaffolding-notion-slack-quotapath
+    title: Automated scaffolding for data integrations and Notion docs, retrievable via Slack
+    company: QuotaPath
+    situation: >
+      New data integrations (SQL and Python) and internal documentation (Notion)
+      required repetitive setup and structure. Engineers and SEs were redoing
+      similar scaffolding by hand, and finding the right docs in Notion was
+      friction when people lived in Slack.
+    constraints: >
+      Needed to fit into existing CI/CD (GitHub), Notion, and Slack; had to
+      produce consistent, maintainable output without blocking existing workflows.
+    action: >
+      Applied similar automation steps as Account AI: built scaffolding that
+      generated starter structure for new data integrations (SQL and Python)
+      and for automated documentation hosted on the Notion documentation
+      platform. Made key documentation retrievable via Slack bots so the team
+      could query docs without leaving Slack.
+    outcome: >
+      Faster spin-up of new integrations and docs; consistent structure;
+      reduced context-switching between Notion and Slack for day-to-day lookups.
+    lessons: >
+      Reusable scaffolding and "docs in the flow" (Slack) reduce duplication and
+      friction; coupling automation to your real workflow (Slack, Notion, GitHub)
+      increases adoption.
+    skills_demonstrated:
+      - automation
+      - sql
+      - python
+      - notion
+      - slack
+      - ci_cd
+      - documentation
+    interview_prompts:
+      - "How have you automated repetitive setup or scaffolding?"
+      - "Integrating documentation with chat or collaboration tools."
+      - "Improving developer or SE workflow with automation."
+      - "Using bots or integrations to surface information where people already work."
+
+  - id: cision-data-issues-slack-channel
+    title: Automated Data Issues Slack channel integrated with Zendesk and Jira (Cision)
+    company: Cision Global
+    situation: >
+      Cision's Global Support Team submitted data-related support requests that
+      needed to be triaged, categorized, and routed to the right data/engineering
+      teams. Manual sorting was slow and inconsistent.
+    constraints: >
+      Requests lived in Zendesk and Jira; data team needed a single place to see
+      and triage issues without losing ticket context or audit trail.
+    action: >
+      Set up and managed an automated "Data Issues" Slack channel that integrated
+      with Zendesk and Jira. Incoming support requests were automatically
+      sorted and triaged into the channel so the data team could see, assign,
+      and act on issues with full context from the source systems.
+    outcome: >
+      Faster triage and routing of data issues; clearer visibility for the data
+      team; reduced back-and-forth between support and engineering.
+    lessons: >
+      Integrating ticketing (Zendesk, Jira) with real-time channels (Slack) gives
+      ops teams a single pane without losing system-of-record; clear rules for
+      what lands in the channel prevent noise.
+    skills_demonstrated:
+      - slack
+      - zendesk
+      - jira
+      - triage
+      - support_operations
+      - automation
+    interview_prompts:
+      - "How have you improved triage or support workflows?"
+      - "Integrating ticketing systems with chat or collaboration tools."
+      - "Automating routing or sorting of requests."
+      - "Working with support or global teams to streamline data issues."
+
+  - id: nippon-power-query
+    title: Nippon Life Insurance — normalization and de-aggregation with Power Query
+    company: QuotaPath
+    situation: >
+      Customer Nippon Life Insurance needed to normalize and de-aggregate data from
+      multiple sources: Salesforce (premiums/sales) and their financial system
+      (transaction "true up" data). The business needed to see how each individual
+      transaction contributed to commissions, depending on premiums from Salesforce.
+    constraints: >
+      Data lived in continuous exports from two systems; format and grain did not
+      match QuotaPath’s expected ingestion model. Solution had to be maintainable
+      by the customer (e.g. one-click refresh) rather than a one-off engineering fix.
+    action: >
+      Used Power Query to clean and transform continuous exports from both sources,
+      then built transformations that joined and normalized the data into a single
+      table showing how each transaction contributed to commissions based on
+      Salesforce premium data. Delivered a refreshable flow so the customer could
+      click one "refresh" button to pull updated data from their systems into
+      QuotaPath.
+    outcome: >
+      Customer had a single, normalized table feeding QuotaPath; they could
+      refresh on demand and see commission impact at the transaction level.
+      They were very satisfied with the one-click refresh experience.
+    lessons: >
+      Power Query was the right tool for customer-owned, refreshable pipelines
+      when the source systems don’t support direct API ingestion at the right
+      grain. Clear mapping from source fields to commission logic reduced
+      back-and-forth and built trust.
+    skills_demonstrated:
+      - power_query
+      - data_transformation
+      - normalization
+      - multi_source_integration
+      - salesforce
+      - client_delivery
+      - commission_automation
+    interview_prompts:
+      - "Tell me about a time you handled messy or multi-source data."
+      - "Describe a customer-specific solution you built."
+      - "Example of a transformation or normalization project."
+      - "When you had to work within constraints (e.g. no direct API)."
+      - "A time a customer was especially happy with your solution."
+
+  - id: success-academy-qa-from-scratch
+    title: Building the data quality / QA function from scratch at Success Academy
+    company: Success Academy Charter Schools
+    situation: >
+      Joined as QA Tech; no formal data quality process existed. Rapidly promoted
+      to QA Lead and then Team Lead, Data Quality. Needed to define scope,
+      standards, and workflow for the whole function.
+    constraints: >
+      Large existing catalog (1,900+ dbt models, 90+ ETL jobs, 150+ dashboards);
+      limited prior test coverage; need to reduce incidents without blocking
+      delivery.
+    action: >
+      Designed and implemented 3-tier dev/stage/prod architecture; established
+      dbt project structure (Raw → Staging → Analytics) and Analytics PR process;
+      expanded schema, freshness, and custom SQL tests across the catalog;
+      created UAT scripts and validation criteria for migrations (Matillion →
+      Talend → dbt; Sisense → Looker); documented lineage and governance.
+    outcome: >
+      Data incidents reduced by 50%+; clear ownership and standards; team could
+      scale with consistent quality bar.
+    lessons: >
+      Starting from zero forces clarity on what “good” looks like; governance and
+      documentation pay off when many people touch the same pipelines.
+    skills_demonstrated:
+      - data_quality
+      - qa_process
+      - dbt
+      - governance
+      - migration
+      - leadership
+    interview_prompts:
+      - "A complex ETL or data quality system you owned."
+      - "Building a process or function from scratch."
+      - "How you ensure quality before deployment."
+      - "Leading without formal authority."
+
+  - id: success-academy-migration
+    title: Leading migrations (Sisense → Looker; Matillion → Talend → dbt) at Success Academy
+    company: Success Academy Charter Schools
+    situation: >
+      Organization needed to migrate BI from Sisense to Looker and ETL from
+      Matillion to Talend + dbt while keeping 150+ dashboards and 90+ pipelines
+      reliable for 51 schools and 18,000+ users.
+    constraints: >
+      Downtime and incorrect reporting were unacceptable; many stakeholders
+      depended on existing reports; migration had to be phased and validated.
+    action: >
+      Defined migration approach, validation criteria, and UAT scripts; coordinated
+      with Engineering and Analytics; ran parallel validation and cutover;
+      created net-new QA process for Looker; documented lineage and ownership.
+    outcome: >
+      Successful cutover with minimal disruption; clear ownership of new stack;
+      improved long-term maintainability.
+    lessons: >
+      Phased migration and explicit validation criteria reduce risk; involving
+      stakeholders early avoids surprises.
+    skills_demonstrated:
+      - migration
+      - bi_tools
+      - etl
+      - stakeholder_management
+      - validation
+    interview_prompts:
+      - "A migration you led."
+      - "Managing a large change with many dependencies."
+      - "How you coordinate with engineering and business."
+
+  - id: debugging-elusive-production-issue
+    title: Debugging an elusive production issue
+    company: "(Expand from your experience — e.g. Cision, QuotaPath, Success Academy)"
+    situation: >
+      (Add: symptom, who was affected, initial hypotheses that were wrong.)
+    constraints: >
+      (Add: time pressure, incomplete logs, or cross-system complexity.)
+    action: >
+      (Add: how you isolated the cause, tools used, collaboration with others.)
+    outcome: >
+      (Add: resolution and any process change to prevent recurrence.)
+    lessons: >
+      (Add: what you’d do again or do differently.)
+    skills_demonstrated:
+      - debugging
+      - root_cause_analysis
+      - production_support
+    interview_prompts:
+      - "Example of debugging a difficult issue."
+      - "A time you had to find the root cause under pressure."
+      - "How you troubleshoot automation or pipeline failures."
+
+  - id: cross-functional-conflict-resolution
+    title: Cross-functional conflict or misalignment you helped resolve
+    company: "(Expand from your experience — e.g. Cision dashboard rebuild, QuotaPath scope)"
+    situation: >
+      (Add: disagreement or misalignment between teams or stakeholders.)
+    constraints: >
+      (Add: competing priorities, limited authority, or tight timeline.)
+    action: >
+      (Add: how you listened, clarified, proposed options, and got to alignment.)
+    outcome: >
+      (Add: resolution and relationship/process outcome.)
+    lessons: >
+      (Add: what you learned about communication or conflict.)
+    skills_demonstrated:
+      - communication
+      - stakeholder_management
+      - conflict_resolution
+    interview_prompts:
+      - "Cross-functional conflict you helped resolve."
+      - "When you disagreed with a stakeholder or team."
+      - "How you influence without direct authority."

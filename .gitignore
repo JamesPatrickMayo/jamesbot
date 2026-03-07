@@ -10,7 +10,15 @@ archive/*.gdoc
 archive/*.docx
 archive/*.csv
 
-# If you add a secrets file
+# Job-specific output: gap analyses, fit evaluations, tailored resumes (keep local only)
+output/application-*.md
+output/study-guide-*.md
+output/resume-*.md
+output/tracker.yaml
+
+# Personal / machine-specific (do not commit)
+# - IP addresses, hostnames, or paths that reveal your machine
+# - Local config with credentials or machine identifiers
 secrets.yaml
 secrets.json
 

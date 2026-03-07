@@ -6,10 +6,10 @@
 personal:
   name: "James Patrick Mayo"
   location: "New York, NY 11220"
-  email: "your.email@example.com"
-  phone: "YOUR_PHONE_NUMBER"
+  email: "mayojames409@gmail.com"
+  phone: "(402) 332-8054"
   linkedin: "linkedin.com/in/jamespatrickmayo"
-  github: "mayojames409.github.io"
+  github: "jamespatrickmayo.github.io"
 
 summary:
   core: >
@@ -49,13 +49,19 @@ experience:
       - "Jupyter Notebooks (Python/Dask/Pandas)"
       - "DBeaver"
       - "Zapier (workflow automation)"
-      - "CRM integrations (Salesforce, HubSpot)"
+      - "Workato (customer integrations — CRM, ERP, and QuotaPath Commission Automation platform)"
+      - "CRM integrations (Salesforce, HubSpot, QuickBooks, Stripe)"
+      - "Financial/payroll integrations (ADP, NetSuite, and others)"
+      - "Flat-file and unstructured data ingestion (CSV, Google Sheets, Excel)"
+      - "Tableau (customer integrations with QuotaPath Commission Automation platform)"
       - "Cursor, ChatGPT, Claude (AI-assisted development)"
 
     responsibilities:
       - Designed scalable ELT pipelines integrating CRM and financial system data into Snowflake environments
       - Built modular dbt models aligned to Medallion architecture principles
       - Migrated customer workspaces from row-by-row SQL calculations to Python-based custom transformations (Dask/Pandas), reducing pipeline runtimes from hours to minutes
+      - Led company-wide Python migration project targeting customers with long sync times; team was first to achieve the 75% GRR/ARR milestone on the new system
+      - Prioritized 300+ concurrent client implementations by ARR/account size, ensuring highest-value accounts received priority attention
       - Implemented CI/CD pipelines using GitHub Actions to enforce version control and automated testing (70-90% deployment automation)
       - Created SQL-based data validation frameworks to enforce schema consistency and ingestion reliability
       - Designed structured data access layers to support analytics and ML dataset preparation
@@ -64,7 +70,10 @@ experience:
       - Automated function generation via prompt templates and context ingestion
       - Created AI templates for computed fields and Notion wiki documentation
       - Developed Power Query solutions for customer integrations (e.g., Nippon)
-      - Engineered and delivered tailored solutions for 300+ client onboarding projects annually, supporting 10+ CRM and financial platforms (Salesforce, HubSpot, QuickBooks, Stripe, etc.)
+      - Supported Workato integrations for several customers, connecting CRM and ERP systems to QuotaPath's Commission Automation platform
+      - Integrated customer Tableau environments with the QuotaPath Commission Automation platform; supported customers who used Tableau for reporting and analytics
+      - Engineered and delivered tailored solutions for 300+ client onboarding projects annually, supporting 10+ CRM, financial, and payroll platforms (Salesforce, HubSpot, QuickBooks, Stripe, ADP, NetSuite, Google Sheets/Excel, CSV)
+      - Reduced manual effort for clients, SE team, and engineering simultaneously through automation, reusable templates, and standardized tooling
       - Assessed customer data fitness for platform automation; compiled solution recommendations from simple/temporary to robust/long-term refactoring
       - Scoped with prospects and account executives to qualify customer data integration requirements during sales cycle
       - Partnered with customer success to scope and implement scalable data integrations for complex commission plans
@@ -90,10 +99,10 @@ experience:
       pipeline_runtime_improvement: "Hours to minutes — migrated row-by-row SQL to Python/Dask transformations"
       time_saved_via_automation: "5-10 hours/week"
       incident_reduction: "50%+"
-      reduction_in_onboarding_time_pct: null       # TODO: still needs quantification
-      reduction_in_integration_defects_pct: null   # TODO: still needs quantification
-      pipelines_owned_count: null                  # TODO: still needs quantification
-      revenue_impact_supported: null               # TODO: still needs quantification
+      reduction_in_onboarding_time_pct: "Measurably reduced — reusable templates and documentation accelerated client time-to-value (cannot quantify %)"
+      reduction_in_integration_defects_pct: "Improved — CI/CD adoption reduced production incidents and caught more issues pre-deploy"
+      prioritization_method: "By account ARR/size — larger accounts received priority attention across 300+ concurrent implementations"
+      revenue_impact_supported: "Client contract values ranged from thousands to hundreds of thousands; impact was operational/retention-focused (GRR ~75%, NRR ~110% QoQ)"
 
   - company: "Success Academy Charter Schools"
     title: "Data Quality Analyst / Analytics Engineer"
@@ -102,10 +111,9 @@ experience:
     dates: "Feb 2022 – Jun 2024"
     location: "NYC"
     environment:
-      - dbt Cloud (1,900+ models)
-      - AWS (Lambda, Step Functions, RDS, EKS, Redshift)
-      - "Talend → dbt migration"
-      - "Matillion → Talend+dbt migration"
+      - dbt Cloud (1,900+ models; Raw → Staging → Analytics layer structure)
+      - AWS (Lambda, Step Functions, Redshift, EKS — Redshift was primary warehouse; Snowflake evaluated but not adopted)
+      - "Matillion → Talend+dbt migration (Talend was new ETL layer; dbt handled transformations)"
       - Medallion architecture
       - Salesforce integration
       - "Sisense → Looker (BI migration)"
@@ -116,8 +124,11 @@ experience:
 
     responsibilities:
       - Created the QA process from scratch after rapid promotion from QA Tech to QA Lead
+      - Designed and implemented 3-tier dev/stage/prod environment architecture including direct management of AWS virtual machines and Redshift instances
+      - Structured and enforced dbt project organization using Raw → Staging → Analytics layer conventions; owned the Analytics PR process governing all model changes
+      - Conducted comprehensive dbt model audit mapping all 1,900+ models to downstream dependencies, identifying active vs. orphaned models and establishing data quality standards across the full catalog
       - Architected Medallion-style data warehousing layers across enterprise domains
-      - Built and maintained 1,900+ dbt models including tests, macros, documentation
+      - Significantly expanded dbt test coverage (schema tests, freshness checks, custom SQL tests) across the 1,900+ model catalog; standardized testing where none or inconsistent coverage existed
       - Documented lineage for 90+ ETL pipelines
       - Created SQL-based daily sanity checks for Salesforce Family Application Process with automated reporting
       - Implemented data quality checks (freshness, validity, schema tests)
@@ -128,7 +139,7 @@ experience:
       - Conducted dependency analysis for downstream dashboards and reporting systems
       - Managed 2 direct reports; delegated QA tasks and projects using Jira
       - Implemented automated and manual test-cases ensuring data reliability across 2 BI tools, 150+ dashboards, and all analytics data for 51+ schools
-      - Utilized Salesforce and dbt APIs for maintenance and migration of 90+ ETL jobs and 1,900 data models
+      - Utilized Salesforce and dbt APIs for catalog maintenance, lineage queries, and migration of 90+ ETL jobs across the 1,900-model environment
       - Led cross-functional delivery with Engineering, Analytics, and Operations; coordinated sprint planning, requirement definition, stakeholder reviews
       - Led multi-phase system migrations (Sisense → Looker; Matillion → Talend → dbt)
       - Developed product requirements, UAT scripts, governance standards, naming conventions, and validation criteria
@@ -157,7 +168,13 @@ experience:
 
     confirmed_contributions:
       - "Created QA process from scratch — defined scope, standards, and workflow"
-      - "Established dbt testing standards that the team adopted"
+      - "Designed and implemented 3-tier dev/stage/prod AWS architecture (VMs + Redshift)"
+      - "Conducted full dbt model audit — mapped 1,900+ models to downstream dependencies; identified orphaned models, documented lineage"
+      - "Significantly expanded and standardized dbt test coverage (schema tests, freshness, custom SQL tests) — testing existed but was inconsistent"
+      - "Established dbt project structure and PR governance: Raw → Staging → Analytics layer conventions, Analytics PR process, naming standards"
+      - "Rebuilt actively-breaking pipelines; fixed silent failures; replaced fragile Matillion pipelines via migration"
+      - "Reduced both reporting errors reaching stakeholders AND emergency escalations around data accuracy"
+      - "Conducted A/B testing for internal BI dashboard usability"
       - "Influenced Medallion layer design decisions"
       - "Influenced dbt project structure decisions"
       - "Created and led Looker migration approach (Sisense → Looker)"
@@ -165,11 +182,6 @@ experience:
       - "Created demand-management pipeline for ticket backlog"
       - "Established Analytics PR process"
       - "Built automated reporting for Salesforce data"
-
-    possible_forgotten_contributions:
-      - "Improved query performance? By how much?"
-      - "Redesigned a failing pipeline?"
-      - "Reduced audit findings?"
 
   # --- CISION: 3 distinct roles over 3.5 years ---
   # Trendkite (startup) acquired by Cision, later acquired by Platinum Equity
@@ -209,9 +221,21 @@ experience:
       - Zendesk
       - Confluence
       - Salesforce
+      - Grafana
+      - "TVEyes (TV media monitoring integration)"
+      - "LexisNexis (print/legacy media data)"
+
+    media_platform_context: >
+      Cision's Next Gen platform was a media monitoring analytics platform spanning digital,
+      print (via LexisNexis), and television (via TVEyes and a competing TV monitoring provider).
+      Enterprise clients used the platform to monitor brand and competitor brand mentions across
+      all media types including live TV via closed captioning transcripts. Data quality work
+      included ensuring TV content ingestion was accurate, complete, and searchable.
 
     responsibilities:
       - Ensured legal and technical compliance of data-ingestion and data-procurement across all major Cision platforms during GDPR
+      - Built and maintained search query logic robust enough to accurately surface brand and competitor mentions within TV closed captioning transcripts ingested via TVEyes and related TV monitoring integrations
+      - Validated data quality across multi-source media ingestion pipelines spanning digital, print (LexisNexis), and television content feeds
       - Supported training and ongoing development covering 42+ distinct software features
       - Onboarded 2 local new hires and 2 contractors
       - Leveraged Zendesk and Slack for internal triage service escalating from Customer Success and Sales
@@ -230,9 +254,20 @@ experience:
       - SQL
       - Cision/Trendkite platforms
       - Client-facing dashboards
+      - "TVEyes (TV media monitoring)"
+      - "LexisNexis (print media data)"
+      - Grafana
+
+    media_platform_context: >
+      Trendkite (acquired by Cision) was a media monitoring and analytics platform used by enterprise
+      PR and communications teams. Data sources included digital/online, print media via LexisNexis,
+      and television via TVEyes integration. Clients monitored brand and competitor mentions across
+      all media types including TV. The platform analyzed closed captioning transcript data to surface
+      TV brand mentions, coverage volume, sentiment, and audience reach for enterprise clients.
 
     responsibilities:
-      - Constructed complex queries, dashboards, campaigns, and reports for large accounts based on client requirements
+      - Constructed complex search queries, dashboards, campaigns, and reports for enterprise accounts monitoring brand and competitor mentions across digital, print, and TV media
+      - Built client-facing analytics and reporting from TV media data (via TVEyes) including brand mention volume, segment reach, and sentiment across broadcast and cable programming
       - Established and adopted new support structures, diagnostic methods, and problem resolution procedures
       - Facilitated knowledge management for new-hire training and continued team development
       - Managed and prioritized ongoing and urgent support requests directly from clients
@@ -242,8 +277,8 @@ experience:
       - Navigated Trendkite → Cision acquisition
 
     impact_metrics:
-      reduction_in_recurring_incidents_pct: null    # TODO: still needs quantification
-      mean_time_to_resolution: null                 # TODO: still needs quantification
+      reduction_in_client_facing_issues: "Measurably reduced after systematic process/checklist improvements (cannot quantify %)"
+      detection_improvement: "Replaced ad hoc detection with systematic processes and checklists"
       features_supported: "42+"
       people_onboarded: "2 new hires + 2 contractors"
       bugs_triaged: "300+"
@@ -295,20 +330,24 @@ experience:
 
 projects:
 
-  - name: "Personal Data Engineering Projects"
+  - name: "Personal Finance ETL System"
+    stack: "Python, PostgreSQL, Docker, Unraid (self-hosted home lab)"
+    status: "Active"
     contributions:
-      - Built automated ETL pipelines for structured financial workflows
-      - Designed SQL-first data models for personal analytics
-      - Implemented scheduled ingestion and transformation jobs
-      - Experimented with AI-assisted modeling for schema generation
+      - Built automated ETL pipeline pulling personal financial data into a Postgres database
+      - Designed SQL-based data models for personal finance analytics
+      - Running containerized on Unraid home server via Docker
+      - Batch-based ingestion; no real-time or orchestration layer (Dagster integration planned)
 
-    open_questions:
-      - "What cloud environment? (AWS, local, etc.)"
-      - "Data volume?"
-      - "Streaming exposure?"
-      - "Orchestration tool used?"
-      - "Snowflake or local DB?"
-      - "Simulated real-time ingestion?"
+  - name: "jamesbot — AI Resume & Application System"
+    stack: "YAML, Python, Cursor AI agent, GitHub"
+    status: "Active"
+    url: "github.com/JamesPatrickMayo/jamesbot"
+    contributions:
+      - Built a canonical skills database (master-portfolio.yaml, skill-taxonomy.yaml) as the single source of truth for all resume generation
+      - Developed AI agent workflows (Cursor) for automated fit evaluation, resume tailoring, and cover letter generation
+      - Generated 19+ tailored application packages across diverse role types (Data Engineer, Solutions Engineer, Analytics Engineer, Implementation Manager)
+      - Maintained career strategy, LinkedIn optimization, and skill development roadmap as living documents
 
   - name: "Frankenbox Server"
     contributions:
@@ -352,7 +391,11 @@ education:
   - degree: "B.B.A. in Management Information Systems"
     institution: "Lamar University"
     location: "Beaumont, Texas"
+    graduation_year: 2018
     years: "2012 – 2018"
     activities: "Tutoring (Mathematics, Economics)"
+    curriculum_focus: "ERP fundamentals on the SAP stack; many courses included hands-on projects using SAP and SAP HANA."
+
 certifications:
-  - status: "in_progress"  # FILL IN — which certification?
+  - status: "none"
+    notes: "No certifications currently held or in progress."
