@@ -23,7 +23,8 @@ jamesbot/
 │   ├── skill-development.yaml        # Skill gaps, learning roadmap, interview prep, resources
 │   ├── bullet-bank.yaml              # Pre-written, tagged bullet variants per role+company
 │   ├── paragraph-bank.yaml          # Pre-written cover letter paragraph blocks by scenario
-│   └── signature-stories.yaml       # Reusable interview stories (STAR); used to suggest stories per role
+│   ├── signature-stories.yaml       # Reusable interview stories (STAR); used to suggest stories per role
+│   └── role-recollections.yaml      # Narrative memories per role; feeds story ideas and prep
 │
 ├── templates/                        # Format definitions & reusable schemas
 │   ├── resume-standards.md           # Global resume formatting rules and conventions
@@ -220,6 +221,10 @@ reasoning load and improving consistency.
   interview stories. Each story has `skills_demonstrated` and `interview_prompts` so
   fit evaluations and application packs can suggest which stories to prepare for a
   given role.
+
+- **Role Recollections** — `portfolio/role-recollections.yaml` holds narrative memories
+  per role (context, day-to-day, themes) to connect details and surface more stories
+  and clarifying questions for prep.
 
 - **Application Tracker** — `output/tracker.yaml` logs every evaluated role with
   fit score, scorer estimate, scorer delta, calibration status, recommendation,

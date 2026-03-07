@@ -1,0 +1,24 @@
+# ============================================================================
+# ROLE RECOLLECTIONS (template)
+# Narrative memories per role: context, day-to-day, and scope. Use to:
+#   - Connect details across signature-stories and master-portfolio bullets.
+#   - Surface additional story ideas, clarifying questions, and skills.
+#   - Prep for "tell me about your role" and behavioral follow-ups.
+#
+# Replace placeholders with your own company/role names and narrative.
+# ============================================================================
+
+recollections:
+
+  - company: "(Company name)"
+    role_context: "(Title or role type)"
+    narrative: >
+      (Write 2–4 sentences: what the company did, who you worked with, what you
+      owned day-to-day, and how custom logic or integrations fit in.)
+    themes_for_stories:
+      - "(Theme 1 — e.g. Customer-facing integration scoping)"
+      - "(Theme 2 — e.g. CI/CD and production pipelines)"
+    clarifying_questions_to_expect:
+      - "(Example: How did you prioritize across many concurrent projects?)"
+
+  # Add more roles as needed.
